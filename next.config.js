@@ -17,7 +17,6 @@ module.exports = {
 	// 	config.optimization.minimize = true;
 	// 	return config;
 	// },
-	distDir: 'out',
 	i18n: {
 		defaultLocale: 'en',
 		locales: ['en']
