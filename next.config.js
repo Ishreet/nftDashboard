@@ -9,7 +9,6 @@ const calendarTranspile = require('next-transpile-modules')([
 const withImages = require('next-images');
 
 module.exports = {
-	future: { webpack5: true },
 	webpack: (
 		config,
 		{ buildId, dev, isServer, defaultLoaders, webpack }
