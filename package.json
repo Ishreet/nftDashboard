@@ -1,6 +1,6 @@
 {
 	"name": "nft-dashboard",
-	"version": "3.0.0",
+	"version": "1.0.0",
 	"title": "NFT Dashboard",
 	"description": "NFT Dashboard",
 	"author": {
@@ -51,7 +51,7 @@
 		"formik-mui-lab": "^1.0.0-alpha.3",
 		"i18next-browser-languagedetector": "6.1.2",
 		"jsonwebtoken": "8.5.1",
-		"next": "12.0.4",
+		"next": "12",
 		"next-i18next": "9.2.0",
 		"next-images": "1.8.4",
 		"nextjs-redirect": "^6.0.0",
