@@ -10,6 +10,7 @@ const withImages = require('next-images');
 
 module.exports = withImages(
 	calendarTranspile({
+		future: { webpack5: true },
 		distDir: 'out',
 		i18n: {
 			defaultLocale: 'en',
