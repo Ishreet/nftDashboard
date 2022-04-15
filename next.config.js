@@ -8,13 +8,19 @@ const calendarTranspile = require('next-transpile-modules')([
 
 const withImages = require('next-images');
 
-module.exports = withImages(
-	calendarTranspile({
-		future: { webpack5: true },
-		distDir: 'out',
-		i18n: {
-			defaultLocale: 'en',
-			locales: ['en']
-		}
-	})
-);
+module.exports = {
+	future: { webpack5: true },
+	webpack: (
+		config,
+		{ buildId, dev, isServer, defaultLoaders, webpack }
+	) => {
+		config.optimization.splitChunks.cacheGroups = {};
+		config.optimization.minimize = true;
+		return config;
+	},
+	distDir: 'out',
+	i18n: {
+		defaultLocale: 'en',
+		locales: ['en']
+	}
+};
