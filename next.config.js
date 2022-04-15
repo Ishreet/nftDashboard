@@ -9,14 +9,14 @@ const calendarTranspile = require('next-transpile-modules')([
 const withImages = require('next-images');
 
 module.exports = {
-	webpack: (
-		config,
-		{ buildId, dev, isServer, defaultLoaders, webpack }
-	) => {
-		config.optimization.splitChunks.cacheGroups = {};
-		config.optimization.minimize = true;
-		return config;
-	},
+	// webpack: (
+	// 	config,
+	// 	{ buildId, dev, isServer, defaultLoaders, webpack }
+	// ) => {
+	// 	config.optimization.splitChunks.cacheGroups = {};
+	// 	config.optimization.minimize = true;
+	// 	return config;
+	// },
 	distDir: 'out',
 	i18n: {
 		defaultLocale: 'en',
