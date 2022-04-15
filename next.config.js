@@ -11,8 +11,8 @@ const calendarTranspile = require('next-transpile-modules')([
 const withImages = require('next-images');
 
 module.exports = {
-	webpack(config) {
-		config.resolve.alias['src'] = path.join(__dirname, 'src');
+	webpack: (config) => {
+		config.resolve.alias.src = path.join(__dirname, 'src');
 		return config;
 	}
 };
