@@ -8,10 +8,9 @@ const calendarTranspile = require('next-transpile-modules')([
 
 const withImages = require('next-images');
 
-module.exports = { distDir: 'out' };
-
 module.exports = withImages(
 	calendarTranspile({
+		distDir: 'out',
 		i18n: {
 			defaultLocale: 'en',
 			locales: ['en']
