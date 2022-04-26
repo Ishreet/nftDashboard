@@ -13,7 +13,6 @@ import BaseLayout from 'src/layouts/BaseLayout';
 import Head from 'next/head';
 import Logo from 'src/components/LogoSign';
 
-import { useTranslation } from 'react-i18next';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -39,8 +38,6 @@ const TopWrapper = styled(Box)(
 );
 
 function StatusMaintenance() {
-	const { t } = useTranslation();
-
 	return (
 		<>
 			<Head>
@@ -56,9 +53,8 @@ function StatusMaintenance() {
 									variant="h2"
 									sx={{ mt: 4, mb: 2 }}
 								>
-									{t(
-										'The site is currently down for maintenance'
-									)}
+									The site is currently down for
+									maintenance'
 								</Typography>
 								<Typography
 									variant="h3"
@@ -66,9 +62,8 @@ function StatusMaintenance() {
 									fontWeight="normal"
 									sx={{ mb: 4 }}
 								>
-									{t(
-										'We apologize for any inconveniences caused'
-									)}
+									We apologize for any
+									inconveniences caused'
 								</Typography>
 							</Container>
 							<img
@@ -88,7 +83,7 @@ function StatusMaintenance() {
 									component="span"
 									variant="subtitle1"
 								>
-									{t('Phone')}:{' '}
+									{'Phone'}:{' '}
 								</Typography>
 								<Typography
 									component="span"

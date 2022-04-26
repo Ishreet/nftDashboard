@@ -1,25 +1,25 @@
-import Head from 'next/head';
+// import Head from 'next/head';
 
-import BottomNavigationLayout from 'src/layouts/BottomNavigationLayout';
-import { Authenticated } from 'src/components/Authenticated';
+// import BottomNavigationLayout from 'src/layouts/BottomNavigationLayout';
+// import { Authenticated } from 'src/components/Authenticated';
 
-import DashboardFitnessContent from 'src/content/DashboardPages/fitness';
+// import DashboardFitnessContent from 'src/content/DashboardPages/fitness';
 
-function DashboardFitness() {
-  return (
-    <>
-      <Head>
-        <title>Fitness Dashboard</title>
-      </Head>
-      <DashboardFitnessContent />
-    </>
-  );
-}
+// function DashboardFitness() {
+//   return (
+//     <>
+//       <Head>
+//         <title>Fitness Dashboard</title>
+//       </Head>
+//       <DashboardFitnessContent />
+//     </>
+//   );
+// }
 
-DashboardFitness.getLayout = (page) => (
-  <Authenticated>
-    <BottomNavigationLayout>{page}</BottomNavigationLayout>
-  </Authenticated>
-);
+// DashboardFitness.getLayout = (page) => (
+//   <Authenticated>
+//     <BottomNavigationLayout>{page}</BottomNavigationLayout>
+//   </Authenticated>
+// );
 
-export default DashboardFitness;
+// export default DashboardFitness;

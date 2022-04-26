@@ -1,28 +1,27 @@
 import { useEffect, useState, useRef } from 'react';
 import { format, formatDistance } from 'date-fns';
 import {
-  Avatar,
-  Box,
-  Divider,
-  IconButton,
-  Tooltip,
-  Typography,
-  ListItemText,
-  ListItem,
-  Card,
-  List,
-  Menu,
-  Button,
-  TextField,
-  lighten,
-  styled
+	Avatar,
+	Box,
+	Divider,
+	IconButton,
+	Tooltip,
+	Typography,
+	ListItemText,
+	ListItem,
+	Card,
+	List,
+	Menu,
+	Button,
+	TextField,
+	lighten,
+	styled
 } from '@mui/material';
 import NextLink from 'next/link';
 
 import { useDispatch, useSelector } from 'src/store';
 import { getMail } from 'src/slices/mailbox';
 import { useAuth } from 'src/hooks/useAuth';
-import { useTranslation } from 'react-i18next';
 import ArrowBackTwoToneIcon from '@mui/icons-material/ArrowBackTwoTone';
 import ArchiveTwoToneIcon from '@mui/icons-material/ArchiveTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
@@ -32,7 +31,7 @@ import AttachFileTwoToneIcon from '@mui/icons-material/AttachFileTwoTone';
 import ReplyTwoToneIcon from '@mui/icons-material/ReplyTwoTone';
 
 const IconButtonError = styled(IconButton)(
-  ({ theme }) => `
+	({ theme }) => `
      background: ${theme.colors.error.lighter};
      color: ${theme.colors.error.main};
 
@@ -43,7 +42,7 @@ const IconButtonError = styled(IconButton)(
 );
 
 const DividerWrapper = styled(Divider)(
-  ({ theme }) => `
+	({ theme }) => `
         height: 40px !important;
         margin: 0 ${theme.spacing(2)};
         align-self: center;
@@ -51,11 +50,11 @@ const DividerWrapper = styled(Divider)(
 );
 
 const Input = styled('input')({
-  display: 'none'
+	display: 'none'
 });
 
 const BoxContent = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
       border-radius: ${theme.general.borderRadius};
       background: ${theme.colors.alpha.black[5]};
       font-size: ${theme.typography.pxToRem(15)};
@@ -63,312 +62,363 @@ const BoxContent = styled(Box)(
 );
 
 const BoxReply = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
       background: ${theme.colors.alpha.black[5]};
 `
 );
 
 export const MailboxSingle = (props) => {
-  const { mailId, tag } = props;
-  const dispatch = useDispatch();
-  const { user } = useAuth();
-  const { t } = useTranslation();
-  const mailbox = useSelector((state) => state.mailbox.mails.byId[mailId]);
-  const [onMenuOpen, menuOpen] = useState(false);
-  const moreRef = useRef(null);
+	const { mailId, tag } = props;
+	const dispatch = useDispatch();
+	const { user } = useAuth();
+	const mailbox = useSelector(
+		(state) => state.mailbox.mails.byId[mailId]
+	);
+	const [onMenuOpen, menuOpen] = useState(false);
+	const moreRef = useRef(null);
 
-  useEffect(() => {
-    dispatch(getMail(mailId));
-  }, [mailId]);
-  if (!mailbox) {
-    return null;
-  }
+	useEffect(() => {
+		dispatch(getMail(mailId));
+	}, [mailId]);
+	if (!mailbox) {
+		return null;
+	}
 
-  const handleBack =
-    tag && tag !== 'inbox'
-      ? `/applications/mailbox?tag=${tag}`
-      : '/applications/mailbox';
+	const handleBack =
+		tag && tag !== 'inbox'
+			? `/applications/mailbox?tag=${tag}`
+			: '/applications/mailbox';
 
-  const openMenu = () => {
-    menuOpen(true);
-  };
+	const openMenu = () => {
+		menuOpen(true);
+	};
 
-  const closeMenu = () => {
-    menuOpen(false);
-  };
+	const closeMenu = () => {
+		menuOpen(false);
+	};
 
-  return (
-    <>
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-        px={3}
-        sx={{
-          pt: { lg: 3 }
-        }}
-        pb={3}
-      >
-        <NextLink href={handleBack} passHref>
-          <Tooltip arrow placement="top" title={t('Go back')}>
-            <IconButton
-              color="primary"
-              sx={{
-                p: 1
-              }}
-              component="a"
-            >
-              <ArrowBackTwoToneIcon />
-            </IconButton>
-          </Tooltip>
-        </NextLink>
+	return (
+		<>
+			<Box
+				display="flex"
+				alignItems="center"
+				justifyContent="space-between"
+				px={3}
+				sx={{
+					pt: { lg: 3 }
+				}}
+				pb={3}
+			>
+				<NextLink href={handleBack} passHref>
+					<Tooltip arrow placement="top" title={'Go back'}>
+						<IconButton
+							color="primary"
+							sx={{
+								p: 1
+							}}
+							component="a"
+						>
+							<ArrowBackTwoToneIcon />
+						</IconButton>
+					</Tooltip>
+				</NextLink>
 
-        <Box>
-          <Tooltip arrow placement="top" title={t('Archive')}>
-            <IconButton
-              color="primary"
-              sx={{
-                ml: 1,
-                p: 1
-              }}
-            >
-              <ArchiveTwoToneIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip arrow placement="top" title={t('Delete')}>
-            <IconButton
-              color="primary"
-              sx={{
-                p: 1
-              }}
-            >
-              <DeleteTwoToneIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip arrow placement="top" title={t('Mark as read')}>
-            <IconButton
-              color="primary"
-              sx={{
-                p: 1
-              }}
-            >
-              <MarkEmailReadTwoToneIcon />
-            </IconButton>
-          </Tooltip>
-          <IconButton
-            color="primary"
-            onClick={openMenu}
-            ref={moreRef}
-            sx={{
-              ml: 1,
-              p: 1
-            }}
-          >
-            <MoreVertTwoToneIcon />
-          </IconButton>
-        </Box>
-      </Box>
-      <Divider />
-      <Typography
-        sx={{
-          py: 4,
-          px: 10
-        }}
-        variant="h3"
-      >
-        {mailbox.subject}
-      </Typography>
-      <Box
-        px={3}
-        display="flex"
-        alignItems="flex-start"
-        justifyContent="space-between"
-      >
-        <Box display="flex" alignItems="center">
-          <Avatar
-            sx={{
-              mr: 2
-            }}
-            src={mailbox.from.avatar}
-          />
-          <Box>
-            <Typography variant="h4" gutterBottom>
-              {mailbox.from.email}{' '}
-              <Typography
-                component="span"
-                variant="h5"
-                color="text.secondary"
-                fontWeight="normal"
-              >
-                ({mailbox.from.name})
-              </Typography>
-            </Typography>
-            <Typography variant="h5" color="text.secondary" fontWeight="normal">
-              {t('to')}{' '}
-              {mailbox.to.map((to) => (
-                <span key={to.name}>
-                  {to.name} ({to.email})
-                </span>
-              ))}
-            </Typography>
-          </Box>
-        </Box>
-        <Box>
-          <Typography align="right" variant="subtitle2" color="text.primary">
-            {format(mailbox.date, 'MMMM dd yyyy, h:mm:ss a')}
-          </Typography>
-          <Typography align="right" variant="subtitle1">
-            {formatDistance(mailbox.date, new Date(), {
-              addSuffix: true
-            })}
-          </Typography>
-        </Box>
-      </Box>
-      <BoxContent px={4} py={3} mt={3} mb={4} ml={10} mr={3}>
-        <div dangerouslySetInnerHTML={{ __html: mailbox.content }} />
-      </BoxContent>
-      <Divider />
-      <BoxReply px={3} py={4} display="flex" alignItems="flex-start">
-        <Avatar alt={user.name} src={user.avatar} />
-        <Box ml={2} flexGrow={1}>
-          <Card>
-            <Box px={3} pt={2}>
-              <Typography component="span" variant="subtitle1">
-                {t('Sending to')}:{' '}
-              </Typography>
-              <Typography
-                component="span"
-                variant="h5"
-                color="text.primary"
-                fontWeight="bold"
-              >
-                {mailbox.from.email}{' '}
-                <Typography
-                  component="span"
-                  variant="h5"
-                  color="text.secondary"
-                  fontWeight="normal"
-                >
-                  ({mailbox.from.name})
-                </Typography>
-              </Typography>
-              <TextField
-                sx={{
-                  mt: 2
-                }}
-                fullWidth
-                multiline
-                minRows={4}
-                name="mail_reply"
-                variant="outlined"
-                placeholder={t('Write your reply here...')}
-              />
-            </Box>
-            <Box
-              px={3}
-              pb={3}
-              pt={2}
-              display="flex"
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <Box display="flex" alignItems="center">
-                <Button startIcon={<ReplyTwoToneIcon />} variant="contained">
-                  {t('Reply')}
-                </Button>
-                <DividerWrapper orientation="vertical" flexItem />
-                <Tooltip arrow placement="top" title={t('Insert an emoji')}>
-                  <IconButton
-                    sx={{
-                      p: 1
-                    }}
-                    color="primary"
-                  >
-                    😀
-                  </IconButton>
-                </Tooltip>
-                <Input
-                  accept="image/*"
-                  id="messenger-upload-file"
-                  type="file"
-                />
-                <Tooltip arrow placement="top" title={t('Attach a file')}>
-                  <label htmlFor="messenger-upload-file">
-                    <IconButton color="primary" component="span">
-                      <AttachFileTwoToneIcon />
-                    </IconButton>
-                  </label>
-                </Tooltip>
-              </Box>
-              <Tooltip arrow placement="top" title={t('Delete draft')}>
-                <IconButtonError
-                  sx={{
-                    p: 1
-                  }}
-                >
-                  <DeleteTwoToneIcon />
-                </IconButtonError>
-              </Tooltip>
-            </Box>
-          </Card>
-        </Box>
-      </BoxReply>
+				<Box>
+					<Tooltip arrow placement="top" title={'Archive'}>
+						<IconButton
+							color="primary"
+							sx={{
+								ml: 1,
+								p: 1
+							}}
+						>
+							<ArchiveTwoToneIcon />
+						</IconButton>
+					</Tooltip>
+					<Tooltip arrow placement="top" title={'Delete'}>
+						<IconButton
+							color="primary"
+							sx={{
+								p: 1
+							}}
+						>
+							<DeleteTwoToneIcon />
+						</IconButton>
+					</Tooltip>
+					<Tooltip
+						arrow
+						placement="top"
+						title={'Mark as read'}
+					>
+						<IconButton
+							color="primary"
+							sx={{
+								p: 1
+							}}
+						>
+							<MarkEmailReadTwoToneIcon />
+						</IconButton>
+					</Tooltip>
+					<IconButton
+						color="primary"
+						onClick={openMenu}
+						ref={moreRef}
+						sx={{
+							ml: 1,
+							p: 1
+						}}
+					>
+						<MoreVertTwoToneIcon />
+					</IconButton>
+				</Box>
+			</Box>
+			<Divider />
+			<Typography
+				sx={{
+					py: 4,
+					px: 10
+				}}
+				variant="h3"
+			>
+				{mailbox.subject}
+			</Typography>
+			<Box
+				px={3}
+				display="flex"
+				alignItems="flex-start"
+				justifyContent="space-between"
+			>
+				<Box display="flex" alignItems="center">
+					<Avatar
+						sx={{
+							mr: 2
+						}}
+						src={mailbox.from.avatar}
+					/>
+					<Box>
+						<Typography variant="h4" gutterBottom>
+							{mailbox.from.email}{' '}
+							<Typography
+								component="span"
+								variant="h5"
+								color="text.secondary"
+								fontWeight="normal"
+							>
+								({mailbox.from.name})
+							</Typography>
+						</Typography>
+						<Typography
+							variant="h5"
+							color="text.secondary"
+							fontWeight="normal"
+						>
+							{'to'}{' '}
+							{mailbox.to.map((to) => (
+								<span key={to.name}>
+									{to.name} ({to.email})
+								</span>
+							))}
+						</Typography>
+					</Box>
+				</Box>
+				<Box>
+					<Typography
+						align="right"
+						variant="subtitle2"
+						color="text.primary"
+					>
+						{format(
+							mailbox.date,
+							'MMMM dd yyyy, h:mm:ss a'
+						)}
+					</Typography>
+					<Typography align="right" variant="subtitle1">
+						{formatDistance(mailbox.date, new Date(), {
+							addSuffix: true
+						})}
+					</Typography>
+				</Box>
+			</Box>
+			<BoxContent px={4} py={3} mt={3} mb={4} ml={10} mr={3}>
+				<div
+					dangerouslySetInnerHTML={{
+						__html: mailbox.content
+					}}
+				/>
+			</BoxContent>
+			<Divider />
+			<BoxReply
+				px={3}
+				py={4}
+				display="flex"
+				alignItems="flex-start"
+			>
+				<Avatar alt={user.name} src={user.avatar} />
+				<Box ml={2} flexGrow={1}>
+					<Card>
+						<Box px={3} pt={2}>
+							<Typography
+								component="span"
+								variant="subtitle1"
+							>
+								{'Sending to'}:{' '}
+							</Typography>
+							<Typography
+								component="span"
+								variant="h5"
+								color="text.primary"
+								fontWeight="bold"
+							>
+								{mailbox.from.email}{' '}
+								<Typography
+									component="span"
+									variant="h5"
+									color="text.secondary"
+									fontWeight="normal"
+								>
+									({mailbox.from.name})
+								</Typography>
+							</Typography>
+							<TextField
+								sx={{
+									mt: 2
+								}}
+								fullWidth
+								multiline
+								minRows={4}
+								name="mail_reply"
+								variant="outlined"
+								placeholder={
+									'Write your reply here...'
+								}
+							/>
+						</Box>
+						<Box
+							px={3}
+							pb={3}
+							pt={2}
+							display="flex"
+							alignItems="center"
+							justifyContent="space-between"
+						>
+							<Box display="flex" alignItems="center">
+								<Button
+									startIcon={<ReplyTwoToneIcon />}
+									variant="contained"
+								>
+									{'Reply'}
+								</Button>
+								<DividerWrapper
+									orientation="vertical"
+									flexItem
+								/>
+								<Tooltip
+									arrow
+									placement="top"
+									title={'Insert an emoji'}
+								>
+									<IconButton
+										sx={{
+											p: 1
+										}}
+										color="primary"
+									>
+										😀
+									</IconButton>
+								</Tooltip>
+								<Input
+									accept="image/*"
+									id="messenger-upload-file"
+									type="file"
+								/>
+								<Tooltip
+									arrow
+									placement="top"
+									title={'Attach a file'}
+								>
+									<label htmlFor="messenger-upload-file">
+										<IconButton
+											color="primary"
+											component="span"
+										>
+											<AttachFileTwoToneIcon />
+										</IconButton>
+									</label>
+								</Tooltip>
+							</Box>
+							<Tooltip
+								arrow
+								placement="top"
+								title={'Delete draft'}
+							>
+								<IconButtonError
+									sx={{
+										p: 1
+									}}
+								>
+									<DeleteTwoToneIcon />
+								</IconButtonError>
+							</Tooltip>
+						</Box>
+					</Card>
+				</Box>
+			</BoxReply>
 
-      <Menu
-        disableScrollLock
-        keepMounted
-        anchorEl={moreRef.current}
-        open={onMenuOpen}
-        onClose={closeMenu}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'center'
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center'
-        }}
-      >
-        <List
-          sx={{
-            p: 1
-          }}
-          component="nav"
-        >
-          <ListItem button>
-            <ListItemText
-              primaryTypographyProps={{
-                noWrap: true
-              }}
-              primary={t('Mark as read')}
-            />
-          </ListItem>
-          <ListItem button>
-            <ListItemText
-              primaryTypographyProps={{
-                noWrap: true
-              }}
-              primary={t('Mark as important')}
-            />
-          </ListItem>
-          <ListItem button>
-            <ListItemText
-              primaryTypographyProps={{
-                noWrap: true
-              }}
-              primary={t('Show similar emails')}
-            />
-          </ListItem>
-          <ListItem button>
-            <ListItemText
-              primaryTypographyProps={{
-                noWrap: true
-              }}
-              primary={t('Forward as attachment')}
-            />
-          </ListItem>
-        </List>
-      </Menu>
-    </>
-  );
+			<Menu
+				disableScrollLock
+				keepMounted
+				anchorEl={moreRef.current}
+				open={onMenuOpen}
+				onClose={closeMenu}
+				anchorOrigin={{
+					vertical: 'top',
+					horizontal: 'center'
+				}}
+				transformOrigin={{
+					vertical: 'top',
+					horizontal: 'center'
+				}}
+			>
+				<List
+					sx={{
+						p: 1
+					}}
+					component="nav"
+				>
+					<ListItem button>
+						<ListItemText
+							primaryTypographyProps={{
+								noWrap: true
+							}}
+							primary={'Mark as read'}
+						/>
+					</ListItem>
+					<ListItem button>
+						<ListItemText
+							primaryTypographyProps={{
+								noWrap: true
+							}}
+							primary={'Mark as important'}
+						/>
+					</ListItem>
+					<ListItem button>
+						<ListItemText
+							primaryTypographyProps={{
+								noWrap: true
+							}}
+							primary={'Show similar emails'}
+						/>
+					</ListItem>
+					<ListItem button>
+						<ListItemText
+							primaryTypographyProps={{
+								noWrap: true
+							}}
+							primary={'Forward as attachment'}
+						/>
+					</ListItem>
+				</List>
+			</Menu>
+		</>
+	);
 };

@@ -16,7 +16,7 @@ import BaseLayout from 'src/layouts/BaseLayout';
 import Head from 'next/head';
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 
 const MainContent = styled(Box)(
 	() => `
@@ -51,7 +51,7 @@ const ButtonSearch = styled(Button)(
 );
 
 function Status404() {
-	const { t } = useTranslation();
+	// const { t } = useTranslation();
 
 	return (
 		<>
@@ -68,9 +68,8 @@ function Status404() {
 								src="/images/status/404.svg"
 							/>
 							<Typography variant="h2" sx={{ my: 2 }}>
-								{t(
-									"The page you were looking for doesn't exist."
-								)}
+								The page you were looking for doesn't
+								exist.
 							</Typography>
 							<Typography
 								variant="h4"
@@ -78,9 +77,9 @@ function Status404() {
 								fontWeight="normal"
 								sx={{ mb: 4 }}
 							>
-								{t(
-									"It's on us, we moved the content to a different page. The search below should help!"
-								)}
+								It's on us, we moved the content to a
+								different page. The search below
+								should help!"
 							</Typography>
 						</Box>
 						<Container maxWidth="sm">
@@ -97,16 +96,16 @@ function Status404() {
 								>
 									<OutlinedInputWrapper
 										type="text"
-										placeholder={t(
+										placeholder={
 											'Search terms here...'
-										)}
+										}
 										endAdornment={
 											<InputAdornment position="end">
 												<ButtonSearch
 													variant="contained"
 													size="small"
 												>
-													{t('Search')}
+													Search
 												</ButtonSearch>
 											</InputAdornment>
 										}
@@ -119,7 +118,7 @@ function Status404() {
 								</FormControl>
 								<Divider sx={{ my: 4 }}>OR</Divider>
 								<Button href="/" variant="outlined">
-									{t('Go to homepage')}
+									Go to homepage
 								</Button>
 							</Card>
 						</Container>

@@ -26,7 +26,6 @@ import {
 	ListItemAvatar,
 	styled
 } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import { formatDistance, subDays } from 'date-fns';
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -129,8 +128,6 @@ const TabsContainerWrapper = styled(CardContent)(
 );
 
 function SidebarDrawer() {
-	const { t } = useTranslation();
-
 	const [expanded, setExpanded] = useState('section1');
 
 	const handleChange = (section) => (_event, isExpanded) => {
@@ -140,8 +137,8 @@ function SidebarDrawer() {
 	const [currentTab, setCurrentTab] = useState('details');
 
 	const tabs = [
-		{ value: 'details', label: t('Details') },
-		{ value: 'activity', label: t('Activity') }
+		{ value: 'details', label: 'Details' },
+		{ value: 'activity', label: 'Activity' }
 	];
 
 	const handleTabsChange = (_event, value) => {
@@ -174,7 +171,7 @@ function SidebarDrawer() {
 						FileTransfer.txt
 					</Typography>
 					<Typography component="span" variant="subtitle2">
-						{t('Edited')}{' '}
+						{'Edited'}{' '}
 						{formatDistance(
 							subDays(new Date(), 1),
 							new Date(),
@@ -182,7 +179,7 @@ function SidebarDrawer() {
 								addSuffix: true
 							}
 						)}{' '}
-						{t('by')}{' '}
+						{'by'}{' '}
 					</Typography>
 					<Link href="#">Kate</Link>
 				</Box>
@@ -215,7 +212,7 @@ function SidebarDrawer() {
 					<>
 						<Box mt={3} px={3}>
 							<Typography variant="h3">
-								{t('Members')}
+								{'Members'}
 							</Typography>
 							<Box mt={2} display="flex">
 								<AvatarGroup max={6}>
@@ -275,12 +272,12 @@ function SidebarDrawer() {
 									mb: 3
 								}}
 							>
-								{t('Details')}
+								{'Details'}
 							</Typography>
 							<Grid container spacing={1}>
 								<Grid item sm={3}>
 									<Typography variant="subtitle2">
-										{t('Type')}:
+										{'Type'}:
 									</Typography>
 								</Grid>
 								<Grid item sm={9}>
@@ -293,7 +290,7 @@ function SidebarDrawer() {
 								</Grid>
 								<Grid item sm={3}>
 									<Typography variant="subtitle2">
-										{t('Size')}:
+										{'Size'}:
 									</Typography>
 								</Grid>
 								<Grid item sm={9}>
@@ -306,7 +303,7 @@ function SidebarDrawer() {
 								</Grid>
 								<Grid item sm={3}>
 									<Typography variant="subtitle2">
-										{t('Owner')}:
+										{'Owner'}:
 									</Typography>
 								</Grid>
 								<Grid item sm={9}>
@@ -320,7 +317,7 @@ function SidebarDrawer() {
 								</Grid>
 								<Grid item sm={3}>
 									<Typography variant="subtitle2">
-										{t('Modified')}:
+										{'Modified'}:
 									</Typography>
 								</Grid>
 								<Grid item sm={9}>
@@ -333,7 +330,7 @@ function SidebarDrawer() {
 								</Grid>
 								<Grid item sm={3}>
 									<Typography variant="subtitle2">
-										{t('Opened')}:
+										{'Opened'}:
 									</Typography>
 								</Grid>
 								<Grid item sm={9}>
@@ -346,7 +343,7 @@ function SidebarDrawer() {
 								</Grid>
 								<Grid item sm={3}>
 									<Typography variant="subtitle2">
-										{t('Created')}:
+										{'Created'}:
 									</Typography>
 								</Grid>
 								<Grid item sm={9}>
@@ -366,7 +363,7 @@ function SidebarDrawer() {
 									justifyContent="space-between"
 								>
 									<Typography variant="subtitle2">
-										{t('Description')}:
+										{'Description'}:
 									</Typography>
 									<Button
 										startIcon={
@@ -375,7 +372,7 @@ function SidebarDrawer() {
 										variant="text"
 										size="small"
 									>
-										{t('Edit')}
+										{'Edit'}
 									</Button>
 								</Grid>
 								<Grid item sm={12}>
@@ -405,7 +402,7 @@ function SidebarDrawer() {
 									mb: 3
 								}}
 							>
-								{t('Actions')}
+								{'Actions'}
 							</Typography>
 							<Box
 								mb={3}
@@ -415,7 +412,7 @@ function SidebarDrawer() {
 								<Tooltip
 									arrow
 									placement="top"
-									title={t('Open')}
+									title={'Open'}
 								>
 									<IconButtonWrapper>
 										<OpenInNewTwoToneIcon />
@@ -424,7 +421,7 @@ function SidebarDrawer() {
 								<Tooltip
 									arrow
 									placement="top"
-									title={t('Share')}
+									title={'Share'}
 								>
 									<IconButtonWrapper>
 										<ShareTwoToneIcon />
@@ -433,7 +430,7 @@ function SidebarDrawer() {
 								<Tooltip
 									arrow
 									placement="top"
-									title={t('Delete')}
+									title={'Delete'}
 								>
 									<IconButtonWrapper>
 										<DeleteTwoToneIcon />
@@ -448,7 +445,7 @@ function SidebarDrawer() {
 									expandIcon={<ExpandMoreIcon />}
 								>
 									<Typography variant="h5">
-										{t('More actions')}
+										{'More actions'}
 									</Typography>
 								</AccordionSummaryWrapper>
 								<AccordionDetails
@@ -465,9 +462,7 @@ function SidebarDrawer() {
 												<DownloadTwoToneIcon />
 											</ListItemIconWrapper>
 											<ListItemText
-												primary={t(
-													'Download'
-												)}
+												primary={'Download'}
 												primaryTypographyProps={{
 													variant: 'h5'
 												}}
@@ -478,9 +473,9 @@ function SidebarDrawer() {
 												<ReportTwoToneIcon />
 											</ListItemIconWrapper>
 											<ListItemText
-												primary={t(
+												primary={
 													'Report abuse'
-												)}
+												}
 												primaryTypographyProps={{
 													variant: 'h5'
 												}}
@@ -491,9 +486,9 @@ function SidebarDrawer() {
 												<ContentCopyTwoToneIcon />
 											</ListItemIconWrapper>
 											<ListItemText
-												primary={t(
+												primary={
 													'Make a copy'
-												)}
+												}
 												primaryTypographyProps={{
 													variant: 'h5'
 												}}
@@ -504,7 +499,7 @@ function SidebarDrawer() {
 												<DriveFileRenameOutlineTwoToneIcon />
 											</ListItemIconWrapper>
 											<ListItemText
-												primary={t('Rename')}
+												primary={'Rename'}
 												primaryTypographyProps={{
 													variant: 'h5'
 												}}
@@ -515,9 +510,9 @@ function SidebarDrawer() {
 												<GradeTwoToneIcon />
 											</ListItemIconWrapper>
 											<ListItemText
-												primary={t(
+												primary={
 													'Add to starred'
-												)}
+												}
 												primaryTypographyProps={{
 													variant: 'h5'
 												}}
@@ -540,7 +535,7 @@ function SidebarDrawer() {
 							disableSticky
 							color="primary"
 						>
-							{t('Last Week')}
+							{'Last Week'}
 						</ListSubheaderLarge>
 						<Divider />
 						<ListSubheader disableSticky color="primary">
@@ -563,9 +558,7 @@ function SidebarDrawer() {
 								<Avatar src="/images/avatars/2.jpg" />
 							</ListItemAvatar>
 							<ListItemText
-								primary={t(
-									'You uploaded two new files'
-								)}
+								primary={'You uploaded two new files'}
 								primaryTypographyProps={{
 									variant: 'subtitle2',
 									color: 'textPrimary',
@@ -619,9 +612,9 @@ function SidebarDrawer() {
 											noWrap
 											color="text.primary"
 										>
-											{t(
+											{
 												'You created a new folder'
-											)}
+											}
 										</Typography>
 										<Box
 											display="flex"
@@ -653,7 +646,7 @@ function SidebarDrawer() {
 							disableSticky
 							color="primary"
 						>
-							{t('Last Month')}
+							{'Last Month'}
 						</ListSubheaderLarge>
 						<Divider />
 						<ListSubheader disableSticky color="primary">
@@ -676,7 +669,7 @@ function SidebarDrawer() {
 								<Avatar src="/images/avatars/2.jpg" />
 							</ListItemAvatar>
 							<ListItemText
-								primary={t('You uploaded one file')}
+								primary={'You uploaded one file'}
 								primaryTypographyProps={{
 									variant: 'subtitle2',
 									color: 'textPrimary',

@@ -22,7 +22,6 @@ import {
 	styled
 } from '@mui/material';
 import { useAuth } from 'src/hooks/useAuth';
-import { useTranslation } from 'react-i18next';
 import { formatDistance, subMinutes, subHours } from 'date-fns';
 import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
@@ -98,7 +97,6 @@ const TabsContainerWrapper = styled(Box)(
 );
 
 function SidebarContent() {
-	const { t } = useTranslation();
 	const { user } = useAuth();
 
 	const [state, setState] = useState({
@@ -115,9 +113,9 @@ function SidebarContent() {
 	const [currentTab, setCurrentTab] = useState('all');
 
 	const tabs = [
-		{ value: 'all', label: t('All') },
-		{ value: 'unread', label: t('Unread') },
-		{ value: 'archived', label: t('Archived') }
+		{ value: 'all', label: 'All' },
+		{ value: 'unread', label: 'Unread' },
+		{ value: 'archived', label: 'Archived' }
 	];
 
 	const handleTabsChange = (_event, value) => {
@@ -167,7 +165,7 @@ function SidebarContent() {
 								color="primary"
 							/>
 						}
-						label={t('Invisible')}
+						label={'Invisible'}
 					/>
 				</Box>
 			</Box>
@@ -186,7 +184,7 @@ function SidebarContent() {
 						</InputAdornment>
 					)
 				}}
-				placeholder={t('Search...')}
+				placeholder={'Search...'}
 			/>
 
 			<Typography
@@ -196,7 +194,7 @@ function SidebarContent() {
 				}}
 				variant="h3"
 			>
-				{t('Chats')}
+				{'Chats'}
 			</Typography>
 
 			<TabsContainerWrapper>
@@ -382,9 +380,7 @@ function SidebarContent() {
 							}}
 							variant="subtitle2"
 						>
-							{t(
-								'Hurray! There are no archived chats!'
-							)}
+							{'Hurray! There are no archived chats!'}
 						</Typography>
 						<Divider
 							sx={{
@@ -401,7 +397,7 @@ function SidebarContent() {
 					}}
 					variant="h3"
 				>
-					{t('Meetings')}
+					{'Meetings'}
 				</Typography>
 				<Label color="success">
 					<b>2</b>
@@ -409,7 +405,7 @@ function SidebarContent() {
 			</Box>
 			<MeetingBox>
 				<Typography variant="h4">
-					{t('Daily Design Meeting')}
+					{'Daily Design Meeting'}
 				</Typography>
 
 				<Box py={3} display="flex" alignItems="flex-start">
@@ -443,9 +439,7 @@ function SidebarContent() {
 					<AvatarGroup>
 						<Tooltip
 							arrow
-							title={
-								t('View profile for') + ' Remy Sharp'
-							}
+							title={'View profile for' + ' Remy Sharp'}
 						>
 							<Avatar
 								sx={{
@@ -461,8 +455,7 @@ function SidebarContent() {
 						<Tooltip
 							arrow
 							title={
-								t('View profile for') +
-								' Travis Howard'
+								'View profile for' + ' Travis Howard'
 							}
 						>
 							<Avatar
@@ -479,8 +472,7 @@ function SidebarContent() {
 						<Tooltip
 							arrow
 							title={
-								t('View profile for') +
-								' Craig Vaccaro'
+								'View profile for' + ' Craig Vaccaro'
 							}
 						>
 							<Avatar
@@ -497,14 +489,14 @@ function SidebarContent() {
 					</AvatarGroup>
 
 					<Button variant="contained" size="small">
-						{t('Attend')}
+						{'Attend'}
 					</Button>
 				</Box>
 			</MeetingBox>
 
 			<MeetingBox>
 				<Typography variant="h4">
-					{t('Investors Council Meeting')}
+					{'Investors Council Meeting'}
 				</Typography>
 
 				<Box py={3} display="flex" alignItems="flex-start">
@@ -539,8 +531,7 @@ function SidebarContent() {
 						<Tooltip
 							arrow
 							title={
-								t('View profile for') +
-								' Travis Howard'
+								'View profile for' + ' Travis Howard'
 							}
 						>
 							<Avatar
@@ -557,8 +548,7 @@ function SidebarContent() {
 						<Tooltip
 							arrow
 							title={
-								t('View profile for') +
-								' Craig Vaccaro'
+								'View profile for' + ' Craig Vaccaro'
 							}
 						>
 							<Avatar
@@ -575,7 +565,7 @@ function SidebarContent() {
 					</AvatarGroup>
 
 					<Button variant="contained" size="small">
-						{t('Attend')}
+						{'Attend'}
 					</Button>
 				</Box>
 			</MeetingBox>

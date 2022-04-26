@@ -17,7 +17,6 @@ import {
 	styled,
 	useTheme
 } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import { formatDistance, subMinutes } from 'date-fns';
 import CallTwoToneIcon from '@mui/icons-material/CallTwoTone';
 import VideoCameraFrontTwoToneIcon from '@mui/icons-material/VideoCameraFrontTwoTone';
@@ -84,7 +83,6 @@ const AccordionSummaryWrapper = styled(AccordionSummary)(
 );
 
 function TopBarContent() {
-	const { t } = useTranslation();
 	const theme = useTheme();
 
 	const [mobileOpen, setMobileOpen] = useState(false);
@@ -144,7 +142,7 @@ function TopBarContent() {
 				>
 					<Tooltip
 						placement="bottom"
-						title={t('Start a voice call')}
+						title={'Start a voice call'}
 					>
 						<IconButton color="primary">
 							<CallTwoToneIcon />
@@ -152,7 +150,7 @@ function TopBarContent() {
 					</Tooltip>
 					<Tooltip
 						placement="bottom"
-						title={t('Start a video call')}
+						title={'Start a video call'}
 					>
 						<IconButton color="primary">
 							<VideoCameraFrontTwoToneIcon />
@@ -160,7 +158,7 @@ function TopBarContent() {
 					</Tooltip>
 					<Tooltip
 						placement="bottom"
-						title={t('Conversation information')}
+						title={'Conversation information'}
 					>
 						<IconButton
 							color="primary"
@@ -204,7 +202,7 @@ function TopBarContent() {
 							Zain Baptista
 						</Typography>
 						<Typography variant="subtitle2">
-							{t('Active')}{' '}
+							{'Active'}{' '}
 							{formatDistance(
 								subMinutes(new Date(), 7),
 								new Date(),
@@ -228,7 +226,7 @@ function TopBarContent() {
 							expandIcon={<ExpandMoreIcon />}
 						>
 							<Typography variant="h5">
-								{t('Customize Chat')}
+								{'Customize Chat'}
 							</Typography>
 						</AccordionSummaryWrapper>
 						<AccordionDetails
@@ -242,9 +240,9 @@ function TopBarContent() {
 										<SearchTwoToneIcon />
 									</ListItemIconWrapper>
 									<ListItemText
-										primary={t(
+										primary={
 											'Search in Conversation'
-										)}
+										}
 										primaryTypographyProps={{
 											variant: 'h5'
 										}}
@@ -255,9 +253,9 @@ function TopBarContent() {
 										<ColorLensTwoToneIcon />
 									</ListItemIconWrapper>
 									<ListItemText
-										primary={t(
+										primary={
 											'Change Theme Styling'
-										)}
+										}
 										primaryTypographyProps={{
 											variant: 'h5'
 										}}
@@ -268,9 +266,9 @@ function TopBarContent() {
 										<EmojiEmotionsTwoToneIcon />
 									</ListItemIconWrapper>
 									<ListItemText
-										primary={t(
+										primary={
 											'Choose Default Emoji'
-										)}
+										}
 										primaryTypographyProps={{
 											variant: 'h5'
 										}}
@@ -287,7 +285,7 @@ function TopBarContent() {
 							expandIcon={<ExpandMoreIcon />}
 						>
 							<Typography variant="h5">
-								{t('Privacy & Support')}
+								{'Privacy & Support'}
 							</Typography>
 						</AccordionSummaryWrapper>
 						<AccordionDetails
@@ -301,9 +299,9 @@ function TopBarContent() {
 										<NotificationsOffTwoToneIcon />
 									</ListItemIconWrapper>
 									<ListItemText
-										primary={t(
+										primary={
 											'Turn off notifications'
-										)}
+										}
 										primaryTypographyProps={{
 											variant: 'h5'
 										}}
@@ -314,9 +312,9 @@ function TopBarContent() {
 										<CancelTwoToneIcon />
 									</ListItemIconWrapper>
 									<ListItemText
-										primary={t(
+										primary={
 											'Ignore all messages'
-										)}
+										}
 										primaryTypographyProps={{
 											variant: 'h5'
 										}}
@@ -327,7 +325,7 @@ function TopBarContent() {
 										<BlockTwoToneIcon />
 									</ListItemIconWrapper>
 									<ListItemText
-										primary={t('Block user')}
+										primary={'Block user'}
 										primaryTypographyProps={{
 											variant: 'h5'
 										}}
@@ -338,15 +336,13 @@ function TopBarContent() {
 										<WarningTwoToneIcon />
 									</ListItemIconWrapper>
 									<ListItemText
-										primary={t(
-											"Something's Wrong"
-										)}
+										primary={"Something's Wrong"}
 										primaryTypographyProps={{
 											variant: 'h5'
 										}}
-										secondary={t(
+										secondary={
 											'Report the conversation and provide feedback'
-										)}
+										}
 										secondaryTypographyProps={{
 											variant: 'subtitle1'
 										}}
@@ -363,7 +359,7 @@ function TopBarContent() {
 							expandIcon={<ExpandMoreIcon />}
 						>
 							<Typography variant="h5">
-								{t('Shared Files')}
+								{'Shared Files'}
 							</Typography>
 						</AccordionSummaryWrapper>
 						<AccordionDetails
@@ -377,15 +373,15 @@ function TopBarContent() {
 										<DescriptionTwoToneIcon />
 									</ListItemIconWrapper>
 									<ListItemText
-										primary={t(
+										primary={
 											'HolidayPictures.zip'
-										)}
+										}
 										primaryTypographyProps={{
 											variant: 'h5'
 										}}
-										secondary={t(
+										secondary={
 											'You opened in the past year'
-										)}
+										}
 										secondaryTypographyProps={{
 											variant: 'subtitle1'
 										}}
@@ -396,15 +392,13 @@ function TopBarContent() {
 										<DescriptionTwoToneIcon />
 									</ListItemIconWrapper>
 									<ListItemText
-										primary={t(
-											'2021Screenshot.jpg'
-										)}
+										primary={'2021Screenshot.jpg'}
 										primaryTypographyProps={{
 											variant: 'h5'
 										}}
-										secondary={t(
+										secondary={
 											'You edited this file yesterday'
-										)}
+										}
 										secondaryTypographyProps={{
 											variant: 'subtitle1'
 										}}
@@ -415,13 +409,13 @@ function TopBarContent() {
 										<DescriptionTwoToneIcon />
 									</ListItemIconWrapper>
 									<ListItemText
-										primary={t(
+										primary={
 											'PresentationDeck.pdf'
-										)}
+										}
 										primaryTypographyProps={{
 											variant: 'h5'
 										}}
-										secondary={t('Never opened')}
+										secondary={'Never opened'}
 										secondaryTypographyProps={{
 											variant: 'subtitle1'
 										}}

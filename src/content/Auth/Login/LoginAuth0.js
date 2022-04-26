@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Button, Box, Alert, styled } from '@mui/material';
 import { useAuth } from 'src/hooks/useAuth';
 import { useRefMounted } from 'src/hooks/useRefMounted';
-import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 
 const ImgWrapper = styled('img')(
@@ -13,7 +12,6 @@ const ImgWrapper = styled('img')(
 );
 
 export const LoginAuth0 = (props) => {
-	const { t } = useTranslation();
 	const { loginWithPopup } = useAuth();
 	const [error, setError] = useState(null);
 	const isMountedRef = useRefMounted();
@@ -53,7 +51,7 @@ export const LoginAuth0 = (props) => {
 					alt="Auth0"
 					src="/images/logo/auth0.svg"
 				/>
-				{t('Sign in with')} Auth0
+				{'Sign in with'} Auth0
 			</Button>
 		</Box>
 	);

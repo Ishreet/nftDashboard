@@ -7,7 +7,6 @@ import {
 	Divider
 } from '@mui/material';
 import { useAuth } from 'src/hooks/useAuth';
-import { useTranslation } from 'react-i18next';
 import {
 	formatDistance,
 	format,
@@ -54,7 +53,6 @@ const CardWrapperSecondary = styled(Card)(
 );
 
 function ChatContent() {
-	const { t } = useTranslation();
 	const { user } = useAuth();
 
 	return (
@@ -223,7 +221,7 @@ function ChatContent() {
 					src={user.avatar}
 				/>
 			</Box>
-			<DividerWrapper>{t('Today')}</DividerWrapper>
+			<DividerWrapper>{'Today'}</DividerWrapper>
 			<Box
 				display="flex"
 				alignItems="flex-start"

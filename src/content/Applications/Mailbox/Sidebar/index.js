@@ -2,21 +2,20 @@ import { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 import {
-  Box,
-  List,
-  Button,
-  alpha,
-  styled,
-  useTheme,
-  Drawer,
-  ListSubheader
+	Box,
+	List,
+	Button,
+	alpha,
+	styled,
+	useTheme,
+	Drawer,
+	ListSubheader
 } from '@mui/material';
 import { MailboxSidebarItem } from './SidebarItem';
-import { useTranslation } from 'react-i18next';
 import Scrollbar from 'src/components/Scrollbar';
 
 const DrawerWrapper = styled(Drawer)(
-  ({ theme }) => `
+	({ theme }) => `
     width: 280px;
     flex-shrink: 0;
     z-index: 3;
@@ -35,7 +34,7 @@ const DrawerWrapper = styled(Drawer)(
 );
 
 const DrawerWrapperMobile = styled(Drawer)(
-  () => `
+	() => `
     width: 280px;
     flex-shrink: 0;
 
@@ -47,7 +46,7 @@ const DrawerWrapperMobile = styled(Drawer)(
 );
 
 const ListItemWrapper = styled(MailboxSidebarItem)(
-  ({ theme }) => `
+	({ theme }) => `
 
     padding: ${theme.spacing(1)};
 
@@ -76,101 +75,102 @@ const ListItemWrapper = styled(MailboxSidebarItem)(
 );
 
 const groupTags = (tags) => {
-  const groups = {
-    category_tag: [],
-    label_tag: []
-  };
+	const groups = {
+		category_tag: [],
+		label_tag: []
+	};
 
-  tags.forEach((tag) => {
-    if (tag.type === 'category_tag') {
-      groups.category_tag.push(tag);
-    } else {
-      groups.label_tag.push(tag);
-    }
-  });
+	tags.forEach((tag) => {
+		if (tag.type === 'category_tag') {
+			groups.category_tag.push(tag);
+		} else {
+			groups.label_tag.push(tag);
+		}
+	});
 
-  return groups;
+	return groups;
 };
 
 export const MailboxSidebar = (props) => {
-  const { tag: currentTag, tags, open, onClose } = props;
-  const { t } = useTranslation();
+	const { tag: currentTag, tags, open, onClose } = props;
 
-  const groupedTags = groupTags(tags);
+	const groupedTags = groupTags(tags);
 
-  const theme = useTheme();
+	const theme = useTheme();
 
-  const handleTagClick = () => {
-    onClose?.();
-  };
+	const handleTagClick = () => {
+		onClose?.();
+	};
 
-  const sidebarContent = (
-    <Box p={3}>
-      <Button sx={{ mb: 3 }} fullWidth variant="contained">
-        {t('Compose message')}
-      </Button>
+	const sidebarContent = (
+		<Box p={3}>
+			<Button sx={{ mb: 3 }} fullWidth variant="contained">
+				{'Compose message'}
+			</Button>
 
-      {Object.keys(groupedTags).map((type) => (
-        <Fragment key={type}>
-          {type === 'label_tag' && (
-            <ListSubheader
-              disableGutters
-              sx={{
-                fontWeight: 'bold',
-                textTransform: 'uppercase'
-              }}
-              disableSticky={true}
-            >
-              {t('Labels')}
-            </ListSubheader>
-          )}
-          <List disablePadding component="div">
-            {groupedTags[type].map((tag) => (
-              <ListItemWrapper
-                active={
-                  currentTag === tag.id || (!currentTag && tag.id === 'inbox')
-                }
-                key={tag.id}
-                tag={tag}
-                onClick={handleTagClick}
-              />
-            ))}
-          </List>
-        </Fragment>
-      ))}
-    </Box>
-  );
+			{Object.keys(groupedTags).map((type) => (
+				<Fragment key={type}>
+					{type === 'label_tag' && (
+						<ListSubheader
+							disableGutters
+							sx={{
+								fontWeight: 'bold',
+								textTransform: 'uppercase'
+							}}
+							disableSticky={true}
+						>
+							{'Labels'}
+						</ListSubheader>
+					)}
+					<List disablePadding component="div">
+						{groupedTags[type].map((tag) => (
+							<ListItemWrapper
+								active={
+									currentTag === tag.id ||
+									(!currentTag &&
+										tag.id === 'inbox')
+								}
+								key={tag.id}
+								tag={tag}
+								onClick={handleTagClick}
+							/>
+						))}
+					</List>
+				</Fragment>
+			))}
+		</Box>
+	);
 
-  return (
-    <>
-      <DrawerWrapperMobile
-        sx={{
-          display: { lg: 'none', xs: 'inline-block' }
-        }}
-        variant="temporary"
-        anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-        onClose={onClose}
-        open={open}
-      >
-        <Scrollbar>{sidebarContent}</Scrollbar>
-      </DrawerWrapperMobile>
-      <DrawerWrapper
-        sx={{
-          display: { xs: 'none', lg: 'block' }
-        }}
-        variant="permanent"
-        anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-        open
-      >
-        <Scrollbar>{sidebarContent}</Scrollbar>
-      </DrawerWrapper>
-    </>
-  );
+	return (
+		<>
+			<DrawerWrapperMobile
+				sx={{
+					display: { lg: 'none', xs: 'inline-block' }
+				}}
+				variant="temporary"
+				anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+				onClose={onClose}
+				open={open}
+			>
+				<Scrollbar>{sidebarContent}</Scrollbar>
+			</DrawerWrapperMobile>
+			<DrawerWrapper
+				sx={{
+					display: { xs: 'none', lg: 'block' }
+				}}
+				variant="permanent"
+				anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+				open
+			>
+				<Scrollbar>{sidebarContent}</Scrollbar>
+			</DrawerWrapper>
+		</>
+	);
 };
 
 MailboxSidebar.propTypes = {
-  open: PropTypes.bool,
-  tag: PropTypes.string,
-  tags: PropTypes.array.isRequired,
-  onClose: PropTypes.func
+	open: PropTypes.bool,
+	tag: PropTypes.string,
+	tags: PropTypes.array.isRequired,
+	onClose: PropTypes.func
 };

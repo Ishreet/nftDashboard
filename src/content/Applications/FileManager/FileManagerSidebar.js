@@ -11,7 +11,6 @@ import {
 	Button,
 	styled
 } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import Gauge from 'src/components/Gauge';
 import { buildStyles } from 'react-circular-progressbar';
 import WarningTwoToneIcon from '@mui/icons-material/WarningTwoTone';
@@ -127,8 +126,6 @@ const BoxUpgrade = styled(Box)(
 );
 
 function FileManagerSidebar() {
-	const { t } = useTranslation();
-
 	const data = {
 		percentage: 68.45
 	};
@@ -161,7 +158,7 @@ function FileManagerSidebar() {
 			>
 				<Box mb={3} display="flex" alignItems="center">
 					<TypographyPrimary variant="h3">
-						{t('Storage')}
+						{'Storage'}
 					</TypographyPrimary>
 				</Box>
 				<Box display="flex">
@@ -183,18 +180,18 @@ function FileManagerSidebar() {
 							variant="subtitle2"
 							gutterBottom
 						>
-							{t('Storage almost up')}!
+							{'Storage almost up'}!
 						</TypographyPrimary>
 						<TypographyPrimary variant="h4">
 							<b>27GB</b>
-							{t(' of ')}
-							<b>49GB</b> {t('used')}
+							{' of '}
+							<b>49GB</b> {'used'}
 						</TypographyPrimary>
 					</Box>
 				</Box>
 
 				<Button variant="contained" size="small">
-					{t('Increase storage')}
+					{'Increase storage'}
 				</Button>
 
 				<DividerContrast
@@ -219,7 +216,7 @@ function FileManagerSidebar() {
 									variant="h4"
 									gutterBottom
 								>
-									{t('Images')}
+									{'Images'}
 								</TypographyPrimary>
 							}
 							secondary={
@@ -227,7 +224,7 @@ function FileManagerSidebar() {
 									variant="subtitle2"
 									gutterBottom
 								>
-									2.584 {t('files')}
+									2.584 {'files'}
 								</TypographySecondary>
 							}
 						/>
@@ -253,7 +250,7 @@ function FileManagerSidebar() {
 									variant="h4"
 									gutterBottom
 								>
-									{t('Videos')}
+									{'Videos'}
 								</TypographyPrimary>
 							}
 							secondary={
@@ -261,7 +258,7 @@ function FileManagerSidebar() {
 									variant="subtitle2"
 									gutterBottom
 								>
-									376 {t('files')}
+									376 {'files'}
 								</TypographySecondary>
 							}
 						/>
@@ -287,7 +284,7 @@ function FileManagerSidebar() {
 									variant="h4"
 									gutterBottom
 								>
-									{t('Documents')}
+									{'Documents'}
 								</TypographyPrimary>
 							}
 							secondary={
@@ -295,7 +292,7 @@ function FileManagerSidebar() {
 									variant="subtitle2"
 									gutterBottom
 								>
-									14.748 {t('files')}
+									14.748 {'files'}
 								</TypographySecondary>
 							}
 						/>
@@ -315,12 +312,12 @@ function FileManagerSidebar() {
 
 				<UploadBox>
 					<TypographyPrimary variant="h4" gutterBottom>
-						{t('Quick Upload')}
+						{'Quick Upload'}
 					</TypographyPrimary>
 					<TypographySecondary variant="body1">
-						{t(
+						{
 							'Need a quick upload widgets? Search no more and use this one.'
-						)}
+						}
 					</TypographySecondary>
 
 					<BoxUploadWrapper {...getRootProps()}>
@@ -335,9 +332,9 @@ function FileManagerSidebar() {
 										mt: 2
 									}}
 								>
-									{t(
+									{
 										'Drop the files to start uploading'
-									)}
+									}
 								</TypographyPrimary>
 							</>
 						)}
@@ -351,9 +348,9 @@ function FileManagerSidebar() {
 										mt: 2
 									}}
 								>
-									{t(
+									{
 										'You cannot upload these file types'
-									)}
+									}
 								</TypographyPrimary>
 							</>
 						)}
@@ -367,7 +364,7 @@ function FileManagerSidebar() {
 										mt: 2
 									}}
 								>
-									{t('Drag & drop files here')}
+									{'Drag & drop files here'}
 								</TypographyPrimary>
 							</>
 						)}
@@ -381,8 +378,8 @@ function FileManagerSidebar() {
 								}}
 								severity="success"
 							>
-								{t('You have uploaded')}{' '}
-								<b>{files.length}</b> {t('files')}!
+								{'You have uploaded'}{' '}
+								<b>{files.length}</b> {'files'}!
 							</Alert>
 							<DividerContrast
 								sx={{
@@ -409,7 +406,7 @@ function FileManagerSidebar() {
 								pb: 1
 							}}
 						>
-							{t('Get more space now')}!
+							{'Get more space now'}!
 						</TypographyPrimary>
 						<TypographySecondary
 							variant="subtitle2"
@@ -418,14 +415,14 @@ function FileManagerSidebar() {
 								pr: 2
 							}}
 						>
-							{t('Upgrade to an Enterprise account')}
+							{'Upgrade to an Enterprise account'}
 						</TypographySecondary>
 					</Box>
 					<ButtonContrast
 						startIcon={<SpeedTwoToneIcon />}
 						variant="contained"
 					>
-						{t('Increase storage')}
+						{'Increase storage'}
 					</ButtonContrast>
 					<img
 						src="/images/placeholders/illustrations/2.png"

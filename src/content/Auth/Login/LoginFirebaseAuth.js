@@ -18,7 +18,6 @@ import {
 } from '@mui/material';
 import { useAuth } from 'src/hooks/useAuth';
 import { useRefMounted } from 'src/hooks/useRefMounted';
-import { useTranslation } from 'react-i18next';
 
 const ImgWrapper = styled('img')(
 	({ theme }) => `
@@ -27,7 +26,6 @@ const ImgWrapper = styled('img')(
 );
 
 export const LoginFirebaseAuth = (props) => {
-	const { t } = useTranslation();
 	const { signInWithEmailAndPassword, signInWithGoogle } =
 		useAuth();
 	const isMountedRef = useRefMounted();
@@ -43,18 +41,16 @@ export const LoginFirebaseAuth = (props) => {
 		validationSchema: Yup.object({
 			email: Yup.string()
 				.email(
-					t(
-						'The email provided should be a valid email address'
-					)
+					'The email provided should be a valid email address'
 				)
 				.max(255)
-				.required(t('The email field is required')),
+				.required('The email field is required'),
 			password: Yup.string()
 				.max(255)
-				.required(t('The password field is required')),
+				.required('The password field is required'),
 			terms: Yup.boolean().oneOf(
 				[true],
-				t('You must agree to our terms and conditions')
+				'You must agree to our terms and conditions'
 			)
 		}),
 		onSubmit: async (values, helpers) => {
@@ -101,7 +97,7 @@ export const LoginFirebaseAuth = (props) => {
 					alt="Google"
 					src="/images/logo/google.svg"
 				/>
-				{t('Sign in with Google')}
+				{'Sign in with Google'}
 			</Button>
 			<Divider
 				sx={{
@@ -109,7 +105,7 @@ export const LoginFirebaseAuth = (props) => {
 					mb: 2
 				}}
 			>
-				{t('or')}
+				{'or'}
 			</Divider>
 			<form noValidate onSubmit={formik.handleSubmit}>
 				<TextField
@@ -120,8 +116,8 @@ export const LoginFirebaseAuth = (props) => {
 					helperText={
 						formik.touched.email && formik.errors.email
 					}
-					label={t('Email address')}
-					placeholder={t('Your email address here...')}
+					label={'Email address'}
+					placeholder={'Your email address here...'}
 					margin="normal"
 					name="email"
 					onBlur={formik.handleBlur}
@@ -140,8 +136,8 @@ export const LoginFirebaseAuth = (props) => {
 						formik.touched.password &&
 						formik.errors.password
 					}
-					label={t('Password')}
-					placeholder={t('Your password here...')}
+					label={'Password'}
+					placeholder={'Your password here...'}
 					margin="normal"
 					name="password"
 					onBlur={formik.handleBlur}
@@ -167,9 +163,9 @@ export const LoginFirebaseAuth = (props) => {
 						label={
 							<>
 								<Typography variant="body2">
-									{t('I accept the')}{' '}
+									{'I accept the'}{' '}
 									<Link href="#">
-										{t('terms and conditions')}
+										{'terms and conditions'}
 									</Link>
 									.
 								</Typography>
@@ -177,7 +173,7 @@ export const LoginFirebaseAuth = (props) => {
 						}
 					/>
 					<Link href="/auth/recover-password">
-						<b>{t('Lost password?')}</b>
+						<b>{'Lost password?'}</b>
 					</Link>
 				</Box>
 				{Boolean(
@@ -203,7 +199,7 @@ export const LoginFirebaseAuth = (props) => {
 					type="submit"
 					variant="contained"
 				>
-					{t('Sign in')}
+					{'Sign in'}
 				</Button>
 			</form>
 		</Box>

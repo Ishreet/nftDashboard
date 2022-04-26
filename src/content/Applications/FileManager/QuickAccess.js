@@ -22,7 +22,6 @@ import {
 	useTheme,
 	TableContainer
 } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import { formatDistance, subDays } from 'date-fns';
 import Link from 'src/components/Link';
 
@@ -70,7 +69,6 @@ const CardActionAreaWrapper = styled(CardActionArea)(
 );
 
 function QuickAccess() {
-	const { t } = useTranslation();
 	const theme = useTheme();
 
 	const [tabs, setTab] = useState('grid_view');
@@ -95,9 +93,7 @@ function QuickAccess() {
 					pb: 3
 				}}
 			>
-				<Typography variant="h3">
-					{t('Quick Access')}
-				</Typography>
+				<Typography variant="h3">{'Quick Access'}</Typography>
 				<ToggleButtonGroup
 					value={tabs}
 					exclusive
@@ -164,7 +160,7 @@ function QuickAccess() {
 											component="span"
 											variant="subtitle1"
 										>
-											{t('Edited')}{' '}
+											{'Edited'}{' '}
 											{formatDistance(
 												subDays(
 													new Date(),
@@ -175,7 +171,7 @@ function QuickAccess() {
 													addSuffix: true
 												}
 											)}{' '}
-											{t('by')}{' '}
+											{'by'}{' '}
 										</Typography>
 										<Link href="#">Kate</Link>
 									</Box>
@@ -229,7 +225,7 @@ function QuickAccess() {
 											component="span"
 											variant="subtitle1"
 										>
-											{t('Edited')}{' '}
+											{'Edited'}{' '}
 											{formatDistance(
 												subDays(
 													new Date(),
@@ -240,7 +236,7 @@ function QuickAccess() {
 													addSuffix: true
 												}
 											)}{' '}
-											{t('by')}{' '}
+											{'by'}{' '}
 										</Typography>
 										<Link href="#">John</Link>
 									</Box>
@@ -303,7 +299,7 @@ function QuickAccess() {
 											component="span"
 											variant="subtitle1"
 										>
-											{t('Never opened')}
+											{'Never opened'}
 										</Typography>
 									</Box>
 									<IconButton
@@ -365,9 +361,9 @@ function QuickAccess() {
 											component="span"
 											variant="subtitle1"
 										>
-											{t(
+											{
 												'You opened in the past year'
-											)}
+											}
 										</Typography>
 									</Box>
 									<IconButton
@@ -390,16 +386,16 @@ function QuickAccess() {
 									<TableHead>
 										<TableRow>
 											<TableCell>
-												{t('Filename')}
+												{'Filename'}
 											</TableCell>
 											<TableCell>
-												{t('Owner')}
+												{'Owner'}
 											</TableCell>
 											<TableCell>
-												{t('Date Created')}
+												{'Date Created'}
 											</TableCell>
 											<TableCell align="right">
-												{t('Actions')}
+												{'Actions'}
 											</TableCell>
 										</TableRow>
 									</TableHead>
@@ -453,7 +449,7 @@ function QuickAccess() {
 											</TableCell>
 											<TableCell align="right">
 												<Tooltip
-													title={t('View')}
+													title={'View'}
 													arrow
 												>
 													<IconButton
@@ -481,9 +477,7 @@ function QuickAccess() {
 													</IconButton>
 												</Tooltip>
 												<Tooltip
-													title={t(
-														'Delete'
-													)}
+													title={'Delete'}
 													arrow
 												>
 													<IconButton
@@ -564,7 +558,7 @@ function QuickAccess() {
 											</TableCell>
 											<TableCell align="right">
 												<Tooltip
-													title={t('View')}
+													title={'View'}
 													arrow
 												>
 													<IconButton
@@ -592,9 +586,7 @@ function QuickAccess() {
 													</IconButton>
 												</Tooltip>
 												<Tooltip
-													title={t(
-														'Delete'
-													)}
+													title={'Delete'}
 													arrow
 												>
 													<IconButton
@@ -675,7 +667,7 @@ function QuickAccess() {
 											</TableCell>
 											<TableCell align="right">
 												<Tooltip
-													title={t('View')}
+													title={'View'}
 													arrow
 												>
 													<IconButton
@@ -703,9 +695,7 @@ function QuickAccess() {
 													</IconButton>
 												</Tooltip>
 												<Tooltip
-													title={t(
-														'Delete'
-													)}
+													title={'Delete'}
 													arrow
 												>
 													<IconButton
@@ -780,7 +770,7 @@ function QuickAccess() {
 											</TableCell>
 											<TableCell align="right">
 												<Tooltip
-													title={t('View')}
+													title={'View'}
 													arrow
 												>
 													<IconButton
@@ -808,9 +798,7 @@ function QuickAccess() {
 													</IconButton>
 												</Tooltip>
 												<Tooltip
-													title={t(
-														'Delete'
-													)}
+													title={'Delete'}
 													arrow
 												>
 													<IconButton
@@ -861,9 +849,9 @@ function QuickAccess() {
 								}}
 								gutterBottom
 							>
-								{t(
+								{
 									'This is a default view used when none of the options are selected'
-								)}
+								}
 							</Typography>
 						</Card>
 					</Grid>

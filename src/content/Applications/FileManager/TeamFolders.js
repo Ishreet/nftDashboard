@@ -19,7 +19,6 @@ import {
 	styled,
 	useTheme
 } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import { formatDistance, subDays, subMonths } from 'date-fns';
 
 import Link from 'src/components/Link';
@@ -40,7 +39,6 @@ const AvatarPrimary = styled(Avatar)(
 );
 
 function TeamFolders() {
-	const { t } = useTranslation();
 	const theme = useTheme();
 
 	const [tabs, setTab] = useState('grid_view');
@@ -59,9 +57,7 @@ function TeamFolders() {
 					pb: 3
 				}}
 			>
-				<Typography variant="h3">
-					{t('Team Folders')}
-				</Typography>
+				<Typography variant="h3">{'Team Folders'}</Typography>
 				<ToggleButtonGroup
 					value={tabs}
 					exclusive
@@ -190,14 +186,14 @@ function TeamFolders() {
 										<Text color="black">
 											<b>15</b>
 										</Text>{' '}
-										{t('files')}
+										{'files'}
 									</Typography>
 									<Box textAlign="right">
 										<Typography
 											lineHeight={1}
 											variant="subtitle1"
 										>
-											{t('Created')}
+											{'Created'}
 										</Typography>
 										<Typography
 											fontWeight="bold"
@@ -301,14 +297,14 @@ function TeamFolders() {
 										<Text color="black">
 											<b>6</b>
 										</Text>{' '}
-										{t('files')}
+										{'files'}
 									</Typography>
 									<Box textAlign="right">
 										<Typography
 											lineHeight={1}
 											variant="subtitle1"
 										>
-											{t('Created')}
+											{'Created'}
 										</Typography>
 										<Typography
 											fontWeight="bold"
@@ -341,19 +337,19 @@ function TeamFolders() {
 									<TableHead>
 										<TableRow>
 											<TableCell>
-												{t('Name')}
+												{'Name'}
 											</TableCell>
 											<TableCell>
-												{t('Files')}
+												{'Files'}
 											</TableCell>
 											<TableCell>
-												{t('Members')}
+												{'Members'}
 											</TableCell>
 											<TableCell>
-												{t('Created')}
+												{'Created'}
 											</TableCell>
 											<TableCell align="right">
-												{t('Actions')}
+												{'Actions'}
 											</TableCell>
 										</TableRow>
 									</TableHead>
@@ -480,7 +476,7 @@ function TeamFolders() {
 											</TableCell>
 											<TableCell align="right">
 												<Tooltip
-													title={t('View')}
+													title={'View'}
 													arrow
 												>
 													<IconButton
@@ -505,9 +501,7 @@ function TeamFolders() {
 													</IconButton>
 												</Tooltip>
 												<Tooltip
-													title={t(
-														'Delete'
-													)}
+													title={'Delete'}
 													arrow
 												>
 													<IconButton
@@ -621,7 +615,7 @@ function TeamFolders() {
 											</TableCell>
 											<TableCell align="right">
 												<Tooltip
-													title={t('View')}
+													title={'View'}
 													arrow
 												>
 													<IconButton
@@ -646,9 +640,7 @@ function TeamFolders() {
 													</IconButton>
 												</Tooltip>
 												<Tooltip
-													title={t(
-														'Delete'
-													)}
+													title={'Delete'}
 													arrow
 												>
 													<IconButton
@@ -699,9 +691,9 @@ function TeamFolders() {
 								}}
 								gutterBottom
 							>
-								{t(
+								{
 									'This is a default view used when none of the options are selected'
-								)}
+								}
 							</Typography>
 						</Card>
 					</Grid>
