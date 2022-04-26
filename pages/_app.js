@@ -58,30 +58,28 @@ function MyApp(props) {
 							<LocalizationProvider
 								dateAdapter={AdapterDateFns}
 							>
-								<AuthProvider>
-									<SnackbarProvider
-										maxSnack={6}
-										anchorOrigin={{
-											vertical: 'bottom',
-											horizontal: 'right'
-										}}
-									>
-										<CssBaseline />
-										<AuthConsumer>
-											{(auth) =>
-												!auth.isInitialized ? (
-													<Loader />
-												) : (
-													getLayout(
-														<Component
-															{...pageProps}
-														/>
-													)
+								<SnackbarProvider
+									maxSnack={6}
+									anchorOrigin={{
+										vertical: 'bottom',
+										horizontal: 'right'
+									}}
+								>
+									<CssBaseline />
+									<AuthConsumer>
+										{(auth) =>
+											!auth.isInitialized ? (
+												<Loader />
+											) : (
+												getLayout(
+													<Component
+														{...pageProps}
+													/>
 												)
-											}
-										</AuthConsumer>
-									</SnackbarProvider>
-								</AuthProvider>
+											)
+										}
+									</AuthConsumer>
+								</SnackbarProvider>
 							</LocalizationProvider>
 						</ThemeProvider>
 					</SidebarProvider>
