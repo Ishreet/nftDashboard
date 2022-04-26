@@ -20,8 +20,8 @@ module.exports = {
 module.exports = withImages(
 	calendarTranspile({
 		i18n: {
-			defaultLocale: 'en',
-			locales: ['en']
+			defaultLocale: 'en-US',
+			locales: ['en-US']
 		}
 	})
 );
