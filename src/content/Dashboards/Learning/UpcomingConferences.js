@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import {
-  Button,
-  Card,
-  Box,
-  Typography,
-  Avatar,
-  Grid,
-  useTheme,
-  Tooltip,
-  AvatarGroup,
-  IconButton,
-  styled
+	Button,
+	Card,
+	Box,
+	Typography,
+	Avatar,
+	Grid,
+	useTheme,
+	Tooltip,
+	AvatarGroup,
+	IconButton,
+	styled
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -30,7 +30,7 @@ import 'swiper/components/pagination/pagination.min.css';
 SwiperCore.use([Navigation, Pagination]);
 
 const CardCalendarWrapper = styled(Card)(
-  ({ theme }) => `
+	({ theme }) => `
       height: 100%;
       display: flex;
       align-items: center;
@@ -62,7 +62,7 @@ const CardCalendarWrapper = styled(Card)(
 );
 
 const SwipeIndicator = styled(IconButton)(
-  ({ theme }) => `
+	({ theme }) => `
       color: ${theme.colors.alpha.black[50]};
       width: ${theme.spacing(5)};
       height: ${theme.spacing(5)};
@@ -77,345 +77,429 @@ const SwipeIndicator = styled(IconButton)(
 );
 
 function UpcomingConferences() {
-  const { t } = useTranslation();
-  const [date, setDate] = useState(new Date());
+	const { t } = useTranslation();
+	const [date, setDate] = useState(new Date());
 
-  const theme = useTheme();
+	const theme = useTheme();
 
-  return (
-    <>
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-        sx={{
-          pb: 3
-        }}
-      >
-        <Typography variant="h3">{t('Upcoming Conferences')}</Typography>
-        <Box>
-          <SwipeIndicator className="MuiSwipe-root MuiSwipe-left">
-            <ChevronLeftTwoToneIcon />
-          </SwipeIndicator>
-          <SwipeIndicator className="MuiSwipe-root MuiSwipe-right">
-            <ChevronRightTwoToneIcon />
-          </SwipeIndicator>
-        </Box>
-      </Box>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={4}>
-          <CardCalendarWrapper>
-            <LocalizaitonProvider dateAdapter={AdapterDateFns}>
-              <CalendarPicker
-                date={date}
-                onChange={(newDate) => setDate(newDate)}
-              />
-            </LocalizaitonProvider>
-          </CardCalendarWrapper>
-        </Grid>
-        <Grid item xs={12} md={8}>
-          <Swiper
-            spaceBetween={24}
-            slidesPerView={2}
-            loop
-            navigation={{
-              nextEl: '.MuiSwipe-right',
-              prevEl: '.MuiSwipe-left'
-            }}
-          >
-            <SwiperSlide>
-              <Box>
-                <Card
-                  variant="outlined"
-                  sx={{
-                    boxShadow: 'none',
-                    p: 2.5
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center'
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center'
-                      }}
-                    >
-                      <Avatar
-                        sx={{
-                          mr: 1,
-                          background: `${theme.colors.gradients.black1}`
-                        }}
-                      >
-                        A
-                      </Avatar>
-                      <Typography variant="h5">Apple</Typography>
-                    </Box>
-                    <Label color="success">{t('seats available')}</Label>
-                  </Box>
-                  <Box
-                    sx={{
-                      py: 3
-                    }}
-                  >
-                    <Typography variant="subtitle2" gutterBottom>
-                      10/16/2021 - {t('Remote')}
-                    </Typography>
-                    <Typography variant="h3">
-                      Apple World Wide Developer Conference 2021
-                    </Typography>
-                  </Box>
-                  <Typography variant="subtitle1">{t('Hosted by')}:</Typography>
-                  <Box
-                    display="flex"
-                    justifyContent="flex-start"
-                    sx={{
-                      pb: 3
-                    }}
-                  >
-                    <AvatarGroup max={5}>
-                      <Tooltip
-                        arrow
-                        title={t('View profile for') + ' Remy Sharp'}
-                      >
-                        <Avatar
-                          sx={{
-                            width: 30,
-                            height: 30
-                          }}
-                          component={Link}
-                          href="#"
-                          alt="Remy Sharp"
-                          src="/static/images/avatars/1.jpg"
-                        />
-                      </Tooltip>
-                      <Tooltip
-                        arrow
-                        title={t('View profile for') + ' Travis Howard'}
-                      >
-                        <Avatar
-                          sx={{
-                            width: 30,
-                            height: 30
-                          }}
-                          component={Link}
-                          href="#"
-                          alt="Travis Howard"
-                          src="/static/images/avatars/2.jpg"
-                        />
-                      </Tooltip>
-                      <Tooltip
-                        arrow
-                        title={t('View profile for') + ' Cindy Baker'}
-                      >
-                        <Avatar
-                          sx={{
-                            width: 30,
-                            height: 30
-                          }}
-                          component={Link}
-                          href="#"
-                          alt="Cindy Baker"
-                          src="/static/images/avatars/3.jpg"
-                        />
-                      </Tooltip>
-                      <Tooltip
-                        arrow
-                        title={t('View profile for') + ' Agnes Walker'}
-                      >
-                        <Avatar
-                          sx={{
-                            width: 30,
-                            height: 30
-                          }}
-                          component={Link}
-                          href="#"
-                          alt="Agnes Walker"
-                          src="/static/images/avatars/4.jpg"
-                        />
-                      </Tooltip>
-                      <Tooltip
-                        arrow
-                        title={t('View profile for') + ' Trevor Henderson'}
-                      >
-                        <Avatar
-                          sx={{
-                            width: 30,
-                            height: 30
-                          }}
-                          component={Link}
-                          href="#"
-                          alt="Trevor Henderson"
-                          src="/static/images/avatars/5.jpg"
-                        />
-                      </Tooltip>
-                    </AvatarGroup>
-                  </Box>
-                  <Box>
-                    <Button
-                      sx={{
-                        mb: 1
-                      }}
-                      fullWidth
-                      startIcon={<EventSeatTwoToneIcon />}
-                      variant="contained"
-                    >
-                      {t('Book a seat')}
-                    </Button>
-                    <Button fullWidth variant="outlined">
-                      {t('More information')}
-                    </Button>
-                  </Box>
-                </Card>
-              </Box>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Box>
-                <Card
-                  variant="outlined"
-                  sx={{
-                    boxShadow: 'none',
-                    p: 2.5
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center'
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center'
-                      }}
-                    >
-                      <Avatar
-                        src="/static/images/logo/google.svg"
-                        sx={{
-                          mr: 1
-                        }}
-                      />
-                      <Typography variant="h5">Google</Typography>
-                    </Box>
-                    <Label color="error">
-                      <b>{t('no seats available')}</b>
-                    </Label>
-                  </Box>
-                  <Box
-                    sx={{
-                      py: 3
-                    }}
-                  >
-                    <Typography variant="subtitle2" gutterBottom>
-                      10/23/2021 - {t('Remote')}
-                    </Typography>
-                    <Typography variant="h3">
-                      Google 2021 Mobile Devices Conference
-                    </Typography>
-                  </Box>
-                  <Typography variant="subtitle1">{t('Hosted by')}:</Typography>
-                  <Box
-                    display="flex"
-                    justifyContent="flex-start"
-                    sx={{
-                      pb: 3
-                    }}
-                  >
-                    <AvatarGroup max={5}>
-                      <Tooltip
-                        arrow
-                        title={t('View profile for') + ' Agnes Walker'}
-                      >
-                        <Avatar
-                          sx={{
-                            width: 30,
-                            height: 30
-                          }}
-                          component={Link}
-                          href="#"
-                          alt="Agnes Walker"
-                          src="/static/images/avatars/4.jpg"
-                        />
-                      </Tooltip>
-                      <Tooltip
-                        arrow
-                        title={t('View profile for') + ' Cindy Baker'}
-                      >
-                        <Avatar
-                          sx={{
-                            width: 30,
-                            height: 30
-                          }}
-                          component={Link}
-                          href="#"
-                          alt="Cindy Baker"
-                          src="/static/images/avatars/3.jpg"
-                        />
-                      </Tooltip>
-                      <Tooltip
-                        arrow
-                        title={t('View profile for') + ' Trevor Henderson'}
-                      >
-                        <Avatar
-                          sx={{
-                            width: 30,
-                            height: 30
-                          }}
-                          component={Link}
-                          href="#"
-                          alt="Trevor Henderson"
-                          src="/static/images/avatars/5.jpg"
-                        />
-                      </Tooltip>
-                      <Tooltip
-                        arrow
-                        title={t('View profile for') + ' Travis Howard'}
-                      >
-                        <Avatar
-                          sx={{
-                            width: 30,
-                            height: 30
-                          }}
-                          component={Link}
-                          href="#"
-                          alt="Travis Howard"
-                          src="/static/images/avatars/2.jpg"
-                        />
-                      </Tooltip>
-                    </AvatarGroup>
-                  </Box>
-                  <Box>
-                    <Button
-                      disabled
-                      sx={{
-                        mb: 1
-                      }}
-                      fullWidth
-                      startIcon={<EventSeatTwoToneIcon />}
-                      variant="contained"
-                    >
-                      {t('Book a seat')}
-                    </Button>
-                    <Button fullWidth variant="outlined">
-                      {t('More information')}
-                    </Button>
-                  </Box>
-                </Card>
-              </Box>
-            </SwiperSlide>
-          </Swiper>
-        </Grid>
-      </Grid>
-    </>
-  );
+	return (
+		<>
+			<Box
+				display="flex"
+				alignItems="center"
+				justifyContent="space-between"
+				sx={{
+					pb: 3
+				}}
+			>
+				<Typography variant="h3">
+					{t('Upcoming Conferences')}
+				</Typography>
+				<Box>
+					<SwipeIndicator className="MuiSwipe-root MuiSwipe-left">
+						<ChevronLeftTwoToneIcon />
+					</SwipeIndicator>
+					<SwipeIndicator className="MuiSwipe-root MuiSwipe-right">
+						<ChevronRightTwoToneIcon />
+					</SwipeIndicator>
+				</Box>
+			</Box>
+			<Grid container spacing={3}>
+				<Grid item xs={12} md={4}>
+					<CardCalendarWrapper>
+						<LocalizaitonProvider
+							dateAdapter={AdapterDateFns}
+						>
+							<CalendarPicker
+								date={date}
+								onChange={(newDate) =>
+									setDate(newDate)
+								}
+							/>
+						</LocalizaitonProvider>
+					</CardCalendarWrapper>
+				</Grid>
+				<Grid item xs={12} md={8}>
+					<Swiper
+						spaceBetween={24}
+						slidesPerView={2}
+						loop
+						navigation={{
+							nextEl: '.MuiSwipe-right',
+							prevEl: '.MuiSwipe-left'
+						}}
+					>
+						<SwiperSlide>
+							<Box>
+								<Card
+									variant="outlined"
+									sx={{
+										boxShadow: 'none',
+										p: 2.5
+									}}
+								>
+									<Box
+										sx={{
+											display: 'flex',
+											justifyContent:
+												'space-between',
+											alignItems: 'center'
+										}}
+									>
+										<Box
+											sx={{
+												display: 'flex',
+												justifyContent:
+													'space-between',
+												alignItems: 'center'
+											}}
+										>
+											<Avatar
+												sx={{
+													mr: 1,
+													background: `${theme.colors.gradients.black1}`
+												}}
+											>
+												A
+											</Avatar>
+											<Typography variant="h5">
+												Apple
+											</Typography>
+										</Box>
+										<Label color="success">
+											{t('seats available')}
+										</Label>
+									</Box>
+									<Box
+										sx={{
+											py: 3
+										}}
+									>
+										<Typography
+											variant="subtitle2"
+											gutterBottom
+										>
+											10/16/2021 - {t('Remote')}
+										</Typography>
+										<Typography variant="h3">
+											Apple World Wide Developer
+											Conference 2021
+										</Typography>
+									</Box>
+									<Typography variant="subtitle1">
+										{t('Hosted by')}:
+									</Typography>
+									<Box
+										display="flex"
+										justifyContent="flex-start"
+										sx={{
+											pb: 3
+										}}
+									>
+										<AvatarGroup max={5}>
+											<Tooltip
+												arrow
+												title={
+													t(
+														'View profile for'
+													) + ' Remy Sharp'
+												}
+											>
+												<Avatar
+													sx={{
+														width: 30,
+														height: 30
+													}}
+													component={Link}
+													href="#"
+													alt="Remy Sharp"
+													src="/images/avatars/1.jpg"
+												/>
+											</Tooltip>
+											<Tooltip
+												arrow
+												title={
+													t(
+														'View profile for'
+													) +
+													' Travis Howard'
+												}
+											>
+												<Avatar
+													sx={{
+														width: 30,
+														height: 30
+													}}
+													component={Link}
+													href="#"
+													alt="Travis Howard"
+													src="/images/avatars/2.jpg"
+												/>
+											</Tooltip>
+											<Tooltip
+												arrow
+												title={
+													t(
+														'View profile for'
+													) + ' Cindy Baker'
+												}
+											>
+												<Avatar
+													sx={{
+														width: 30,
+														height: 30
+													}}
+													component={Link}
+													href="#"
+													alt="Cindy Baker"
+													src="/images/avatars/3.jpg"
+												/>
+											</Tooltip>
+											<Tooltip
+												arrow
+												title={
+													t(
+														'View profile for'
+													) +
+													' Agnes Walker'
+												}
+											>
+												<Avatar
+													sx={{
+														width: 30,
+														height: 30
+													}}
+													component={Link}
+													href="#"
+													alt="Agnes Walker"
+													src="/images/avatars/4.jpg"
+												/>
+											</Tooltip>
+											<Tooltip
+												arrow
+												title={
+													t(
+														'View profile for'
+													) +
+													' Trevor Henderson'
+												}
+											>
+												<Avatar
+													sx={{
+														width: 30,
+														height: 30
+													}}
+													component={Link}
+													href="#"
+													alt="Trevor Henderson"
+													src="/images/avatars/5.jpg"
+												/>
+											</Tooltip>
+										</AvatarGroup>
+									</Box>
+									<Box>
+										<Button
+											sx={{
+												mb: 1
+											}}
+											fullWidth
+											startIcon={
+												<EventSeatTwoToneIcon />
+											}
+											variant="contained"
+										>
+											{t('Book a seat')}
+										</Button>
+										<Button
+											fullWidth
+											variant="outlined"
+										>
+											{t('More information')}
+										</Button>
+									</Box>
+								</Card>
+							</Box>
+						</SwiperSlide>
+						<SwiperSlide>
+							<Box>
+								<Card
+									variant="outlined"
+									sx={{
+										boxShadow: 'none',
+										p: 2.5
+									}}
+								>
+									<Box
+										sx={{
+											display: 'flex',
+											justifyContent:
+												'space-between',
+											alignItems: 'center'
+										}}
+									>
+										<Box
+											sx={{
+												display: 'flex',
+												justifyContent:
+													'space-between',
+												alignItems: 'center'
+											}}
+										>
+											<Avatar
+												src="/images/logo/google.svg"
+												sx={{
+													mr: 1
+												}}
+											/>
+											<Typography variant="h5">
+												Google
+											</Typography>
+										</Box>
+										<Label color="error">
+											<b>
+												{t(
+													'no seats available'
+												)}
+											</b>
+										</Label>
+									</Box>
+									<Box
+										sx={{
+											py: 3
+										}}
+									>
+										<Typography
+											variant="subtitle2"
+											gutterBottom
+										>
+											10/23/2021 - {t('Remote')}
+										</Typography>
+										<Typography variant="h3">
+											Google 2021 Mobile Devices
+											Conference
+										</Typography>
+									</Box>
+									<Typography variant="subtitle1">
+										{t('Hosted by')}:
+									</Typography>
+									<Box
+										display="flex"
+										justifyContent="flex-start"
+										sx={{
+											pb: 3
+										}}
+									>
+										<AvatarGroup max={5}>
+											<Tooltip
+												arrow
+												title={
+													t(
+														'View profile for'
+													) +
+													' Agnes Walker'
+												}
+											>
+												<Avatar
+													sx={{
+														width: 30,
+														height: 30
+													}}
+													component={Link}
+													href="#"
+													alt="Agnes Walker"
+													src="/images/avatars/4.jpg"
+												/>
+											</Tooltip>
+											<Tooltip
+												arrow
+												title={
+													t(
+														'View profile for'
+													) + ' Cindy Baker'
+												}
+											>
+												<Avatar
+													sx={{
+														width: 30,
+														height: 30
+													}}
+													component={Link}
+													href="#"
+													alt="Cindy Baker"
+													src="/images/avatars/3.jpg"
+												/>
+											</Tooltip>
+											<Tooltip
+												arrow
+												title={
+													t(
+														'View profile for'
+													) +
+													' Trevor Henderson'
+												}
+											>
+												<Avatar
+													sx={{
+														width: 30,
+														height: 30
+													}}
+													component={Link}
+													href="#"
+													alt="Trevor Henderson"
+													src="/images/avatars/5.jpg"
+												/>
+											</Tooltip>
+											<Tooltip
+												arrow
+												title={
+													t(
+														'View profile for'
+													) +
+													' Travis Howard'
+												}
+											>
+												<Avatar
+													sx={{
+														width: 30,
+														height: 30
+													}}
+													component={Link}
+													href="#"
+													alt="Travis Howard"
+													src="/images/avatars/2.jpg"
+												/>
+											</Tooltip>
+										</AvatarGroup>
+									</Box>
+									<Box>
+										<Button
+											disabled
+											sx={{
+												mb: 1
+											}}
+											fullWidth
+											startIcon={
+												<EventSeatTwoToneIcon />
+											}
+											variant="contained"
+										>
+											{t('Book a seat')}
+										</Button>
+										<Button
+											fullWidth
+											variant="outlined"
+										>
+											{t('More information')}
+										</Button>
+									</Box>
+								</Card>
+							</Box>
+						</SwiperSlide>
+					</Swiper>
+				</Grid>
+			</Grid>
+		</>
+	);
 }
 
 export default UpcomingConferences;

@@ -1,20 +1,25 @@
 import {
-  Box,
-  Grid,
-  Typography,
-  Avatar,
-  Badge,
-  Tooltip,
-  useTheme,
-  LinearProgress,
-  styled
+	Box,
+	Grid,
+	Typography,
+	Avatar,
+	Badge,
+	Tooltip,
+	useTheme,
+	LinearProgress,
+	styled
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { formatDistance, subDays, subMinutes, subHours } from 'date-fns';
+import {
+	formatDistance,
+	subDays,
+	subMinutes,
+	subHours
+} from 'date-fns';
 import Text from 'src/components/Text';
 
 const DotLegend = styled('span')(
-  ({ theme }) => `
+	({ theme }) => `
     border-radius: 22px;
     width: ${theme.spacing(1.5)};
     height: ${theme.spacing(1.5)};
@@ -25,14 +30,14 @@ const DotLegend = styled('span')(
 );
 
 const AvatarWrapper = styled(Avatar)(
-  ({ theme }) => `
+	({ theme }) => `
     width: ${theme.spacing(7)};
     height: ${theme.spacing(7)};
 `
 );
 
 const LinearProgressWrapper = styled(LinearProgress)(
-  ({ theme }) => `
+	({ theme }) => `
         flex-grow: 1;
         height: 10px;
         
@@ -47,183 +52,216 @@ const LinearProgressWrapper = styled(LinearProgress)(
 );
 
 function TeamOverview() {
-  const { t } = useTranslation();
-  const theme = useTheme();
+	const { t } = useTranslation();
+	const theme = useTheme();
 
-  return (
-    <Grid container spacing={4}>
-      <Grid item xs={12} md={4}>
-        <Box>
-          <Box display="flex" alignItems="center" pb={3}>
-            <Badge
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right'
-              }}
-              overlap="circular"
-              badgeContent={
-                <Tooltip
-                  arrow
-                  placement="top"
-                  title={
-                    t('Offline since') +
-                    ' ' +
-                    formatDistance(subDays(new Date(), 14), new Date(), {
-                      addSuffix: true
-                    })
-                  }
-                >
-                  <DotLegend
-                    style={{ background: `${theme.colors.error.main}` }}
-                  />
-                </Tooltip>
-              }
-            >
-              <AvatarWrapper
-                alt="Remy Sharp"
-                src="/static/images/avatars/4.jpg"
-              />
-            </Badge>
-            <Box
-              sx={{
-                ml: 1.5
-              }}
-            >
-              <Typography variant="h4" noWrap gutterBottom>
-                Hanna Siphron
-              </Typography>
-              <Typography variant="subtitle2" noWrap>
-                {t('Web Dev Support Team')}
-              </Typography>
-            </Box>
-          </Box>
+	return (
+		<Grid container spacing={4}>
+			<Grid item xs={12} md={4}>
+				<Box>
+					<Box display="flex" alignItems="center" pb={3}>
+						<Badge
+							anchorOrigin={{
+								vertical: 'bottom',
+								horizontal: 'right'
+							}}
+							overlap="circular"
+							badgeContent={
+								<Tooltip
+									arrow
+									placement="top"
+									title={
+										t('Offline since') +
+										' ' +
+										formatDistance(
+											subDays(new Date(), 14),
+											new Date(),
+											{
+												addSuffix: true
+											}
+										)
+									}
+								>
+									<DotLegend
+										style={{
+											background: `${theme.colors.error.main}`
+										}}
+									/>
+								</Tooltip>
+							}
+						>
+							<AvatarWrapper
+								alt="Remy Sharp"
+								src="/images/avatars/4.jpg"
+							/>
+						</Badge>
+						<Box
+							sx={{
+								ml: 1.5
+							}}
+						>
+							<Typography
+								variant="h4"
+								noWrap
+								gutterBottom
+							>
+								Hanna Siphron
+							</Typography>
+							<Typography variant="subtitle2" noWrap>
+								{t('Web Dev Support Team')}
+							</Typography>
+						</Box>
+					</Box>
 
-          <Typography variant="subtitle2" gutterBottom>
-            <Text color="black">4</Text> {t('out of')}{' '}
-            <Text color="black">6</Text> {t('tasks completed')}
-          </Typography>
-          <LinearProgressWrapper
-            value={65}
-            color="primary"
-            variant="determinate"
-          />
-        </Box>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Box>
-          <Box display="flex" alignItems="center" pb={3}>
-            <Badge
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right'
-              }}
-              overlap="circular"
-              badgeContent={
-                <Tooltip
-                  arrow
-                  placement="top"
-                  title={
-                    t('Online since') +
-                    ' ' +
-                    formatDistance(subMinutes(new Date(), 6), new Date(), {
-                      addSuffix: true
-                    })
-                  }
-                >
-                  <DotLegend
-                    style={{ background: `${theme.colors.success.main}` }}
-                  />
-                </Tooltip>
-              }
-            >
-              <AvatarWrapper
-                alt="Ann Saris"
-                src="/static/images/avatars/3.jpg"
-              />
-            </Badge>
-            <Box
-              sx={{
-                ml: 1.5
-              }}
-            >
-              <Typography variant="h4" noWrap gutterBottom>
-                Ann Saris
-              </Typography>
-              <Typography variant="subtitle2" noWrap>
-                {t('Senior Book Keeper')}
-              </Typography>
-            </Box>
-          </Box>
-          <Typography variant="subtitle2" gutterBottom>
-            <Text color="black">2</Text> {t('out of')}{' '}
-            <Text color="black">8</Text> {t('tasks completed')}
-          </Typography>
-          <LinearProgressWrapper
-            value={25}
-            color="primary"
-            variant="determinate"
-          />
-        </Box>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Box>
-          <Box display="flex" alignItems="center" pb={3}>
-            <Badge
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right'
-              }}
-              overlap="circular"
-              badgeContent={
-                <Tooltip
-                  arrow
-                  placement="top"
-                  title={
-                    t('Offline since') +
-                    ' ' +
-                    formatDistance(subHours(new Date(), 7), new Date(), {
-                      addSuffix: true
-                    })
-                  }
-                >
-                  <DotLegend
-                    style={{ background: `${theme.colors.error.main}` }}
-                  />
-                </Tooltip>
-              }
-            >
-              <AvatarWrapper
-                alt="James Stanton"
-                src="/static/images/avatars/5.jpg"
-              />
-            </Badge>
-            <Box
-              sx={{
-                ml: 1.5
-              }}
-            >
-              <Typography variant="h4" noWrap gutterBottom>
-                James Stanton
-              </Typography>
-              <Typography variant="subtitle2" noWrap>
-                {t('Phone Pre-Sales Assistant')}
-              </Typography>
-            </Box>
-          </Box>
+					<Typography variant="subtitle2" gutterBottom>
+						<Text color="black">4</Text> {t('out of')}{' '}
+						<Text color="black">6</Text>{' '}
+						{t('tasks completed')}
+					</Typography>
+					<LinearProgressWrapper
+						value={65}
+						color="primary"
+						variant="determinate"
+					/>
+				</Box>
+			</Grid>
+			<Grid item xs={12} md={4}>
+				<Box>
+					<Box display="flex" alignItems="center" pb={3}>
+						<Badge
+							anchorOrigin={{
+								vertical: 'bottom',
+								horizontal: 'right'
+							}}
+							overlap="circular"
+							badgeContent={
+								<Tooltip
+									arrow
+									placement="top"
+									title={
+										t('Online since') +
+										' ' +
+										formatDistance(
+											subMinutes(new Date(), 6),
+											new Date(),
+											{
+												addSuffix: true
+											}
+										)
+									}
+								>
+									<DotLegend
+										style={{
+											background: `${theme.colors.success.main}`
+										}}
+									/>
+								</Tooltip>
+							}
+						>
+							<AvatarWrapper
+								alt="Ann Saris"
+								src="/images/avatars/3.jpg"
+							/>
+						</Badge>
+						<Box
+							sx={{
+								ml: 1.5
+							}}
+						>
+							<Typography
+								variant="h4"
+								noWrap
+								gutterBottom
+							>
+								Ann Saris
+							</Typography>
+							<Typography variant="subtitle2" noWrap>
+								{t('Senior Book Keeper')}
+							</Typography>
+						</Box>
+					</Box>
+					<Typography variant="subtitle2" gutterBottom>
+						<Text color="black">2</Text> {t('out of')}{' '}
+						<Text color="black">8</Text>{' '}
+						{t('tasks completed')}
+					</Typography>
+					<LinearProgressWrapper
+						value={25}
+						color="primary"
+						variant="determinate"
+					/>
+				</Box>
+			</Grid>
+			<Grid item xs={12} md={4}>
+				<Box>
+					<Box display="flex" alignItems="center" pb={3}>
+						<Badge
+							anchorOrigin={{
+								vertical: 'bottom',
+								horizontal: 'right'
+							}}
+							overlap="circular"
+							badgeContent={
+								<Tooltip
+									arrow
+									placement="top"
+									title={
+										t('Offline since') +
+										' ' +
+										formatDistance(
+											subHours(new Date(), 7),
+											new Date(),
+											{
+												addSuffix: true
+											}
+										)
+									}
+								>
+									<DotLegend
+										style={{
+											background: `${theme.colors.error.main}`
+										}}
+									/>
+								</Tooltip>
+							}
+						>
+							<AvatarWrapper
+								alt="James Stanton"
+								src="/images/avatars/5.jpg"
+							/>
+						</Badge>
+						<Box
+							sx={{
+								ml: 1.5
+							}}
+						>
+							<Typography
+								variant="h4"
+								noWrap
+								gutterBottom
+							>
+								James Stanton
+							</Typography>
+							<Typography variant="subtitle2" noWrap>
+								{t('Phone Pre-Sales Assistant')}
+							</Typography>
+						</Box>
+					</Box>
 
-          <Typography variant="subtitle2" gutterBottom>
-            <Text color="black">10</Text> {t('out of')}{' '}
-            <Text color="black">20</Text> {t('tasks completed')}
-          </Typography>
-          <LinearProgressWrapper
-            value={50}
-            color="primary"
-            variant="determinate"
-          />
-        </Box>
-      </Grid>
-    </Grid>
-  );
+					<Typography variant="subtitle2" gutterBottom>
+						<Text color="black">10</Text> {t('out of')}{' '}
+						<Text color="black">20</Text>{' '}
+						{t('tasks completed')}
+					</Typography>
+					<LinearProgressWrapper
+						value={50}
+						color="primary"
+						variant="determinate"
+					/>
+				</Box>
+			</Grid>
+		</Grid>
+	);
 }
 
 export default TeamOverview;

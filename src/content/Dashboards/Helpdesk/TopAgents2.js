@@ -1,26 +1,26 @@
 import {
-  Card,
-  Box,
-  Typography,
-  Avatar,
-  Divider,
-  Grid,
-  LinearProgress,
-  styled,
-  useTheme
+	Card,
+	Box,
+	Typography,
+	Avatar,
+	Divider,
+	Grid,
+	LinearProgress,
+	styled,
+	useTheme
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import WorkTwoToneIcon from '@mui/icons-material/WorkTwoTone';
 
 const AvatarWrapper = styled(Avatar)(
-  ({ theme }) => `
+	({ theme }) => `
     width: ${theme.spacing(8)};
     height: ${theme.spacing(8)};
 `
 );
 
 const DotLegend = styled('span')(
-  ({ theme }) => `
+	({ theme }) => `
     border-radius: 22px;
     width: ${theme.spacing(1.5)};
     height: ${theme.spacing(1.5)};
@@ -30,7 +30,7 @@ const DotLegend = styled('span')(
 );
 
 const AvatarPrimary = styled(Avatar)(
-  ({ theme }) => `
+	({ theme }) => `
       background-color: ${theme.colors.primary.lighter};
       color: ${theme.colors.primary.main};
       width: ${theme.spacing(5)};
@@ -39,7 +39,7 @@ const AvatarPrimary = styled(Avatar)(
 );
 
 const LinearProgressWrapper = styled(LinearProgress)(
-  ({ theme }) => `
+	({ theme }) => `
         flex-grow: 1;
         height: 8px;
         width: 80%;
@@ -56,117 +56,125 @@ const LinearProgressWrapper = styled(LinearProgress)(
 );
 
 function TopAgents2() {
-  const { t } = useTranslation();
-  const theme = useTheme();
+	const { t } = useTranslation();
+	const theme = useTheme();
 
-  return (
-    <Card>
-      <Box
-        sx={{
-          p: 4
-        }}
-      >
-        <AvatarWrapper
-          sx={{
-            mb: 2
-          }}
-          variant="rounded"
-          src="/static/images/avatars/4.jpg"
-        />
-        <Typography variant="h3">Zain Vetrovs</Typography>
-        <Typography variant="subtitle2" gutterBottom>
-          {t('Technical Support Team')}
-        </Typography>
+	return (
+		<Card>
+			<Box
+				sx={{
+					p: 4
+				}}
+			>
+				<AvatarWrapper
+					sx={{
+						mb: 2
+					}}
+					variant="rounded"
+					src="/images/avatars/4.jpg"
+				/>
+				<Typography variant="h3">Zain Vetrovs</Typography>
+				<Typography variant="subtitle2" gutterBottom>
+					{t('Technical Support Team')}
+				</Typography>
 
-        <Typography
-          variant="body1"
-          sx={{
-            pt: 0.5,
-            display: 'flex',
-            alignItems: 'center'
-          }}
-        >
-          <DotLegend style={{ background: theme.colors.warning.main }} />
-          {t('idle')}
-          <Typography variant="body1" color="text.secondary" component="span">
-            &nbsp; - 0:58
-          </Typography>
-        </Typography>
-      </Box>
-      <Divider />
-      <Box
-        sx={{
-          p: 4
-        }}
-      >
-        <Grid spacing={3} container>
-          <Grid item sm={6}>
-            <Typography
-              variant="caption"
-              sx={{
-                pb: 1
-              }}
-              component="div"
-            >
-              {t('Capacity')}
-            </Typography>
-            <Box>
-              <Typography
-                color="text.primary"
-                variant="h2"
-                sx={{
-                  pr: 0.5,
-                  display: 'inline-flex'
-                }}
-              >
-                7
-              </Typography>
-              <Typography
-                color="text.secondary"
-                variant="h4"
-                sx={{
-                  pr: 2,
-                  display: 'inline-flex'
-                }}
-              >
-                /10
-              </Typography>
-              <LinearProgressWrapper
-                value={70}
-                color="primary"
-                variant="determinate"
-              />
-            </Box>
-          </Grid>
-          <Grid item sm={6}>
-            <Typography
-              variant="caption"
-              sx={{
-                pb: 1.5
-              }}
-              component="div"
-            >
-              {t('Productivity')}
-            </Typography>
-            <Box display="flex" alignItems="center">
-              <AvatarPrimary>
-                <WorkTwoToneIcon />
-              </AvatarPrimary>
-              <Typography
-                variant="h3"
-                sx={{
-                  pl: 1
-                }}
-                component="div"
-              >
-                67%
-              </Typography>
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
-    </Card>
-  );
+				<Typography
+					variant="body1"
+					sx={{
+						pt: 0.5,
+						display: 'flex',
+						alignItems: 'center'
+					}}
+				>
+					<DotLegend
+						style={{
+							background: theme.colors.warning.main
+						}}
+					/>
+					{t('idle')}
+					<Typography
+						variant="body1"
+						color="text.secondary"
+						component="span"
+					>
+						&nbsp; - 0:58
+					</Typography>
+				</Typography>
+			</Box>
+			<Divider />
+			<Box
+				sx={{
+					p: 4
+				}}
+			>
+				<Grid spacing={3} container>
+					<Grid item sm={6}>
+						<Typography
+							variant="caption"
+							sx={{
+								pb: 1
+							}}
+							component="div"
+						>
+							{t('Capacity')}
+						</Typography>
+						<Box>
+							<Typography
+								color="text.primary"
+								variant="h2"
+								sx={{
+									pr: 0.5,
+									display: 'inline-flex'
+								}}
+							>
+								7
+							</Typography>
+							<Typography
+								color="text.secondary"
+								variant="h4"
+								sx={{
+									pr: 2,
+									display: 'inline-flex'
+								}}
+							>
+								/10
+							</Typography>
+							<LinearProgressWrapper
+								value={70}
+								color="primary"
+								variant="determinate"
+							/>
+						</Box>
+					</Grid>
+					<Grid item sm={6}>
+						<Typography
+							variant="caption"
+							sx={{
+								pb: 1.5
+							}}
+							component="div"
+						>
+							{t('Productivity')}
+						</Typography>
+						<Box display="flex" alignItems="center">
+							<AvatarPrimary>
+								<WorkTwoToneIcon />
+							</AvatarPrimary>
+							<Typography
+								variant="h3"
+								sx={{
+									pl: 1
+								}}
+								component="div"
+							>
+								67%
+							</Typography>
+						</Box>
+					</Grid>
+				</Grid>
+			</Box>
+		</Card>
+	);
 }
 
 export default TopAgents2;

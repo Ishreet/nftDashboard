@@ -114,7 +114,7 @@ function Logo() {
 					badgeContent="3.0"
 				> */}
 				<img
-					src={'/static/images/logo/KapitalLogo.png'}
+					src={'/images/logo/KapitalLogo.png'}
 					height={65}
 					width={215}
 				/>

@@ -340,10 +340,10 @@ const LayoutImgButton = styled(Link)(
 );
 
 const icons = {
-	Auth0: '/static/images/logo/auth0.svg',
-	FirebaseAuth: '/static/images/logo/firebase.svg',
-	JWT: '/static/images/logo/jwt.svg',
-	Amplify: '/static/images/logo/amplify.svg'
+	Auth0: '/images/logo/auth0.svg',
+	FirebaseAuth: '/images/logo/firebase.svg',
+	JWT: '/images/logo/jwt.svg',
+	Amplify: '/images/logo/amplify.svg'
 };
 
 function Highlights() {
@@ -377,7 +377,7 @@ function Highlights() {
 				<BoxLayoutsImage
 					sx={{
 						backgroundImage:
-							'url("/static/images/placeholders/covers/7.jpg")'
+							'url("/images/placeholders/covers/7.jpg")'
 					}}
 				/>
 				<BoxLayoutsContent maxWidth="lg">
@@ -429,7 +429,7 @@ function Highlights() {
 									{t('Accent Header')}
 								</Typography>
 								<img
-									src="/static/images/overview/accent_header.png"
+									src="/images/overview/accent_header.png"
 									alt="Accent Header"
 								/>
 							</LayoutImgButton>
@@ -444,7 +444,7 @@ function Highlights() {
 									{t('Extended Sidebar')}
 								</Typography>
 								<img
-									src="/static/images/overview/extended_sidebar.png"
+									src="/images/overview/extended_sidebar.png"
 									alt="Extended Sidebar"
 								/>
 							</LayoutImgButton>
@@ -459,7 +459,7 @@ function Highlights() {
 									{t('Accent Sidebar')}
 								</Typography>
 								<img
-									src="/static/images/overview/accent_sidebar.png"
+									src="/images/overview/accent_sidebar.png"
 									alt="Accent Sidebar"
 								/>
 							</LayoutImgButton>
@@ -474,7 +474,7 @@ function Highlights() {
 									{t('Boxed Sidebar')}
 								</Typography>
 								<img
-									src="/static/images/overview/boxed_sidebar.png"
+									src="/images/overview/boxed_sidebar.png"
 									alt="Boxed Sidebar"
 								/>
 							</LayoutImgButton>
@@ -489,7 +489,7 @@ function Highlights() {
 									{t('Collapsed Sidebar')}
 								</Typography>
 								<img
-									src="/static/images/overview/collapsed_sidebar.png"
+									src="/images/overview/collapsed_sidebar.png"
 									alt="Collapsed Sidebar"
 								/>
 							</LayoutImgButton>
@@ -504,7 +504,7 @@ function Highlights() {
 									{t('Top Navigation')}
 								</Typography>
 								<img
-									src="/static/images/overview/top_navigation.png"
+									src="/images/overview/top_navigation.png"
 									alt="Bottom Navigation"
 								/>
 							</LayoutImgButton>
@@ -519,7 +519,7 @@ function Highlights() {
 									{t('Bottom Navigation')}
 								</Typography>
 								<img
-									src="/static/images/overview/bottom_navigation.png"
+									src="/images/overview/bottom_navigation.png"
 									alt="Bottom Navigation"
 								/>
 							</LayoutImgButton>
@@ -1473,7 +1473,7 @@ function Highlights() {
 										}}
 									>
 										<img
-											src="/static/images/overview/management_screen_1.png"
+											src="/images/overview/management_screen_1.png"
 											alt="Management Section 1"
 										/>
 									</Card>
@@ -1502,7 +1502,7 @@ function Highlights() {
 										}}
 									>
 										<img
-											src="/static/images/overview/management_screen_3.png"
+											src="/images/overview/management_screen_3.png"
 											alt="Management Section 3"
 										/>
 									</Card>
@@ -1531,7 +1531,7 @@ function Highlights() {
 										}}
 									>
 										<img
-											src="/static/images/overview/management_screen_2.png"
+											src="/images/overview/management_screen_2.png"
 											alt="Management Section 2"
 										/>
 									</Card>
@@ -1809,7 +1809,7 @@ function Highlights() {
 								<Blob2 />
 								<CardImageWrapper>
 									<img
-										src="/static/images/overview/performance.png"
+										src="/images/overview/performance.png"
 										alt="Tokyo Performance"
 									/>
 								</CardImageWrapper>
@@ -2099,7 +2099,7 @@ function Highlights() {
 								<Grid item xs={12} md={7}>
 									<ScreenshotWrapper>
 										<Screenshot
-											src="/static/images/overview/rtl-preview.jpg"
+											src="/images/overview/rtl-preview.jpg"
 											alt="RTL Preview"
 										/>
 									</ScreenshotWrapper>
@@ -2200,7 +2200,7 @@ function Highlights() {
 								alignItems="flex-start"
 							>
 								<img
-									src="/static/images/overview/figma.svg"
+									src="/images/overview/figma.svg"
 									style={{ width: 60 }}
 									alt="Figma Design Files"
 								/>
@@ -2251,7 +2251,7 @@ function Highlights() {
 								alignItems="flex-start"
 							>
 								<img
-									src="/static/images/overview/sketch.svg"
+									src="/images/overview/sketch.svg"
 									style={{ width: 60 }}
 									alt="Sketch Design Files"
 								/>

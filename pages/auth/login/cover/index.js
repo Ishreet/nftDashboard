@@ -23,10 +23,10 @@ import Logo from '../../../../src/components/Logo';
 import Scrollbar from '../../../../src/components/Scrollbar';
 
 const icons = {
-	Auth0: '/static/images/logo/auth0.svg',
-	FirebaseAuth: '/static/images/logo/firebase.svg',
-	JWT: '/static/images/logo/jwt.svg',
-	Amplify: '/static/images/logo/amplify.svg'
+	Auth0: '/images/logo/auth0.svg',
+	FirebaseAuth: '/images/logo/firebase.svg',
+	JWT: '/images/logo/jwt.svg',
+	Amplify: '/images/logo/amplify.svg'
 };
 
 const Content = styled(Box)(

@@ -1,23 +1,23 @@
 import {
-  Grid,
-  Box,
-  Avatar,
-  Card,
-  MenuItem,
-  Rating,
-  ListItemText,
-  alpha,
-  Typography,
-  MenuList,
-  styled,
-  useTheme
+	Grid,
+	Box,
+	Avatar,
+	Card,
+	MenuItem,
+	Rating,
+	ListItemText,
+	alpha,
+	Typography,
+	MenuList,
+	styled,
+	useTheme
 } from '@mui/material';
 
 import { useTranslation } from 'react-i18next';
 import ChevronRightTwoToneIcon from '@mui/icons-material/ChevronRightTwoTone';
 
 const MenuListWrapperRounded = styled(MenuList)(
-  ({ theme }) => `
+	({ theme }) => `
     & .MuiMenuItem-root {
         border-radius: 50px;
         padding: ${theme.spacing(1, 1, 1, 2.5)};
@@ -40,7 +40,7 @@ const MenuListWrapperRounded = styled(MenuList)(
 );
 
 const MenuListWrapperSquare = styled(MenuList)(
-  ({ theme }) => `
+	({ theme }) => `
     & .MuiMenuItem-root {
         border-radius: ${theme.general.borderRadiusSm};
         padding: ${theme.spacing(1, 1, 1, 2.5)};
@@ -63,7 +63,7 @@ const MenuListWrapperSquare = styled(MenuList)(
 );
 
 const MenuListWrapperLine = styled(MenuList)(
-  ({ theme }) => `
+	({ theme }) => `
     & .MuiMenuItem-root {
         border-radius: ${theme.general.borderRadius};
         border-top-left-radius: 0;
@@ -110,7 +110,7 @@ const MenuListWrapperLine = styled(MenuList)(
 );
 
 const LabelWrapper = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
     font-size: ${theme.typography.pxToRem(10)};
     font-weight: bold;
     text-transform: uppercase;
@@ -120,389 +120,416 @@ const LabelWrapper = styled(Box)(
 );
 
 function Block5() {
-  const { t } = useTranslation();
-  const theme = useTheme();
+	const { t } = useTranslation();
+	const theme = useTheme();
 
-  return (
-    <Grid container spacing={4}>
-      <Grid item xs={12} md={4}>
-        <Card>
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexGrow={1}
-          >
-            <Box>
-              <Box
-                sx={{
-                  textAlign: 'center'
-                }}
-                py={5}
-                px={2}
-              >
-                <Avatar
-                  variant="square"
-                  sx={{
-                    mx: 'auto',
-                    mb: 2,
-                    width: 'auto',
-                    height: 36,
-                    '& img': {
-                      objectFit: 'contain'
-                    }
-                  }}
-                  src="/static/images/placeholders/logo/coinbase.svg"
-                />
-                <Rating defaultValue={4} precision={0.5} />
-                <Typography
-                  sx={{
-                    pt: 1
-                  }}
-                  variant="subtitle2"
-                  textAlign="center"
-                >
-                  {t(
-                    'High performance React template built with lots of powerful components across multiple product niches for fast & perfect apps development processes'
-                  )}
-                  .
-                </Typography>
-              </Box>
-              <MenuListWrapperRounded
-                disablePadding
-                sx={{
-                  mb: 3,
-                  mx: 3
-                }}
-              >
-                <MenuItem selected>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Analytics')}
-                  />
-                  <ChevronRightTwoToneIcon
-                    sx={{
-                      color: `${theme.colors.alpha.black[30]}`,
-                      opacity: 0.8
-                    }}
-                  />
-                </MenuItem>
-                <MenuItem>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Server Status')}
-                  />
-                  <Box display="flex" alignItems="center">
-                    <LabelWrapper
-                      component="span"
-                      sx={{
-                        background: `${theme.colors.primary.main}`,
-                        color: `${theme.palette.getContrastText(
-                          theme.colors.primary.dark
-                        )}`
-                      }}
-                    >
-                      {t('Hot')}
-                    </LabelWrapper>
-                    <ChevronRightTwoToneIcon
-                      sx={{
-                        ml: 1,
-                        color: `${theme.colors.alpha.black[30]}`,
-                        opacity: 0.8
-                      }}
-                    />
-                  </Box>
-                </MenuItem>
-                <MenuItem disabled>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Reports Management')}
-                  />
-                  <ChevronRightTwoToneIcon
-                    sx={{
-                      color: `${theme.colors.alpha.black[30]}`,
-                      opacity: 0.8
-                    }}
-                  />
-                </MenuItem>
-                <MenuItem>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Real Estate')}
-                  />
-                  <ChevronRightTwoToneIcon
-                    sx={{
-                      color: `${theme.colors.alpha.black[30]}`,
-                      opacity: 0.8
-                    }}
-                  />
-                </MenuItem>
-              </MenuListWrapperRounded>
-            </Box>
-          </Box>
-        </Card>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Card>
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexGrow={1}
-          >
-            <Box>
-              <Box
-                sx={{
-                  textAlign: 'center'
-                }}
-                py={5}
-                px={2}
-              >
-                <Avatar
-                  variant="square"
-                  sx={{
-                    mx: 'auto',
-                    mb: 2,
-                    width: 'auto',
-                    height: 36,
-                    '& img': {
-                      objectFit: 'contain'
-                    }
-                  }}
-                  src="/static/images/placeholders/logo/netflix.svg"
-                />
-                <Rating defaultValue={3.5} precision={0.5} />
-                <Typography
-                  sx={{
-                    pt: 1
-                  }}
-                  variant="subtitle2"
-                  textAlign="center"
-                >
-                  {t(
-                    'High performance React template built with lots of powerful components across multiple product niches for fast & perfect apps development processes'
-                  )}
-                  .
-                </Typography>
-              </Box>
-              <MenuListWrapperLine
-                disablePadding
-                sx={{
-                  mb: 3,
-                  mr: 3
-                }}
-              >
-                <MenuItem selected>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Analytics')}
-                  />
-                  <ChevronRightTwoToneIcon
-                    sx={{
-                      color: `${theme.colors.alpha.black[30]}`,
-                      opacity: 0.8
-                    }}
-                  />
-                </MenuItem>
-                <MenuItem>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Server Status')}
-                  />
-                  <Box display="flex" alignItems="center">
-                    <LabelWrapper
-                      component="span"
-                      sx={{
-                        borderRadius: 50,
-                        background: `${theme.colors.alpha.black[100]}`,
-                        color: `${theme.palette.getContrastText(
-                          theme.colors.alpha.black[100]
-                        )}`
-                      }}
-                    >
-                      {t('New')}
-                    </LabelWrapper>
-                    <ChevronRightTwoToneIcon
-                      sx={{
-                        ml: 1,
-                        color: `${theme.colors.alpha.black[30]}`,
-                        opacity: 0.8
-                      }}
-                    />
-                  </Box>
-                </MenuItem>
-                <MenuItem disabled>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Reports Management')}
-                  />
-                  <ChevronRightTwoToneIcon
-                    sx={{
-                      color: `${theme.colors.alpha.black[30]}`,
-                      opacity: 0.8
-                    }}
-                  />
-                </MenuItem>
-                <MenuItem>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Real Estate')}
-                  />
-                  <ChevronRightTwoToneIcon
-                    sx={{
-                      color: `${theme.colors.alpha.black[30]}`,
-                      opacity: 0.8
-                    }}
-                  />
-                </MenuItem>
-              </MenuListWrapperLine>
-            </Box>
-          </Box>
-        </Card>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Card>
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexGrow={1}
-          >
-            <Box>
-              <Box
-                sx={{
-                  textAlign: 'center'
-                }}
-                py={5}
-                px={2}
-              >
-                <Avatar
-                  variant="square"
-                  sx={{
-                    mx: 'auto',
-                    mb: 2,
-                    width: 'auto',
-                    height: 36,
-                    '& img': {
-                      objectFit: 'contain'
-                    }
-                  }}
-                  src="/static/images/placeholders/logo/slack-big.svg"
-                />
-                <Rating defaultValue={5} precision={0.5} />
-                <Typography
-                  sx={{
-                    pt: 1
-                  }}
-                  variant="subtitle2"
-                  textAlign="center"
-                >
-                  {t(
-                    'High performance React template built with lots of powerful components across multiple product niches for fast & perfect apps development processes'
-                  )}
-                  .
-                </Typography>
-              </Box>
-              <MenuListWrapperSquare
-                disablePadding
-                sx={{
-                  mb: 3,
-                  mx: 3
-                }}
-              >
-                <MenuItem selected>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Analytics')}
-                  />
-                  <ChevronRightTwoToneIcon
-                    sx={{
-                      color: `${theme.colors.alpha.black[30]}`,
-                      opacity: 0.8
-                    }}
-                  />
-                </MenuItem>
-                <MenuItem>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Server Status')}
-                  />
-                  <Box display="flex" alignItems="center">
-                    <LabelWrapper
-                      component="span"
-                      sx={{
-                        background: `${theme.colors.success.main}`,
-                        color: `${theme.palette.getContrastText(
-                          theme.colors.success.dark
-                        )}`
-                      }}
-                    >
-                      654
-                    </LabelWrapper>
-                    <ChevronRightTwoToneIcon
-                      sx={{
-                        ml: 1,
-                        color: `${theme.colors.alpha.black[30]}`,
-                        opacity: 0.8
-                      }}
-                    />
-                  </Box>
-                </MenuItem>
-                <MenuItem disabled>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Reports Management')}
-                  />
-                  <ChevronRightTwoToneIcon
-                    sx={{
-                      color: `${theme.colors.alpha.black[30]}`,
-                      opacity: 0.8
-                    }}
-                  />
-                </MenuItem>
-                <MenuItem>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      variant: 'h5'
-                    }}
-                    primary={t('Real Estate')}
-                  />
-                  <ChevronRightTwoToneIcon
-                    sx={{
-                      color: `${theme.colors.alpha.black[30]}`,
-                      opacity: 0.8
-                    }}
-                  />
-                </MenuItem>
-              </MenuListWrapperSquare>
-            </Box>
-          </Box>
-        </Card>
-      </Grid>
-    </Grid>
-  );
+	return (
+		<Grid container spacing={4}>
+			<Grid item xs={12} md={4}>
+				<Card>
+					<Box
+						display="flex"
+						justifyContent="center"
+						alignItems="center"
+						flexGrow={1}
+					>
+						<Box>
+							<Box
+								sx={{
+									textAlign: 'center'
+								}}
+								py={5}
+								px={2}
+							>
+								<Avatar
+									variant="square"
+									sx={{
+										mx: 'auto',
+										mb: 2,
+										width: 'auto',
+										height: 36,
+										'& img': {
+											objectFit: 'contain'
+										}
+									}}
+									src="/images/placeholders/logo/coinbase.svg"
+								/>
+								<Rating
+									defaultValue={4}
+									precision={0.5}
+								/>
+								<Typography
+									sx={{
+										pt: 1
+									}}
+									variant="subtitle2"
+									textAlign="center"
+								>
+									{t(
+										'High performance React template built with lots of powerful components across multiple product niches for fast & perfect apps development processes'
+									)}
+									.
+								</Typography>
+							</Box>
+							<MenuListWrapperRounded
+								disablePadding
+								sx={{
+									mb: 3,
+									mx: 3
+								}}
+							>
+								<MenuItem selected>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t('Analytics')}
+									/>
+									<ChevronRightTwoToneIcon
+										sx={{
+											color: `${theme.colors.alpha.black[30]}`,
+											opacity: 0.8
+										}}
+									/>
+								</MenuItem>
+								<MenuItem>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t('Server Status')}
+									/>
+									<Box
+										display="flex"
+										alignItems="center"
+									>
+										<LabelWrapper
+											component="span"
+											sx={{
+												background: `${theme.colors.primary.main}`,
+												color: `${theme.palette.getContrastText(
+													theme.colors
+														.primary.dark
+												)}`
+											}}
+										>
+											{t('Hot')}
+										</LabelWrapper>
+										<ChevronRightTwoToneIcon
+											sx={{
+												ml: 1,
+												color: `${theme.colors.alpha.black[30]}`,
+												opacity: 0.8
+											}}
+										/>
+									</Box>
+								</MenuItem>
+								<MenuItem disabled>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t(
+											'Reports Management'
+										)}
+									/>
+									<ChevronRightTwoToneIcon
+										sx={{
+											color: `${theme.colors.alpha.black[30]}`,
+											opacity: 0.8
+										}}
+									/>
+								</MenuItem>
+								<MenuItem>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t('Real Estate')}
+									/>
+									<ChevronRightTwoToneIcon
+										sx={{
+											color: `${theme.colors.alpha.black[30]}`,
+											opacity: 0.8
+										}}
+									/>
+								</MenuItem>
+							</MenuListWrapperRounded>
+						</Box>
+					</Box>
+				</Card>
+			</Grid>
+			<Grid item xs={12} md={4}>
+				<Card>
+					<Box
+						display="flex"
+						justifyContent="center"
+						alignItems="center"
+						flexGrow={1}
+					>
+						<Box>
+							<Box
+								sx={{
+									textAlign: 'center'
+								}}
+								py={5}
+								px={2}
+							>
+								<Avatar
+									variant="square"
+									sx={{
+										mx: 'auto',
+										mb: 2,
+										width: 'auto',
+										height: 36,
+										'& img': {
+											objectFit: 'contain'
+										}
+									}}
+									src="/images/placeholders/logo/netflix.svg"
+								/>
+								<Rating
+									defaultValue={3.5}
+									precision={0.5}
+								/>
+								<Typography
+									sx={{
+										pt: 1
+									}}
+									variant="subtitle2"
+									textAlign="center"
+								>
+									{t(
+										'High performance React template built with lots of powerful components across multiple product niches for fast & perfect apps development processes'
+									)}
+									.
+								</Typography>
+							</Box>
+							<MenuListWrapperLine
+								disablePadding
+								sx={{
+									mb: 3,
+									mr: 3
+								}}
+							>
+								<MenuItem selected>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t('Analytics')}
+									/>
+									<ChevronRightTwoToneIcon
+										sx={{
+											color: `${theme.colors.alpha.black[30]}`,
+											opacity: 0.8
+										}}
+									/>
+								</MenuItem>
+								<MenuItem>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t('Server Status')}
+									/>
+									<Box
+										display="flex"
+										alignItems="center"
+									>
+										<LabelWrapper
+											component="span"
+											sx={{
+												borderRadius: 50,
+												background: `${theme.colors.alpha.black[100]}`,
+												color: `${theme.palette.getContrastText(
+													theme.colors.alpha
+														.black[100]
+												)}`
+											}}
+										>
+											{t('New')}
+										</LabelWrapper>
+										<ChevronRightTwoToneIcon
+											sx={{
+												ml: 1,
+												color: `${theme.colors.alpha.black[30]}`,
+												opacity: 0.8
+											}}
+										/>
+									</Box>
+								</MenuItem>
+								<MenuItem disabled>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t(
+											'Reports Management'
+										)}
+									/>
+									<ChevronRightTwoToneIcon
+										sx={{
+											color: `${theme.colors.alpha.black[30]}`,
+											opacity: 0.8
+										}}
+									/>
+								</MenuItem>
+								<MenuItem>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t('Real Estate')}
+									/>
+									<ChevronRightTwoToneIcon
+										sx={{
+											color: `${theme.colors.alpha.black[30]}`,
+											opacity: 0.8
+										}}
+									/>
+								</MenuItem>
+							</MenuListWrapperLine>
+						</Box>
+					</Box>
+				</Card>
+			</Grid>
+			<Grid item xs={12} md={4}>
+				<Card>
+					<Box
+						display="flex"
+						justifyContent="center"
+						alignItems="center"
+						flexGrow={1}
+					>
+						<Box>
+							<Box
+								sx={{
+									textAlign: 'center'
+								}}
+								py={5}
+								px={2}
+							>
+								<Avatar
+									variant="square"
+									sx={{
+										mx: 'auto',
+										mb: 2,
+										width: 'auto',
+										height: 36,
+										'& img': {
+											objectFit: 'contain'
+										}
+									}}
+									src="/images/placeholders/logo/slack-big.svg"
+								/>
+								<Rating
+									defaultValue={5}
+									precision={0.5}
+								/>
+								<Typography
+									sx={{
+										pt: 1
+									}}
+									variant="subtitle2"
+									textAlign="center"
+								>
+									{t(
+										'High performance React template built with lots of powerful components across multiple product niches for fast & perfect apps development processes'
+									)}
+									.
+								</Typography>
+							</Box>
+							<MenuListWrapperSquare
+								disablePadding
+								sx={{
+									mb: 3,
+									mx: 3
+								}}
+							>
+								<MenuItem selected>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t('Analytics')}
+									/>
+									<ChevronRightTwoToneIcon
+										sx={{
+											color: `${theme.colors.alpha.black[30]}`,
+											opacity: 0.8
+										}}
+									/>
+								</MenuItem>
+								<MenuItem>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t('Server Status')}
+									/>
+									<Box
+										display="flex"
+										alignItems="center"
+									>
+										<LabelWrapper
+											component="span"
+											sx={{
+												background: `${theme.colors.success.main}`,
+												color: `${theme.palette.getContrastText(
+													theme.colors
+														.success.dark
+												)}`
+											}}
+										>
+											654
+										</LabelWrapper>
+										<ChevronRightTwoToneIcon
+											sx={{
+												ml: 1,
+												color: `${theme.colors.alpha.black[30]}`,
+												opacity: 0.8
+											}}
+										/>
+									</Box>
+								</MenuItem>
+								<MenuItem disabled>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t(
+											'Reports Management'
+										)}
+									/>
+									<ChevronRightTwoToneIcon
+										sx={{
+											color: `${theme.colors.alpha.black[30]}`,
+											opacity: 0.8
+										}}
+									/>
+								</MenuItem>
+								<MenuItem>
+									<ListItemText
+										primaryTypographyProps={{
+											variant: 'h5'
+										}}
+										primary={t('Real Estate')}
+									/>
+									<ChevronRightTwoToneIcon
+										sx={{
+											color: `${theme.colors.alpha.black[30]}`,
+											opacity: 0.8
+										}}
+									/>
+								</MenuItem>
+							</MenuListWrapperSquare>
+						</Box>
+					</Box>
+				</Card>
+			</Grid>
+		</Grid>
+	);
 }
 
 export default Block5;

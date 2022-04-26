@@ -1,31 +1,31 @@
 import {
-  Box,
-  Card,
-  Typography,
-  alpha,
-  TableHead,
-  Button,
-  TableRow,
-  TableCell,
-  TableBody,
-  Avatar,
-  Table,
-  TableContainer,
-  styled,
-  useTheme
+	Box,
+	Card,
+	Typography,
+	alpha,
+	TableHead,
+	Button,
+	TableRow,
+	TableCell,
+	TableBody,
+	Avatar,
+	Table,
+	TableContainer,
+	styled,
+	useTheme
 } from '@mui/material';
 import Link from 'src/components/Link';
 
 import { useTranslation } from 'react-i18next';
 
 const BoxComposed = styled(Box)(
-  () => `
+	() => `
     position: relative;
   `
 );
 
 const BoxComposedContent = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
     position: relative;
     z-index: 7;
 
@@ -41,7 +41,7 @@ const BoxComposedContent = styled(Box)(
 );
 
 const BoxComposedImage = styled(Box)(
-  () => `
+	() => `
     position: absolute;
     left: 0;
     top: 0;
@@ -55,7 +55,7 @@ const BoxComposedImage = styled(Box)(
 );
 
 const BoxComposedBg = styled(Box)(
-  () => `
+	() => `
     position: absolute;
     left: 0;
     top: 0;
@@ -67,7 +67,7 @@ const BoxComposedBg = styled(Box)(
 );
 
 const CardActions = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
     position: absolute;
     right: ${theme.spacing(2)};
     bottom: ${theme.spacing(2)};
@@ -76,7 +76,7 @@ const CardActions = styled(Box)(
 );
 
 const LabelWarning = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
     display: inline-block;
     background: ${theme.palette.warning.main};
     color: ${theme.palette.warning.contrastText};
@@ -91,7 +91,7 @@ const LabelWarning = styled(Box)(
 );
 
 const LabelError = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
     display: inline-block;
     background: ${theme.palette.error.main};
     color: ${theme.palette.error.contrastText};
@@ -106,7 +106,7 @@ const LabelError = styled(Box)(
 );
 
 const LabelSuccess = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
     display: inline-block;
     background: ${theme.palette.success.main};
     color: ${theme.palette.success.contrastText};
@@ -121,7 +121,7 @@ const LabelSuccess = styled(Box)(
 );
 
 const TableHeadWrapper = styled(TableHead)(
-  ({ theme }) => `
+	({ theme }) => `
       .MuiTableCell-root {
           text-transform: none;
           font-weight: normal;
@@ -137,7 +137,7 @@ const TableHeadWrapper = styled(TableHead)(
 );
 
 const TableWrapper = styled(Table)(
-  () => `
+	() => `
     .MuiTableCell-root {
         border-bottom: 0;
     }
@@ -145,271 +145,311 @@ const TableWrapper = styled(Table)(
 );
 
 function Block7() {
-  const { t } = useTranslation();
-  const theme = useTheme();
+	const { t } = useTranslation();
+	const theme = useTheme();
 
-  return (
-    <Card
-      sx={{
-        '&:hover': {
-          boxShadow: `0 2rem 8rem 0 ${alpha(
-            theme.colors.alpha.black[100],
-            0.05
-          )}, 
-                0 0.6rem 1.6rem ${alpha(theme.colors.alpha.black[100], 0.15)}, 
-                0 0.2rem 0.2rem ${alpha(theme.colors.alpha.black[100], 0.1)}`
-        }
-      }}
-    >
-      <BoxComposed
-        sx={{
-          background: `${theme.colors.gradients.blue1}`
-        }}
-      >
-        <CardActions>
-          <LabelSuccess>{t('New')}</LabelSuccess>
-        </CardActions>
-        <BoxComposedBg
-          sx={{
-            opacity: 0.1,
-            background: `${theme.colors.gradients.blue3}`
-          }}
-        />
-        <BoxComposedImage
-          sx={{
-            opacity: 0.3,
-            backgroundImage: 'url("/static/images/placeholders/covers/1.jpg")'
-          }}
-        />
-        <BoxComposedContent
-          sx={{
-            textAlign: 'center'
-          }}
-          py={6}
-        >
-          <Typography
-            sx={{
-              px: { xs: 4, md: 12 },
-              pb: 1.5,
-              lineHeight: 1.5
-            }}
-            variant="h2"
-          >
-            {t('The Ultimate UI Design System at your fingertips!')}
-          </Typography>
-          <Typography
-            sx={{
-              mb: 2.5,
-              px: { xs: 4, md: 8 },
-              lineHeight: 1.6
-            }}
-            fontWeight="normal"
-            variant="h4"
-          >
-            {t(
-              'High performance React template built with lots of powerful components across multiple product niches for fast & perfect apps development processes'
-            )}
-            .
-          </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            color="error"
-            sx={{
-              fontSize: `${theme.typography.pxToRem(12)}`,
-              textTransform: 'uppercase',
-              boxShadow: `${theme.colors.shadows.error}`
-            }}
-          >
-            {t('Contact us')}
-          </Button>
-        </BoxComposedContent>
-      </BoxComposed>
-      <Box p={2}>
-        <TableContainer>
-          <TableWrapper>
-            <TableHeadWrapper>
-              <TableRow>
-                <TableCell>{t('Employee')}</TableCell>
-                <TableCell align="center">{t('Status')}</TableCell>
-                <TableCell align="right">{t('Actions')}</TableCell>
-              </TableRow>
-            </TableHeadWrapper>
-            <TableBody>
-              <TableRow hover>
-                <TableCell>
-                  <Box display="flex" alignItems="center">
-                    <Avatar
-                      sx={{
-                        width: 50,
-                        height: 50,
-                        boxShadow: `0 .113rem .5rem ${theme.colors.alpha.black[10]}, 0 .126rem .225rem ${theme.colors.alpha.black[30]}`
-                      }}
-                      src="/static/images/avatars/1.jpg"
-                    />
-                    <Box ml={1.5}>
-                      <Link
-                        href="#"
-                        color="text.primary"
-                        underline="none"
-                        sx={{
-                          transition: `${theme.transitions.create(['color'])}`,
+	return (
+		<Card
+			sx={{
+				'&:hover': {
+					boxShadow: `0 2rem 8rem 0 ${alpha(
+						theme.colors.alpha.black[100],
+						0.05
+					)}, 
+                0 0.6rem 1.6rem ${alpha(
+					theme.colors.alpha.black[100],
+					0.15
+				)}, 
+                0 0.2rem 0.2rem ${alpha(
+					theme.colors.alpha.black[100],
+					0.1
+				)}`
+				}
+			}}
+		>
+			<BoxComposed
+				sx={{
+					background: `${theme.colors.gradients.blue1}`
+				}}
+			>
+				<CardActions>
+					<LabelSuccess>{t('New')}</LabelSuccess>
+				</CardActions>
+				<BoxComposedBg
+					sx={{
+						opacity: 0.1,
+						background: `${theme.colors.gradients.blue3}`
+					}}
+				/>
+				<BoxComposedImage
+					sx={{
+						opacity: 0.3,
+						backgroundImage:
+							'url("/images/placeholders/covers/1.jpg")'
+					}}
+				/>
+				<BoxComposedContent
+					sx={{
+						textAlign: 'center'
+					}}
+					py={6}
+				>
+					<Typography
+						sx={{
+							px: { xs: 4, md: 12 },
+							pb: 1.5,
+							lineHeight: 1.5
+						}}
+						variant="h2"
+					>
+						{t(
+							'The Ultimate UI Design System at your fingertips!'
+						)}
+					</Typography>
+					<Typography
+						sx={{
+							mb: 2.5,
+							px: { xs: 4, md: 8 },
+							lineHeight: 1.6
+						}}
+						fontWeight="normal"
+						variant="h4"
+					>
+						{t(
+							'High performance React template built with lots of powerful components across multiple product niches for fast & perfect apps development processes'
+						)}
+						.
+					</Typography>
+					<Button
+						variant="contained"
+						size="large"
+						color="error"
+						sx={{
+							fontSize: `${theme.typography.pxToRem(
+								12
+							)}`,
+							textTransform: 'uppercase',
+							boxShadow: `${theme.colors.shadows.error}`
+						}}
+					>
+						{t('Contact us')}
+					</Button>
+				</BoxComposedContent>
+			</BoxComposed>
+			<Box p={2}>
+				<TableContainer>
+					<TableWrapper>
+						<TableHeadWrapper>
+							<TableRow>
+								<TableCell>{t('Employee')}</TableCell>
+								<TableCell align="center">
+									{t('Status')}
+								</TableCell>
+								<TableCell align="right">
+									{t('Actions')}
+								</TableCell>
+							</TableRow>
+						</TableHeadWrapper>
+						<TableBody>
+							<TableRow hover>
+								<TableCell>
+									<Box
+										display="flex"
+										alignItems="center"
+									>
+										<Avatar
+											sx={{
+												width: 50,
+												height: 50,
+												boxShadow: `0 .113rem .5rem ${theme.colors.alpha.black[10]}, 0 .126rem .225rem ${theme.colors.alpha.black[30]}`
+											}}
+											src="/images/avatars/1.jpg"
+										/>
+										<Box ml={1.5}>
+											<Link
+												href="#"
+												color="text.primary"
+												underline="none"
+												sx={{
+													transition: `${theme.transitions.create(
+														['color']
+													)}`,
 
-                          '&:hover': {
-                            color: `${theme.colors.primary.main}`
-                          }
-                        }}
-                        variant="h5"
-                      >
-                        Shanelle Wynn
-                      </Link>
-                      <Typography variant="subtitle2">
-                        UI Engineer, Apple Inc.
-                      </Typography>
-                    </Box>
-                  </Box>
-                </TableCell>
-                <TableCell align="center">
-                  <LabelWarning>{t('Pending')}</LabelWarning>
-                </TableCell>
-                <TableCell align="right">
-                  <Button
-                    variant="text"
-                    size="small"
-                    color="primary"
-                    sx={{
-                      backgroundColor: `${theme.colors.primary.lighter}`,
-                      fontWeight: 'normal',
-                      '&:hover': {
-                        backgroundColor: `${theme.colors.primary.main}`,
-                        color: `${theme.palette.getContrastText(
-                          theme.colors.primary.main
-                        )}`
-                      }
-                    }}
-                  >
-                    {t('Chat')}
-                  </Button>
-                </TableCell>
-              </TableRow>
-              <TableRow hover>
-                <TableCell>
-                  <Box display="flex" alignItems="center">
-                    <Avatar
-                      sx={{
-                        width: 50,
-                        height: 50,
-                        boxShadow: `0 .113rem .5rem ${theme.colors.alpha.black[10]}, 0 .126rem .225rem ${theme.colors.alpha.black[30]}`
-                      }}
-                      src="/static/images/avatars/2.jpg"
-                    />
-                    <Box ml={1.5}>
-                      <Link
-                        href="#"
-                        color="text.primary"
-                        underline="none"
-                        sx={{
-                          transition: `${theme.transitions.create(['color'])}`,
+													'&:hover': {
+														color: `${theme.colors.primary.main}`
+													}
+												}}
+												variant="h5"
+											>
+												Shanelle Wynn
+											</Link>
+											<Typography variant="subtitle2">
+												UI Engineer, Apple
+												Inc.
+											</Typography>
+										</Box>
+									</Box>
+								</TableCell>
+								<TableCell align="center">
+									<LabelWarning>
+										{t('Pending')}
+									</LabelWarning>
+								</TableCell>
+								<TableCell align="right">
+									<Button
+										variant="text"
+										size="small"
+										color="primary"
+										sx={{
+											backgroundColor: `${theme.colors.primary.lighter}`,
+											fontWeight: 'normal',
+											'&:hover': {
+												backgroundColor: `${theme.colors.primary.main}`,
+												color: `${theme.palette.getContrastText(
+													theme.colors
+														.primary.main
+												)}`
+											}
+										}}
+									>
+										{t('Chat')}
+									</Button>
+								</TableCell>
+							</TableRow>
+							<TableRow hover>
+								<TableCell>
+									<Box
+										display="flex"
+										alignItems="center"
+									>
+										<Avatar
+											sx={{
+												width: 50,
+												height: 50,
+												boxShadow: `0 .113rem .5rem ${theme.colors.alpha.black[10]}, 0 .126rem .225rem ${theme.colors.alpha.black[30]}`
+											}}
+											src="/images/avatars/2.jpg"
+										/>
+										<Box ml={1.5}>
+											<Link
+												href="#"
+												color="text.primary"
+												underline="none"
+												sx={{
+													transition: `${theme.transitions.create(
+														['color']
+													)}`,
 
-                          '&:hover': {
-                            color: `${theme.colors.primary.main}`
-                          }
-                        }}
-                        variant="h5"
-                      >
-                        Beck Simpson
-                      </Link>
-                      <Typography variant="subtitle2">
-                        Frontend Developer
-                      </Typography>
-                    </Box>
-                  </Box>
-                </TableCell>
-                <TableCell align="center">
-                  <LabelSuccess>{t('Completed')}</LabelSuccess>
-                </TableCell>
-                <TableCell align="right">
-                  <Button
-                    variant="text"
-                    size="small"
-                    color="primary"
-                    sx={{
-                      backgroundColor: `${theme.colors.primary.lighter}`,
-                      fontWeight: 'normal',
-                      '&:hover': {
-                        backgroundColor: `${theme.colors.primary.main}`,
-                        color: `${theme.palette.getContrastText(
-                          theme.colors.primary.main
-                        )}`
-                      }
-                    }}
-                  >
-                    {t('Chat')}
-                  </Button>
-                </TableCell>
-              </TableRow>
-              <TableRow hover>
-                <TableCell>
-                  <Box display="flex" alignItems="center">
-                    <Avatar
-                      sx={{
-                        width: 50,
-                        height: 50,
-                        boxShadow: `0 .113rem .5rem ${theme.colors.alpha.black[10]}, 0 .126rem .225rem ${theme.colors.alpha.black[30]}`
-                      }}
-                      src="/static/images/avatars/2.jpg"
-                    />
-                    <Box ml={1.5}>
-                      <Link
-                        href="#"
-                        color="text.primary"
-                        underline="none"
-                        sx={{
-                          transition: `${theme.transitions.create(['color'])}`,
+													'&:hover': {
+														color: `${theme.colors.primary.main}`
+													}
+												}}
+												variant="h5"
+											>
+												Beck Simpson
+											</Link>
+											<Typography variant="subtitle2">
+												Frontend Developer
+											</Typography>
+										</Box>
+									</Box>
+								</TableCell>
+								<TableCell align="center">
+									<LabelSuccess>
+										{t('Completed')}
+									</LabelSuccess>
+								</TableCell>
+								<TableCell align="right">
+									<Button
+										variant="text"
+										size="small"
+										color="primary"
+										sx={{
+											backgroundColor: `${theme.colors.primary.lighter}`,
+											fontWeight: 'normal',
+											'&:hover': {
+												backgroundColor: `${theme.colors.primary.main}`,
+												color: `${theme.palette.getContrastText(
+													theme.colors
+														.primary.main
+												)}`
+											}
+										}}
+									>
+										{t('Chat')}
+									</Button>
+								</TableCell>
+							</TableRow>
+							<TableRow hover>
+								<TableCell>
+									<Box
+										display="flex"
+										alignItems="center"
+									>
+										<Avatar
+											sx={{
+												width: 50,
+												height: 50,
+												boxShadow: `0 .113rem .5rem ${theme.colors.alpha.black[10]}, 0 .126rem .225rem ${theme.colors.alpha.black[30]}`
+											}}
+											src="/images/avatars/2.jpg"
+										/>
+										<Box ml={1.5}>
+											<Link
+												href="#"
+												color="text.primary"
+												underline="none"
+												sx={{
+													transition: `${theme.transitions.create(
+														['color']
+													)}`,
 
-                          '&:hover': {
-                            color: `${theme.colors.primary.main}`
-                          }
-                        }}
-                        variant="h5"
-                      >
-                        Regan Norris
-                      </Link>
-                      <Typography variant="subtitle2">
-                        Senior Project Manager
-                      </Typography>
-                    </Box>
-                  </Box>
-                </TableCell>
-                <TableCell align="center">
-                  <LabelError>{t('Declined')}</LabelError>
-                </TableCell>
-                <TableCell align="right">
-                  <Button
-                    variant="text"
-                    size="small"
-                    color="primary"
-                    sx={{
-                      backgroundColor: `${theme.colors.primary.lighter}`,
-                      fontWeight: 'normal',
-                      '&:hover': {
-                        backgroundColor: `${theme.colors.primary.main}`,
-                        color: `${theme.palette.getContrastText(
-                          theme.colors.primary.main
-                        )}`
-                      }
-                    }}
-                  >
-                    {t('Chat')}
-                  </Button>
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </TableWrapper>
-        </TableContainer>
-      </Box>
-    </Card>
-  );
+													'&:hover': {
+														color: `${theme.colors.primary.main}`
+													}
+												}}
+												variant="h5"
+											>
+												Regan Norris
+											</Link>
+											<Typography variant="subtitle2">
+												Senior Project Manager
+											</Typography>
+										</Box>
+									</Box>
+								</TableCell>
+								<TableCell align="center">
+									<LabelError>
+										{t('Declined')}
+									</LabelError>
+								</TableCell>
+								<TableCell align="right">
+									<Button
+										variant="text"
+										size="small"
+										color="primary"
+										sx={{
+											backgroundColor: `${theme.colors.primary.lighter}`,
+											fontWeight: 'normal',
+											'&:hover': {
+												backgroundColor: `${theme.colors.primary.main}`,
+												color: `${theme.palette.getContrastText(
+													theme.colors
+														.primary.main
+												)}`
+											}
+										}}
+									>
+										{t('Chat')}
+									</Button>
+								</TableCell>
+							</TableRow>
+						</TableBody>
+					</TableWrapper>
+				</TableContainer>
+			</Box>
+		</Card>
+	);
 }
 
 export default Block7;

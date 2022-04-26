@@ -3,17 +3,17 @@ import { useAuth } from 'src/hooks/useAuth';
 import { useRouter } from 'next/router';
 
 import {
-  Avatar,
-  Box,
-  IconButton,
-  Button,
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  Popover,
-  Typography,
-  styled
+	Avatar,
+	Box,
+	IconButton,
+	Button,
+	Divider,
+	List,
+	ListItem,
+	ListItemText,
+	Popover,
+	Typography,
+	styled
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import InboxTwoToneIcon from '@mui/icons-material/InboxTwoTone';
@@ -23,7 +23,7 @@ import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
 
 const IconButtonPrimary = styled(IconButton)(
-  ({ theme }) => `
+	({ theme }) => `
     display: inline-flex;
     border-radius: ${theme.general.borderRadiusLg};
     height: 58px;
@@ -50,21 +50,21 @@ const IconButtonPrimary = styled(IconButton)(
 );
 
 const MenuUserBox = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
         background: ${theme.colors.alpha.black[5]};
         padding: ${theme.spacing(2)};
 `
 );
 
 const UserBoxText = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
         text-align: left;
         padding-left: ${theme.spacing(1)};
 `
 );
 
 const UserBoxLabel = styled(Typography)(
-  ({ theme }) => `
+	({ theme }) => `
         font-weight: ${theme.typography.fontWeightBold};
         color: ${theme.palette.secondary.main};
         display: block;
@@ -72,143 +72,161 @@ const UserBoxLabel = styled(Typography)(
 );
 
 const UserBoxDescription = styled(Typography)(
-  ({ theme }) => `
+	({ theme }) => `
         color: ${theme.palette.secondary.light}
 `
 );
 
 function Userbox() {
-  const { t } = useTranslation();
+	const { t } = useTranslation();
 
-  const router = useRouter();
+	const router = useRouter();
 
-  const { logout } = useAuth();
+	const { logout } = useAuth();
 
-  const user = {
-    avatar: '/static/images/avatars/1.jpg',
-    name: 'Rachael Simons',
-    jobtitle: 'Lead Developer'
-  };
+	const user = {
+		avatar: '/images/avatars/1.jpg',
+		name: 'Rachael Simons',
+		jobtitle: 'Lead Developer'
+	};
 
-  const ref = useRef(null);
-  const [isOpen, setOpen] = useState(false);
+	const ref = useRef(null);
+	const [isOpen, setOpen] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+	const handleOpen = () => {
+		setOpen(true);
+	};
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+	const handleClose = () => {
+		setOpen(false);
+	};
 
-  const handleLogout = async () => {
-    try {
-      handleClose();
-      await logout();
-      router.push('/');
-    } catch (err) {
-      console.error(err);
-    }
-  };
+	const handleLogout = async () => {
+		try {
+			handleClose();
+			await logout();
+			router.push('/');
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
-  return (
-    <>
-      <IconButtonPrimary color="primary" ref={ref} onClick={handleOpen}>
-        <Avatar variant="rounded" alt={user.name} src={user.avatar} />
-        <Box
-          component="span"
-          sx={{
-            display: { xs: 'none', sm: 'inline-block' }
-          }}
-        >
-          <ExpandMoreTwoToneIcon
-            sx={{
-              ml: 1
-            }}
-          />
-        </Box>
-      </IconButtonPrimary>
-      <Popover
-        disableScrollLock
-        anchorEl={ref.current}
-        onClose={handleClose}
-        open={isOpen}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right'
-        }}
-        transformOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right'
-        }}
-      >
-        <MenuUserBox
-          sx={{
-            minWidth: 210
-          }}
-          display="flex"
-        >
-          <Avatar variant="rounded" alt={user.name} src={user.avatar} />
-          <UserBoxText>
-            <UserBoxLabel variant="body1">{user.name}</UserBoxLabel>
-            <UserBoxDescription variant="body2">
-              {user.jobtitle}
-            </UserBoxDescription>
-          </UserBoxText>
-        </MenuUserBox>
-        <Divider
-          sx={{
-            mb: 0
-          }}
-        />
-        <List
-          sx={{
-            p: 1
-          }}
-          component="nav"
-        >
-          <ListItem
-            button
-            onClick={() => {
-              handleClose();
-            }}
-          >
-            <AccountBoxTwoToneIcon fontSize="small" />
-            <ListItemText primary={t('Profile')} />
-          </ListItem>
-          <ListItem
-            button
-            onClick={() => {
-              handleClose();
-            }}
-          >
-            <InboxTwoToneIcon fontSize="small" />
-            <ListItemText primary={t('Inbox')} />
-          </ListItem>
-          <ListItem
-            button
-            onClick={() => {
-              handleClose();
-            }}
-          >
-            <AccountTreeTwoToneIcon fontSize="small" />
-            <ListItemText primary={t('Projects')} />
-          </ListItem>
-        </List>
-        <Divider />
-        <Box m={1}>
-          <Button color="primary" fullWidth onClick={handleLogout}>
-            <LockOpenTwoToneIcon
-              sx={{
-                mr: 1
-              }}
-            />
-            {t('Sign out')}
-          </Button>
-        </Box>
-      </Popover>
-    </>
-  );
+	return (
+		<>
+			<IconButtonPrimary
+				color="primary"
+				ref={ref}
+				onClick={handleOpen}
+			>
+				<Avatar
+					variant="rounded"
+					alt={user.name}
+					src={user.avatar}
+				/>
+				<Box
+					component="span"
+					sx={{
+						display: { xs: 'none', sm: 'inline-block' }
+					}}
+				>
+					<ExpandMoreTwoToneIcon
+						sx={{
+							ml: 1
+						}}
+					/>
+				</Box>
+			</IconButtonPrimary>
+			<Popover
+				disableScrollLock
+				anchorEl={ref.current}
+				onClose={handleClose}
+				open={isOpen}
+				anchorOrigin={{
+					vertical: 'bottom',
+					horizontal: 'right'
+				}}
+				transformOrigin={{
+					vertical: 'bottom',
+					horizontal: 'right'
+				}}
+			>
+				<MenuUserBox
+					sx={{
+						minWidth: 210
+					}}
+					display="flex"
+				>
+					<Avatar
+						variant="rounded"
+						alt={user.name}
+						src={user.avatar}
+					/>
+					<UserBoxText>
+						<UserBoxLabel variant="body1">
+							{user.name}
+						</UserBoxLabel>
+						<UserBoxDescription variant="body2">
+							{user.jobtitle}
+						</UserBoxDescription>
+					</UserBoxText>
+				</MenuUserBox>
+				<Divider
+					sx={{
+						mb: 0
+					}}
+				/>
+				<List
+					sx={{
+						p: 1
+					}}
+					component="nav"
+				>
+					<ListItem
+						button
+						onClick={() => {
+							handleClose();
+						}}
+					>
+						<AccountBoxTwoToneIcon fontSize="small" />
+						<ListItemText primary={t('Profile')} />
+					</ListItem>
+					<ListItem
+						button
+						onClick={() => {
+							handleClose();
+						}}
+					>
+						<InboxTwoToneIcon fontSize="small" />
+						<ListItemText primary={t('Inbox')} />
+					</ListItem>
+					<ListItem
+						button
+						onClick={() => {
+							handleClose();
+						}}
+					>
+						<AccountTreeTwoToneIcon fontSize="small" />
+						<ListItemText primary={t('Projects')} />
+					</ListItem>
+				</List>
+				<Divider />
+				<Box m={1}>
+					<Button
+						color="primary"
+						fullWidth
+						onClick={handleLogout}
+					>
+						<LockOpenTwoToneIcon
+							sx={{
+								mr: 1
+							}}
+						/>
+						{t('Sign out')}
+					</Button>
+				</Box>
+			</Popover>
+		</>
+	);
 }
 
 export default Userbox;

@@ -1,16 +1,16 @@
 import {
-  Card,
-  CardHeader,
-  Typography,
-  CardActionArea,
-  Button,
-  CardMedia,
-  Box,
-  alpha,
-  useTheme,
-  styled,
-  IconButton,
-  Divider
+	Card,
+	CardHeader,
+	Typography,
+	CardActionArea,
+	Button,
+	CardMedia,
+	Box,
+	alpha,
+	useTheme,
+	styled,
+	IconButton,
+	Divider
 } from '@mui/material';
 import Link from 'src/components/Link';
 
@@ -27,7 +27,7 @@ import ArrowForwardTwoToneIcon from '@mui/icons-material/ArrowForwardTwoTone';
 SwiperCore.use([Navigation, Pagination]);
 
 const SwipeIndicator = styled(IconButton)(
-  ({ theme }) => `
+	({ theme }) => `
         color: ${theme.colors.primary.main};
         width: ${theme.spacing(5)};
         height: ${theme.spacing(5)};
@@ -42,7 +42,7 @@ const SwipeIndicator = styled(IconButton)(
 );
 
 const CardActions = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
   position: absolute;
   right: ${theme.spacing(2)};
   bottom: ${theme.spacing(2)};
@@ -52,7 +52,7 @@ const CardActions = styled(Box)(
 );
 
 const LabelWrapper = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
   background: ${theme.palette.info.main};
   color: ${theme.palette.info.contrastText};
   text-transform: uppercase;
@@ -66,7 +66,7 @@ const LabelWrapper = styled(Box)(
 );
 
 const CardActionAreaWrapper = styled(CardActionArea)(
-  () => `
+	() => `
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -85,400 +85,425 @@ const CardActionAreaWrapper = styled(CardActionArea)(
 );
 
 function TrainingPrograms() {
-  const { t } = useTranslation();
-  const theme = useTheme();
+	const { t } = useTranslation();
+	const theme = useTheme();
 
-  return (
-    <Card>
-      <CardHeader
-        action={
-          <>
-            <SwipeIndicator className="MuiSwipe-root MuiSwipe-left">
-              <ChevronLeftTwoToneIcon />
-            </SwipeIndicator>
-            <SwipeIndicator className="MuiSwipe-root MuiSwipe-right">
-              <ChevronRightTwoToneIcon />
-            </SwipeIndicator>
-          </>
-        }
-        title={t('Training programs')}
-      />
-      <Divider />
-      <Box
-        pb={3}
-        sx={{
-          '.swiper-pagination-bullets': {
-            bottom: '0 !important'
-          }
-        }}
-      >
-        <Swiper
-          spaceBetween={0}
-          slidesPerView={1}
-          loop
-          navigation={{
-            nextEl: '.MuiSwipe-right',
-            prevEl: '.MuiSwipe-left'
-          }}
-          breakpoints={{
-            500: {
-              slidesPerView: 2,
-              spaceBetween: 0
-            },
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 0
-            },
-            1200: {
-              slidesPerView: 4,
-              spaceBetween: 0
-            }
-          }}
-          pagination={{ dynamicBullets: true, clickable: true }}
-        >
-          <SwiperSlide>
-            <Box pl={4} pr={0} py={4}>
-              <Card
-                sx={{
-                  textAlign: 'center',
-                  transition: `${theme.transitions.create([
-                    'box-shadow',
-                    'transform'
-                  ])}`,
-                  transform: 'translateY(0px)',
+	return (
+		<Card>
+			<CardHeader
+				action={
+					<>
+						<SwipeIndicator className="MuiSwipe-root MuiSwipe-left">
+							<ChevronLeftTwoToneIcon />
+						</SwipeIndicator>
+						<SwipeIndicator className="MuiSwipe-root MuiSwipe-right">
+							<ChevronRightTwoToneIcon />
+						</SwipeIndicator>
+					</>
+				}
+				title={t('Training programs')}
+			/>
+			<Divider />
+			<Box
+				pb={3}
+				sx={{
+					'.swiper-pagination-bullets': {
+						bottom: '0 !important'
+					}
+				}}
+			>
+				<Swiper
+					spaceBetween={0}
+					slidesPerView={1}
+					loop
+					navigation={{
+						nextEl: '.MuiSwipe-right',
+						prevEl: '.MuiSwipe-left'
+					}}
+					breakpoints={{
+						500: {
+							slidesPerView: 2,
+							spaceBetween: 0
+						},
+						768: {
+							slidesPerView: 3,
+							spaceBetween: 0
+						},
+						1200: {
+							slidesPerView: 4,
+							spaceBetween: 0
+						}
+					}}
+					pagination={{
+						dynamicBullets: true,
+						clickable: true
+					}}
+				>
+					<SwiperSlide>
+						<Box pl={4} pr={0} py={4}>
+							<Card
+								sx={{
+									textAlign: 'center',
+									transition: `${theme.transitions.create(
+										['box-shadow', 'transform']
+									)}`,
+									transform: 'translateY(0px)',
 
-                  '&:hover': {
-                    transform: 'translateY(-10px)',
-                    boxShadow: `0 2rem 8rem 0 ${alpha(
-                      theme.colors.alpha.black[100],
-                      0.1
-                    )}, 
+									'&:hover': {
+										transform:
+											'translateY(-10px)',
+										boxShadow: `0 2rem 8rem 0 ${alpha(
+											theme.colors.alpha
+												.black[100],
+											0.1
+										)}, 
                                 0 0.6rem 1.6rem ${alpha(
-                                  theme.colors.alpha.black[100],
-                                  0.2
-                                )}, 
+									theme.colors.alpha.black[100],
+									0.2
+								)}, 
                                 0 0.2rem 0.2rem ${alpha(
-                                  theme.colors.alpha.black[100],
-                                  0.15
-                                )}`
-                  }
-                }}
-              >
-                <CardActionAreaWrapper>
-                  <CardMedia
-                    component="img"
-                    height="230"
-                    image="/static/images/placeholders/fitness/1.jpg"
-                    alt="..."
-                  />
-                  <CardActions>
-                    <LabelWrapper>{t('Updated')}</LabelWrapper>
-                  </CardActions>
-                </CardActionAreaWrapper>
-              </Card>
-              <Box
-                sx={{
-                  px: { md: 2, lg: 1.5, xl: 3 },
-                  pt: 2,
-                  textAlign: 'center'
-                }}
-              >
-                <Link
-                  lineHeight={1.5}
-                  href="#"
-                  sx={{
-                    transition: `${theme.transitions.create(['color'])}`,
-                    color: `${theme.colors.alpha.black[100]}`,
+									theme.colors.alpha.black[100],
+									0.15
+								)}`
+									}
+								}}
+							>
+								<CardActionAreaWrapper>
+									<CardMedia
+										component="img"
+										height="230"
+										image="/images/placeholders/fitness/1.jpg"
+										alt="..."
+									/>
+									<CardActions>
+										<LabelWrapper>
+											{t('Updated')}
+										</LabelWrapper>
+									</CardActions>
+								</CardActionAreaWrapper>
+							</Card>
+							<Box
+								sx={{
+									px: { md: 2, lg: 1.5, xl: 3 },
+									pt: 2,
+									textAlign: 'center'
+								}}
+							>
+								<Link
+									lineHeight={1.5}
+									href="#"
+									sx={{
+										transition: `${theme.transitions.create(
+											['color']
+										)}`,
+										color: `${theme.colors.alpha.black[100]}`,
 
-                    '&:hover': {
-                      color: `${theme.colors.primary.main}`
-                    }
-                  }}
-                  color="text.primary"
-                  variant="h3"
-                  underline="none"
-                >
-                  {t('Stretching')}
-                </Link>
-                <Typography
-                  variant="subtitle2"
-                  sx={{
-                    pb: 2
-                  }}
-                >
-                  {t('Team activity')}
-                </Typography>
-                <Button
-                  endIcon={<ArrowForwardTwoToneIcon />}
-                  variant="outlined"
-                  sx={{
-                    borderWidth: '2px',
-                    '&:hover': {
-                      borderWidth: '2px'
-                    }
-                  }}
-                >
-                  {t('Start training')}
-                </Button>
-              </Box>
-            </Box>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Box pl={4} py={4}>
-              <Card
-                sx={{
-                  textAlign: 'center',
-                  transition: `${theme.transitions.create([
-                    'box-shadow',
-                    'transform'
-                  ])}`,
-                  transform: 'translateY(0px)',
+										'&:hover': {
+											color: `${theme.colors.primary.main}`
+										}
+									}}
+									color="text.primary"
+									variant="h3"
+									underline="none"
+								>
+									{t('Stretching')}
+								</Link>
+								<Typography
+									variant="subtitle2"
+									sx={{
+										pb: 2
+									}}
+								>
+									{t('Team activity')}
+								</Typography>
+								<Button
+									endIcon={
+										<ArrowForwardTwoToneIcon />
+									}
+									variant="outlined"
+									sx={{
+										borderWidth: '2px',
+										'&:hover': {
+											borderWidth: '2px'
+										}
+									}}
+								>
+									{t('Start training')}
+								</Button>
+							</Box>
+						</Box>
+					</SwiperSlide>
+					<SwiperSlide>
+						<Box pl={4} py={4}>
+							<Card
+								sx={{
+									textAlign: 'center',
+									transition: `${theme.transitions.create(
+										['box-shadow', 'transform']
+									)}`,
+									transform: 'translateY(0px)',
 
-                  '&:hover': {
-                    transform: 'translateY(-10px)',
-                    boxShadow: `0 2rem 8rem 0 ${alpha(
-                      theme.colors.alpha.black[100],
-                      0.1
-                    )}, 
+									'&:hover': {
+										transform:
+											'translateY(-10px)',
+										boxShadow: `0 2rem 8rem 0 ${alpha(
+											theme.colors.alpha
+												.black[100],
+											0.1
+										)}, 
                                 0 0.6rem 1.6rem ${alpha(
-                                  theme.colors.alpha.black[100],
-                                  0.2
-                                )}, 
+									theme.colors.alpha.black[100],
+									0.2
+								)}, 
                                 0 0.2rem 0.2rem ${alpha(
-                                  theme.colors.alpha.black[100],
-                                  0.15
-                                )}`
-                  }
-                }}
-              >
-                <CardActionAreaWrapper>
-                  <CardMedia
-                    component="img"
-                    height="230"
-                    image="/static/images/placeholders/fitness/2.jpg"
-                    alt="..."
-                  />
-                </CardActionAreaWrapper>
-              </Card>
-              <Box
-                sx={{
-                  px: { md: 2, lg: 1.5, xl: 3 },
-                  pt: 2,
-                  textAlign: 'center'
-                }}
-              >
-                <Link
-                  lineHeight={1.5}
-                  href="#"
-                  sx={{
-                    transition: `${theme.transitions.create(['color'])}`,
-                    color: `${theme.colors.alpha.black[100]}`,
+									theme.colors.alpha.black[100],
+									0.15
+								)}`
+									}
+								}}
+							>
+								<CardActionAreaWrapper>
+									<CardMedia
+										component="img"
+										height="230"
+										image="/images/placeholders/fitness/2.jpg"
+										alt="..."
+									/>
+								</CardActionAreaWrapper>
+							</Card>
+							<Box
+								sx={{
+									px: { md: 2, lg: 1.5, xl: 3 },
+									pt: 2,
+									textAlign: 'center'
+								}}
+							>
+								<Link
+									lineHeight={1.5}
+									href="#"
+									sx={{
+										transition: `${theme.transitions.create(
+											['color']
+										)}`,
+										color: `${theme.colors.alpha.black[100]}`,
 
-                    '&:hover': {
-                      color: `${theme.colors.primary.main}`
-                    }
-                  }}
-                  color="text.primary"
-                  variant="h3"
-                  underline="none"
-                >
-                  {t('Yoga')}
-                </Link>
-                <Typography
-                  variant="subtitle2"
-                  sx={{
-                    pb: 2
-                  }}
-                >
-                  {t('Individual')}
-                </Typography>
-                <Button
-                  endIcon={<ArrowForwardTwoToneIcon />}
-                  variant="outlined"
-                  sx={{
-                    borderWidth: '2px',
-                    '&:hover': {
-                      borderWidth: '2px'
-                    }
-                  }}
-                >
-                  {t('Start training')}
-                </Button>
-              </Box>
-            </Box>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Box pl={4} py={4}>
-              <Card
-                sx={{
-                  textAlign: 'center',
-                  transition: `${theme.transitions.create([
-                    'box-shadow',
-                    'transform'
-                  ])}`,
-                  transform: 'translateY(0px)',
+										'&:hover': {
+											color: `${theme.colors.primary.main}`
+										}
+									}}
+									color="text.primary"
+									variant="h3"
+									underline="none"
+								>
+									{t('Yoga')}
+								</Link>
+								<Typography
+									variant="subtitle2"
+									sx={{
+										pb: 2
+									}}
+								>
+									{t('Individual')}
+								</Typography>
+								<Button
+									endIcon={
+										<ArrowForwardTwoToneIcon />
+									}
+									variant="outlined"
+									sx={{
+										borderWidth: '2px',
+										'&:hover': {
+											borderWidth: '2px'
+										}
+									}}
+								>
+									{t('Start training')}
+								</Button>
+							</Box>
+						</Box>
+					</SwiperSlide>
+					<SwiperSlide>
+						<Box pl={4} py={4}>
+							<Card
+								sx={{
+									textAlign: 'center',
+									transition: `${theme.transitions.create(
+										['box-shadow', 'transform']
+									)}`,
+									transform: 'translateY(0px)',
 
-                  '&:hover': {
-                    transform: 'translateY(-10px)',
-                    boxShadow: `0 2rem 8rem 0 ${alpha(
-                      theme.colors.alpha.black[100],
-                      0.1
-                    )}, 
+									'&:hover': {
+										transform:
+											'translateY(-10px)',
+										boxShadow: `0 2rem 8rem 0 ${alpha(
+											theme.colors.alpha
+												.black[100],
+											0.1
+										)}, 
                                 0 0.6rem 1.6rem ${alpha(
-                                  theme.colors.alpha.black[100],
-                                  0.2
-                                )}, 
+									theme.colors.alpha.black[100],
+									0.2
+								)}, 
                                 0 0.2rem 0.2rem ${alpha(
-                                  theme.colors.alpha.black[100],
-                                  0.15
-                                )}`
-                  }
-                }}
-              >
-                <CardActionAreaWrapper>
-                  <CardMedia
-                    component="img"
-                    height="230"
-                    image="/static/images/placeholders/fitness/3.jpg"
-                    alt="..."
-                  />
-                </CardActionAreaWrapper>
-              </Card>
-              <Box
-                sx={{
-                  px: { md: 2, lg: 1.5, xl: 3 },
-                  pt: 2,
-                  textAlign: 'center'
-                }}
-              >
-                <Link
-                  lineHeight={1.5}
-                  href="#"
-                  sx={{
-                    transition: `${theme.transitions.create(['color'])}`,
-                    color: `${theme.colors.alpha.black[100]}`,
+									theme.colors.alpha.black[100],
+									0.15
+								)}`
+									}
+								}}
+							>
+								<CardActionAreaWrapper>
+									<CardMedia
+										component="img"
+										height="230"
+										image="/images/placeholders/fitness/3.jpg"
+										alt="..."
+									/>
+								</CardActionAreaWrapper>
+							</Card>
+							<Box
+								sx={{
+									px: { md: 2, lg: 1.5, xl: 3 },
+									pt: 2,
+									textAlign: 'center'
+								}}
+							>
+								<Link
+									lineHeight={1.5}
+									href="#"
+									sx={{
+										transition: `${theme.transitions.create(
+											['color']
+										)}`,
+										color: `${theme.colors.alpha.black[100]}`,
 
-                    '&:hover': {
-                      color: `${theme.colors.primary.main}`
-                    }
-                  }}
-                  color="text.primary"
-                  variant="h3"
-                  underline="none"
-                >
-                  {t('Kangoo Jumps')}
-                </Link>
-                <Typography
-                  variant="subtitle2"
-                  sx={{
-                    pb: 2
-                  }}
-                >
-                  {t('Large Groups')}
-                </Typography>
-                <Button
-                  endIcon={<ArrowForwardTwoToneIcon />}
-                  variant="outlined"
-                  sx={{
-                    borderWidth: '2px',
-                    '&:hover': {
-                      borderWidth: '2px'
-                    }
-                  }}
-                >
-                  {t('Start training')}
-                </Button>
-              </Box>
-            </Box>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Box pl={4} pr={4} py={4}>
-              <Card
-                sx={{
-                  textAlign: 'center',
-                  transition: `${theme.transitions.create([
-                    'box-shadow',
-                    'transform'
-                  ])}`,
-                  transform: 'translateY(0px)',
+										'&:hover': {
+											color: `${theme.colors.primary.main}`
+										}
+									}}
+									color="text.primary"
+									variant="h3"
+									underline="none"
+								>
+									{t('Kangoo Jumps')}
+								</Link>
+								<Typography
+									variant="subtitle2"
+									sx={{
+										pb: 2
+									}}
+								>
+									{t('Large Groups')}
+								</Typography>
+								<Button
+									endIcon={
+										<ArrowForwardTwoToneIcon />
+									}
+									variant="outlined"
+									sx={{
+										borderWidth: '2px',
+										'&:hover': {
+											borderWidth: '2px'
+										}
+									}}
+								>
+									{t('Start training')}
+								</Button>
+							</Box>
+						</Box>
+					</SwiperSlide>
+					<SwiperSlide>
+						<Box pl={4} pr={4} py={4}>
+							<Card
+								sx={{
+									textAlign: 'center',
+									transition: `${theme.transitions.create(
+										['box-shadow', 'transform']
+									)}`,
+									transform: 'translateY(0px)',
 
-                  '&:hover': {
-                    transform: 'translateY(-10px)',
-                    boxShadow: `0 2rem 8rem 0 ${alpha(
-                      theme.colors.alpha.black[100],
-                      0.1
-                    )}, 
+									'&:hover': {
+										transform:
+											'translateY(-10px)',
+										boxShadow: `0 2rem 8rem 0 ${alpha(
+											theme.colors.alpha
+												.black[100],
+											0.1
+										)}, 
                                 0 0.6rem 1.6rem ${alpha(
-                                  theme.colors.alpha.black[100],
-                                  0.2
-                                )}, 
+									theme.colors.alpha.black[100],
+									0.2
+								)}, 
                                 0 0.2rem 0.2rem ${alpha(
-                                  theme.colors.alpha.black[100],
-                                  0.15
-                                )}`
-                  }
-                }}
-              >
-                <CardActionAreaWrapper>
-                  <CardMedia
-                    component="img"
-                    height="230"
-                    image="/static/images/placeholders/fitness/4.jpg"
-                    alt="..."
-                  />
-                </CardActionAreaWrapper>
-              </Card>
-              <Box
-                sx={{
-                  px: { md: 2, lg: 1.5, xl: 3 },
-                  pt: 2,
-                  textAlign: 'center'
-                }}
-              >
-                <Link
-                  lineHeight={1.5}
-                  href="#"
-                  sx={{
-                    transition: `${theme.transitions.create(['color'])}`,
-                    color: `${theme.colors.alpha.black[100]}`,
+									theme.colors.alpha.black[100],
+									0.15
+								)}`
+									}
+								}}
+							>
+								<CardActionAreaWrapper>
+									<CardMedia
+										component="img"
+										height="230"
+										image="/images/placeholders/fitness/4.jpg"
+										alt="..."
+									/>
+								</CardActionAreaWrapper>
+							</Card>
+							<Box
+								sx={{
+									px: { md: 2, lg: 1.5, xl: 3 },
+									pt: 2,
+									textAlign: 'center'
+								}}
+							>
+								<Link
+									lineHeight={1.5}
+									href="#"
+									sx={{
+										transition: `${theme.transitions.create(
+											['color']
+										)}`,
+										color: `${theme.colors.alpha.black[100]}`,
 
-                    '&:hover': {
-                      color: `${theme.colors.primary.main}`
-                    }
-                  }}
-                  color="text.primary"
-                  variant="h3"
-                  underline="none"
-                >
-                  {t('Rope Jumping')}
-                </Link>
-                <Typography
-                  variant="subtitle2"
-                  sx={{
-                    pb: 2
-                  }}
-                >
-                  {t('Small teams')}
-                </Typography>
-                <Button
-                  endIcon={<ArrowForwardTwoToneIcon />}
-                  variant="outlined"
-                  sx={{
-                    borderWidth: '2px',
-                    '&:hover': {
-                      borderWidth: '2px'
-                    }
-                  }}
-                >
-                  {t('Start training')}
-                </Button>
-              </Box>
-            </Box>
-          </SwiperSlide>
-        </Swiper>
-      </Box>
-    </Card>
-  );
+										'&:hover': {
+											color: `${theme.colors.primary.main}`
+										}
+									}}
+									color="text.primary"
+									variant="h3"
+									underline="none"
+								>
+									{t('Rope Jumping')}
+								</Link>
+								<Typography
+									variant="subtitle2"
+									sx={{
+										pb: 2
+									}}
+								>
+									{t('Small teams')}
+								</Typography>
+								<Button
+									endIcon={
+										<ArrowForwardTwoToneIcon />
+									}
+									variant="outlined"
+									sx={{
+										borderWidth: '2px',
+										'&:hover': {
+											borderWidth: '2px'
+										}
+									}}
+								>
+									{t('Start training')}
+								</Button>
+							</Box>
+						</Box>
+					</SwiperSlide>
+				</Swiper>
+			</Box>
+		</Card>
+	);
 }
 
 export default TrainingPrograms;

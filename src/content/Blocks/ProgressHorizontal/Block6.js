@@ -1,18 +1,18 @@
 import {
-  Box,
-  Divider,
-  Button,
-  LinearProgress,
-  List,
-  ListItem,
-  Card,
-  Typography,
-  Avatar,
-  Tooltip,
-  alpha,
-  styled,
-  useTheme,
-  linearProgressClasses
+	Box,
+	Divider,
+	Button,
+	LinearProgress,
+	List,
+	ListItem,
+	Card,
+	Typography,
+	Avatar,
+	Tooltip,
+	alpha,
+	styled,
+	useTheme,
+	linearProgressClasses
 } from '@mui/material';
 
 import { useTranslation } from 'react-i18next';
@@ -21,16 +21,19 @@ import Scrollbar from 'src/components/Scrollbar';
 import AssessmentTwoToneIcon from '@mui/icons-material/AssessmentTwoTone';
 
 const LinearProgressInfo = styled(LinearProgress)(
-  ({ theme }) => `
+	({ theme }) => `
         height: 14px;
         border-radius: ${theme.general.borderRadiusLg};
 
         &.${linearProgressClasses.colorPrimary} {
-            background-color: ${alpha(theme.colors.alpha.black[100], 0.07)};
+            background-color: ${alpha(
+				theme.colors.alpha.black[100],
+				0.07
+			)};
             box-shadow: inset 0 1px 2px ${alpha(
-              theme.colors.alpha.black[100],
-              0.15
-            )};
+				theme.colors.alpha.black[100],
+				0.15
+			)};
         }
         
         & .${linearProgressClasses.bar} {
@@ -40,16 +43,19 @@ const LinearProgressInfo = styled(LinearProgress)(
     `
 );
 const LinearProgressPrimary = styled(LinearProgress)(
-  ({ theme }) => `
+	({ theme }) => `
         height: 14px;
         border-radius: ${theme.general.borderRadiusLg};
 
         &.${linearProgressClasses.colorPrimary} {
-            background-color: ${alpha(theme.colors.alpha.black[100], 0.07)};
+            background-color: ${alpha(
+				theme.colors.alpha.black[100],
+				0.07
+			)};
             box-shadow: inset 0 1px 2px ${alpha(
-              theme.colors.alpha.black[100],
-              0.15
-            )};
+				theme.colors.alpha.black[100],
+				0.15
+			)};
         }
         
         & .${linearProgressClasses.bar} {
@@ -59,16 +65,19 @@ const LinearProgressPrimary = styled(LinearProgress)(
     `
 );
 const LinearProgressSuccess = styled(LinearProgress)(
-  ({ theme }) => `
+	({ theme }) => `
         height: 14px;
         border-radius: ${theme.general.borderRadiusLg};
 
         &.${linearProgressClasses.colorPrimary} {
-            background-color: ${alpha(theme.colors.alpha.black[100], 0.07)};
+            background-color: ${alpha(
+				theme.colors.alpha.black[100],
+				0.07
+			)};
             box-shadow: inset 0 1px 2px ${alpha(
-              theme.colors.alpha.black[100],
-              0.15
-            )};
+				theme.colors.alpha.black[100],
+				0.15
+			)};
         }
         
         & .${linearProgressClasses.bar} {
@@ -78,16 +87,19 @@ const LinearProgressSuccess = styled(LinearProgress)(
     `
 );
 const LinearProgressWarning = styled(LinearProgress)(
-  ({ theme }) => `
+	({ theme }) => `
         height: 14px;
         border-radius: ${theme.general.borderRadiusLg};
 
         &.${linearProgressClasses.colorPrimary} {
-            background-color: ${alpha(theme.colors.alpha.black[100], 0.07)};
+            background-color: ${alpha(
+				theme.colors.alpha.black[100],
+				0.07
+			)};
             box-shadow: inset 0 1px 2px ${alpha(
-              theme.colors.alpha.black[100],
-              0.15
-            )};
+				theme.colors.alpha.black[100],
+				0.15
+			)};
         }
         
         & .${linearProgressClasses.bar} {
@@ -97,16 +109,19 @@ const LinearProgressWarning = styled(LinearProgress)(
     `
 );
 const LinearProgressError = styled(LinearProgress)(
-  ({ theme }) => `
+	({ theme }) => `
         height: 14px;
         border-radius: ${theme.general.borderRadiusLg};
 
         &.${linearProgressClasses.colorPrimary} {
-            background-color: ${alpha(theme.colors.alpha.black[100], 0.07)};
+            background-color: ${alpha(
+				theme.colors.alpha.black[100],
+				0.07
+			)};
             box-shadow: inset 0 1px 2px ${alpha(
-              theme.colors.alpha.black[100],
-              0.15
-            )};
+				theme.colors.alpha.black[100],
+				0.15
+			)};
         }
         
         & .${linearProgressClasses.bar} {
@@ -117,14 +132,14 @@ const LinearProgressError = styled(LinearProgress)(
 );
 
 const CardWrapper = styled(Card)(
-  ({ theme }) => `
+	({ theme }) => `
       background: ${alpha(theme.colors.alpha.black[10], 0.02)};
       border-radius: 0;
   `
 );
 
 const ListWrapper = styled(List)(
-  () => `
+	() => `
       .MuiListItem-root:last-of-type + .MuiDivider-root {
           display: none;
       }
@@ -132,7 +147,7 @@ const ListWrapper = styled(List)(
 );
 
 const LabelWrapper = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
     display: inline-block;
     background: ${theme.palette.secondary.main};
     color: ${theme.palette.secondary.contrastText};
@@ -147,268 +162,362 @@ const LabelWrapper = styled(Box)(
 );
 
 function Block6() {
-  const { t } = useTranslation();
-  const theme = useTheme();
+	const { t } = useTranslation();
+	const theme = useTheme();
 
-  return (
-    <Card variant="outlined">
-      <Box
-        sx={{
-          background: `${theme.colors.alpha.black[5]}`
-        }}
-        p={2}
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Box>
-          <Typography gutterBottom variant="caption" fontWeight="bold">
-            {t('Progress')}
-          </Typography>
-          <Typography variant="h4">{t('Users Analytics')}</Typography>
-        </Box>
-        <LabelWrapper>{t('Pending')}</LabelWrapper>
-      </Box>
-      <Divider />
-      <Box
-        sx={{
-          height: 316
-        }}
-      >
-        <Scrollbar>
-          <ListWrapper disablePadding>
-            <ListItem
-              sx={{
-                display: { xs: 'block', md: 'flex' },
-                py: 1,
-                px: 2
-              }}
-            >
-              <Box py={1} flex={1} display="flex" alignItems="center">
-                <Box>
-                  <Tooltip arrow placement="top" title="Travis Howard">
-                    <Avatar
-                      sx={{
-                        width: 46,
-                        height: 46
-                      }}
-                      component={Link}
-                      href="#"
-                      alt="Travis Howard"
-                      src="/static/images/avatars/1.jpg"
-                    />
-                  </Tooltip>
-                </Box>
-                <Box
-                  sx={{
-                    width: '100%',
-                    px: 2.5
-                  }}
-                >
-                  <LinearProgressInfo variant="determinate" value={35} />
-                </Box>
-                <Box
-                  sx={{
-                    textAlign: 'right'
-                  }}
-                >
-                  <Typography variant="caption" fontWeight="bold">
-                    {t('Total')}
-                  </Typography>
-                  <Typography variant="h4">$1,375</Typography>
-                </Box>
-              </Box>
-            </ListItem>
-            <Divider />
-            <ListItem
-              sx={{
-                display: { xs: 'block', md: 'flex' },
-                py: 1,
-                px: 2
-              }}
-            >
-              <Box py={1} flex={1} display="flex" alignItems="center">
-                <Box>
-                  <Tooltip arrow placement="top" title="Chad Wright">
-                    <Avatar
-                      sx={{
-                        width: 46,
-                        height: 46
-                      }}
-                      component={Link}
-                      href="#"
-                      alt="Chad Wright"
-                      src="/static/images/avatars/2.jpg"
-                    />
-                  </Tooltip>
-                </Box>
-                <Box
-                  sx={{
-                    width: '100%',
-                    px: 2.5
-                  }}
-                >
-                  <LinearProgressSuccess variant="determinate" value={45} />
-                </Box>
-                <Box
-                  sx={{
-                    textAlign: 'right'
-                  }}
-                >
-                  <Typography variant="caption" fontWeight="bold">
-                    {t('Total')}
-                  </Typography>
-                  <Typography variant="h4">$786</Typography>
-                </Box>
-              </Box>
-            </ListItem>
-            <Divider />
-            <ListItem
-              sx={{
-                display: { xs: 'block', md: 'flex' },
-                py: 1,
-                px: 2
-              }}
-            >
-              <Box py={1} flex={1} display="flex" alignItems="center">
-                <Box>
-                  <Tooltip arrow placement="top" title="Alaina Henry">
-                    <Avatar
-                      sx={{
-                        width: 46,
-                        height: 46
-                      }}
-                      component={Link}
-                      href="#"
-                      alt="Alaina Henry"
-                      src="/static/images/avatars/3.jpg"
-                    />
-                  </Tooltip>
-                </Box>
-                <Box
-                  sx={{
-                    width: '100%',
-                    px: 2.5
-                  }}
-                >
-                  <LinearProgressWarning variant="determinate" value={25} />
-                </Box>
-                <Box
-                  sx={{
-                    textAlign: 'right'
-                  }}
-                >
-                  <Typography variant="caption" fontWeight="bold">
-                    {t('Total')}
-                  </Typography>
-                  <Typography variant="h4">$5,695</Typography>
-                </Box>
-              </Box>
-            </ListItem>
-            <Divider />
-            <ListItem
-              sx={{
-                display: { xs: 'block', md: 'flex' },
-                py: 1,
-                px: 2
-              }}
-            >
-              <Box py={1} flex={1} display="flex" alignItems="center">
-                <Box>
-                  <Tooltip arrow placement="top" title="Vlad Jacobson">
-                    <Avatar
-                      sx={{
-                        width: 46,
-                        height: 46
-                      }}
-                      component={Link}
-                      href="#"
-                      alt="Vlad Jacobson"
-                      src="/static/images/avatars/4.jpg"
-                    />
-                  </Tooltip>
-                </Box>
-                <Box
-                  sx={{
-                    width: '100%',
-                    px: 2.5
-                  }}
-                >
-                  <LinearProgressPrimary variant="determinate" value={65} />
-                </Box>
-                <Box
-                  sx={{
-                    textAlign: 'right'
-                  }}
-                >
-                  <Typography variant="caption" fontWeight="bold">
-                    {t('Total')}
-                  </Typography>
-                  <Typography variant="h4">$2,685</Typography>
-                </Box>
-              </Box>
-            </ListItem>
-            <Divider />
-            <ListItem
-              sx={{
-                display: { xs: 'block', md: 'flex' },
-                py: 1,
-                px: 2
-              }}
-            >
-              <Box py={1} flex={1} display="flex" alignItems="center">
-                <Box>
-                  <Tooltip arrow placement="top" title="Cerys Mckinney">
-                    <Avatar
-                      sx={{
-                        width: 46,
-                        height: 46
-                      }}
-                      component={Link}
-                      href="#"
-                      alt="Cerys Mckinney"
-                      src="/static/images/avatars/5.jpg"
-                    />
-                  </Tooltip>
-                </Box>
-                <Box
-                  sx={{
-                    width: '100%',
-                    px: 2.5
-                  }}
-                >
-                  <LinearProgressError variant="determinate" value={85} />
-                </Box>
-                <Box
-                  sx={{
-                    textAlign: 'right'
-                  }}
-                >
-                  <Typography variant="caption" fontWeight="bold">
-                    {t('Total')}
-                  </Typography>
-                  <Typography variant="h4">$8,684</Typography>
-                </Box>
-              </Box>
-            </ListItem>
-            <Divider />
-          </ListWrapper>
-        </Scrollbar>
-      </Box>
-      <Divider />
-      <CardWrapper
-        elevation={0}
-        sx={{
-          textAlign: 'center',
-          p: 2
-        }}
-      >
-        <Button size="large" startIcon={<AssessmentTwoToneIcon />}>
-          {t('Generate reports')}
-        </Button>
-      </CardWrapper>
-    </Card>
-  );
+	return (
+		<Card variant="outlined">
+			<Box
+				sx={{
+					background: `${theme.colors.alpha.black[5]}`
+				}}
+				p={2}
+				display="flex"
+				alignItems="center"
+				justifyContent="space-between"
+			>
+				<Box>
+					<Typography
+						gutterBottom
+						variant="caption"
+						fontWeight="bold"
+					>
+						{t('Progress')}
+					</Typography>
+					<Typography variant="h4">
+						{t('Users Analytics')}
+					</Typography>
+				</Box>
+				<LabelWrapper>{t('Pending')}</LabelWrapper>
+			</Box>
+			<Divider />
+			<Box
+				sx={{
+					height: 316
+				}}
+			>
+				<Scrollbar>
+					<ListWrapper disablePadding>
+						<ListItem
+							sx={{
+								display: { xs: 'block', md: 'flex' },
+								py: 1,
+								px: 2
+							}}
+						>
+							<Box
+								py={1}
+								flex={1}
+								display="flex"
+								alignItems="center"
+							>
+								<Box>
+									<Tooltip
+										arrow
+										placement="top"
+										title="Travis Howard"
+									>
+										<Avatar
+											sx={{
+												width: 46,
+												height: 46
+											}}
+											component={Link}
+											href="#"
+											alt="Travis Howard"
+											src="/images/avatars/1.jpg"
+										/>
+									</Tooltip>
+								</Box>
+								<Box
+									sx={{
+										width: '100%',
+										px: 2.5
+									}}
+								>
+									<LinearProgressInfo
+										variant="determinate"
+										value={35}
+									/>
+								</Box>
+								<Box
+									sx={{
+										textAlign: 'right'
+									}}
+								>
+									<Typography
+										variant="caption"
+										fontWeight="bold"
+									>
+										{t('Total')}
+									</Typography>
+									<Typography variant="h4">
+										$1,375
+									</Typography>
+								</Box>
+							</Box>
+						</ListItem>
+						<Divider />
+						<ListItem
+							sx={{
+								display: { xs: 'block', md: 'flex' },
+								py: 1,
+								px: 2
+							}}
+						>
+							<Box
+								py={1}
+								flex={1}
+								display="flex"
+								alignItems="center"
+							>
+								<Box>
+									<Tooltip
+										arrow
+										placement="top"
+										title="Chad Wright"
+									>
+										<Avatar
+											sx={{
+												width: 46,
+												height: 46
+											}}
+											component={Link}
+											href="#"
+											alt="Chad Wright"
+											src="/images/avatars/2.jpg"
+										/>
+									</Tooltip>
+								</Box>
+								<Box
+									sx={{
+										width: '100%',
+										px: 2.5
+									}}
+								>
+									<LinearProgressSuccess
+										variant="determinate"
+										value={45}
+									/>
+								</Box>
+								<Box
+									sx={{
+										textAlign: 'right'
+									}}
+								>
+									<Typography
+										variant="caption"
+										fontWeight="bold"
+									>
+										{t('Total')}
+									</Typography>
+									<Typography variant="h4">
+										$786
+									</Typography>
+								</Box>
+							</Box>
+						</ListItem>
+						<Divider />
+						<ListItem
+							sx={{
+								display: { xs: 'block', md: 'flex' },
+								py: 1,
+								px: 2
+							}}
+						>
+							<Box
+								py={1}
+								flex={1}
+								display="flex"
+								alignItems="center"
+							>
+								<Box>
+									<Tooltip
+										arrow
+										placement="top"
+										title="Alaina Henry"
+									>
+										<Avatar
+											sx={{
+												width: 46,
+												height: 46
+											}}
+											component={Link}
+											href="#"
+											alt="Alaina Henry"
+											src="/images/avatars/3.jpg"
+										/>
+									</Tooltip>
+								</Box>
+								<Box
+									sx={{
+										width: '100%',
+										px: 2.5
+									}}
+								>
+									<LinearProgressWarning
+										variant="determinate"
+										value={25}
+									/>
+								</Box>
+								<Box
+									sx={{
+										textAlign: 'right'
+									}}
+								>
+									<Typography
+										variant="caption"
+										fontWeight="bold"
+									>
+										{t('Total')}
+									</Typography>
+									<Typography variant="h4">
+										$5,695
+									</Typography>
+								</Box>
+							</Box>
+						</ListItem>
+						<Divider />
+						<ListItem
+							sx={{
+								display: { xs: 'block', md: 'flex' },
+								py: 1,
+								px: 2
+							}}
+						>
+							<Box
+								py={1}
+								flex={1}
+								display="flex"
+								alignItems="center"
+							>
+								<Box>
+									<Tooltip
+										arrow
+										placement="top"
+										title="Vlad Jacobson"
+									>
+										<Avatar
+											sx={{
+												width: 46,
+												height: 46
+											}}
+											component={Link}
+											href="#"
+											alt="Vlad Jacobson"
+											src="/images/avatars/4.jpg"
+										/>
+									</Tooltip>
+								</Box>
+								<Box
+									sx={{
+										width: '100%',
+										px: 2.5
+									}}
+								>
+									<LinearProgressPrimary
+										variant="determinate"
+										value={65}
+									/>
+								</Box>
+								<Box
+									sx={{
+										textAlign: 'right'
+									}}
+								>
+									<Typography
+										variant="caption"
+										fontWeight="bold"
+									>
+										{t('Total')}
+									</Typography>
+									<Typography variant="h4">
+										$2,685
+									</Typography>
+								</Box>
+							</Box>
+						</ListItem>
+						<Divider />
+						<ListItem
+							sx={{
+								display: { xs: 'block', md: 'flex' },
+								py: 1,
+								px: 2
+							}}
+						>
+							<Box
+								py={1}
+								flex={1}
+								display="flex"
+								alignItems="center"
+							>
+								<Box>
+									<Tooltip
+										arrow
+										placement="top"
+										title="Cerys Mckinney"
+									>
+										<Avatar
+											sx={{
+												width: 46,
+												height: 46
+											}}
+											component={Link}
+											href="#"
+											alt="Cerys Mckinney"
+											src="/images/avatars/5.jpg"
+										/>
+									</Tooltip>
+								</Box>
+								<Box
+									sx={{
+										width: '100%',
+										px: 2.5
+									}}
+								>
+									<LinearProgressError
+										variant="determinate"
+										value={85}
+									/>
+								</Box>
+								<Box
+									sx={{
+										textAlign: 'right'
+									}}
+								>
+									<Typography
+										variant="caption"
+										fontWeight="bold"
+									>
+										{t('Total')}
+									</Typography>
+									<Typography variant="h4">
+										$8,684
+									</Typography>
+								</Box>
+							</Box>
+						</ListItem>
+						<Divider />
+					</ListWrapper>
+				</Scrollbar>
+			</Box>
+			<Divider />
+			<CardWrapper
+				elevation={0}
+				sx={{
+					textAlign: 'center',
+					p: 2
+				}}
+			>
+				<Button
+					size="large"
+					startIcon={<AssessmentTwoToneIcon />}
+				>
+					{t('Generate reports')}
+				</Button>
+			</CardWrapper>
+		</Card>
+	);
 }
 
 export default Block6;

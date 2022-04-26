@@ -1,13 +1,13 @@
 import {
-  Box,
-  Typography,
-  Card,
-  Divider,
-  Grid,
-  Button,
-  useTheme,
-  Stack,
-  styled
+	Box,
+	Typography,
+	Card,
+	Divider,
+	Grid,
+	Button,
+	useTheme,
+	Stack,
+	styled
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { format } from 'date-fns';
@@ -26,7 +26,7 @@ import GrainTwoToneIcon from '@mui/icons-material/GrainTwoTone';
 import ThermostatAutoTwoToneIcon from '@mui/icons-material/ThermostatAutoTwoTone';
 
 const WeatherBox = styled(Card)(
-  ({ theme }) => `
+	({ theme }) => `
       background: ${theme.colors.gradients.black1};
       padding: ${theme.spacing(4)};
       overflow: hidden;
@@ -35,7 +35,7 @@ const WeatherBox = styled(Card)(
 );
 
 const WeatherBoxContent = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
       z-index: 5;
       position: relative;
       color: ${theme.colors.alpha.trueWhite[100]};
@@ -43,7 +43,7 @@ const WeatherBoxContent = styled(Box)(
 );
 
 const TopBarImage = styled(Box)(
-  () => `
+	() => `
     background-size: cover;
     position: absolute;
     left: 0;
@@ -55,7 +55,7 @@ const TopBarImage = styled(Box)(
 );
 
 const WeatherIcon = styled(Box)(
-  () => `
+	() => `
     height: auto;
     width: 100%;
     text-align: center;
@@ -67,7 +67,7 @@ const WeatherIcon = styled(Box)(
 );
 
 const BoxWeather = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
     width: 100%;
     backdrop-filter: blur(8px);
     background: ${theme.colors.alpha.trueWhite[10]};
@@ -77,7 +77,7 @@ const BoxWeather = styled(Box)(
 );
 
 const BoxWeatherSmall = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
     width: 100%;
     backdrop-filter: blur(8px);
     background: ${theme.colors.alpha.trueWhite[10]};
@@ -110,13 +110,13 @@ const BoxWeatherSmall = styled(Box)(
 );
 
 const DividerWrapper = styled(Divider)(
-  ({ theme }) => `
+	({ theme }) => `
     background: ${theme.colors.alpha.white[10]};
 `
 );
 
 const LinearHighLow = styled(Box)(
-  () => `
+	() => `
     height: 4px;
     width: 100%;
     border-radius: 50px;
@@ -125,7 +125,7 @@ const LinearHighLow = styled(Box)(
 );
 
 const LinearUv = styled(Box)(
-  ({ theme }) => `
+	({ theme }) => `
     height: 4px;
     width: 100%;
     border-radius: 50px;
@@ -147,7 +147,7 @@ const LinearUv = styled(Box)(
 );
 
 const ButtonTransparent = styled(Button)(
-  ({ theme }) => `
+	({ theme }) => `
     background: ${theme.colors.alpha.white[10]};
     color: ${theme.colors.alpha.trueWhite[70]};
 
@@ -159,530 +159,617 @@ const ButtonTransparent = styled(Button)(
 );
 
 function Weather() {
-  const { t } = useTranslation();
-  const theme = useTheme();
+	const { t } = useTranslation();
+	const theme = useTheme();
 
-  const user = {
-    name: 'Rachael Simons'
-  };
+	const user = {
+		name: 'Rachael Simons'
+	};
 
-  const data = {
-    percentage: 67
-  };
+	const data = {
+		percentage: 67
+	};
 
-  return (
-    <WeatherBox>
-      <TopBarImage
-        sx={{
-          backgroundImage:
-            'url("/static/images/placeholders/covers/automation-bg.jpg")'
-        }}
-      />
-      <WeatherBoxContent>
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={12} md={6} lg={7}>
-            <Typography
-              variant="h2"
-              sx={{
-                my: 2
-              }}
-              gutterBottom
-            >
-              {t('Hello')}, {user.name}!
-            </Typography>
-            <Typography
-              sx={{
-                lineHeight: 1.5,
-                fontWeight: 'normal',
-                mb: 4
-              }}
-              variant="h4"
-            >
-              {t(
-                'Partly cloudy conditions from 3PM to 6PM, with mostly cloudy conditions expected at 6PM'
-              )}
-              .
-            </Typography>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <BoxWeather
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    alignItems: 'center',
-                    mb: 2
-                  }}
-                >
-                  <ThermostatAutoTwoToneIcon />
-                  <Typography
-                    sx={{
-                      pl: 1
-                    }}
-                  >
-                    <b>
-                      27<sup>°</sup>
-                    </b>{' '}
-                    {t('set for')} <b>3 hours</b>
-                  </Typography>
-                </BoxWeather>
-              </Grid>
-              <Grid item md={6}>
-                <BoxWeatherSmall>
-                  <Typography variant="caption">
-                    <WbSunnyTwoToneIcon />
-                    {t('UV Index')}
-                  </Typography>
-                  <Box
-                    display="flex"
-                    justifyContent="center"
-                    flexDirection="column"
-                    sx={{
-                      height: 100
-                    }}
-                  >
-                    <Box mb={2}>
-                      <Typography variant="h2">2</Typography>
-                      <Typography variant="h4">{t('Low')}</Typography>
-                    </Box>
-                    <LinearUv />
-                  </Box>
-                  <Typography variant="body2">
-                    Use sun protection
-                    <br />
-                    from 12PM to 3PM.
-                  </Typography>
-                </BoxWeatherSmall>
-              </Grid>
-              <Grid item md={6}>
-                <BoxWeatherSmall>
-                  <Typography variant="caption">
-                    <WaterTwoToneIcon />
-                    {t('Humidity')}
-                  </Typography>
-                  <Box
-                    display="flex"
-                    justifyContent="center"
-                    flexDirection="column"
-                    sx={{
-                      height: 100
-                    }}
-                  >
-                    <Box mb={2}>
-                      <Typography variant="h1">92%</Typography>
-                    </Box>
-                  </Box>
-                  <Typography variant="body2">
-                    The dew point is
-                    <br />
-                    16 <sup>°</sup>
-                    right now.
-                  </Typography>
-                </BoxWeatherSmall>
-              </Grid>
-              <Grid item md={6}>
-                <BoxWeatherSmall>
-                  <Typography variant="caption">
-                    <OpacityTwoToneIcon />
-                    {t('Rainfall')}
-                  </Typography>
-                  <Box
-                    display="flex"
-                    justifyContent="center"
-                    flexDirection="column"
-                    sx={{
-                      height: 100
-                    }}
-                  >
-                    <Box mb={2}>
-                      <Typography variant="h2">1.15"</Typography>
-                      <Typography variant="h4">{t('in last 6h')}</Typography>
-                    </Box>
-                  </Box>
-                  <Typography variant="body2">
-                    .75" expected in <br />
-                    next 24h.
-                  </Typography>
-                </BoxWeatherSmall>
-              </Grid>
-              <Grid item md={6}>
-                <BoxWeatherSmall>
-                  <Typography variant="caption">
-                    <SpeedTwoToneIcon />
-                    {t('Pressure')}
-                  </Typography>
-                  <Box
-                    display="flex"
-                    justifyContent="center"
-                    flexDirection="column"
-                    sx={{
-                      pt: 4,
-                      height: 138
-                    }}
-                  >
-                    <Gauge
-                      circleRatio={0.65}
-                      styles={buildStyles({ rotation: 1 / 2 + 1 / 5.7 })}
-                      value={data.percentage}
-                      strokeWidth={10}
-                      text={``}
-                      color="trueWhite"
-                      size="medium"
-                    >
-                      <ArrowDownwardTwoToneIcon />
-                      <Typography variant="h3">29.98</Typography>
-                      <Typography variant="body2">inHg</Typography>
-                    </Gauge>
-                  </Box>
-                </BoxWeatherSmall>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={6}
-            lg={5}
-            display="flex"
-            justifyContent="center"
-          >
-            <BoxWeather>
-              <Grid container spacing={1}>
-                <Grid item md={6}>
-                  <WeatherIcon>
-                    <img
-                      src="/static/images/placeholders/illustrations/partly-cloudy-day-rain.svg"
-                      alt="Partly cloudy"
-                    />
-                  </WeatherIcon>
-                </Grid>
-                <Grid item md={6}>
-                  <Typography
-                    noWrap
-                    sx={{
-                      fontWeight: 'bold',
-                      fontSize: `${theme.typography.pxToRem(45)}`
-                    }}
-                    variant="h1"
-                  >
-                    17<sup>°</sup>
-                  </Typography>
-                  <Typography
-                    noWrap
-                    sx={{
-                      pt: 2,
-                      pb: 1
-                    }}
-                    variant="h4"
-                  >
-                    {t('Rain Shower')}
-                  </Typography>
-                  <Typography fontWeight="normal" noWrap variant="h5">
-                    Today, {format(new Date(), 'MMM dd yyyy')}
-                  </Typography>
-                  <Box display="flex" pt={2} alignItems="center">
-                    <MyLocationTwoToneIcon />
-                    <Typography
-                      sx={{
-                        pl: 1
-                      }}
-                      noWrap
-                    >
-                      Berlin, Germany
-                    </Typography>
-                  </Box>
-                </Grid>
-              </Grid>
-              <DividerWrapper
-                sx={{
-                  mt: 3,
-                  mb: 2
-                }}
-              />
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Box
-                  sx={{
-                    width: 65
-                  }}
-                >
-                  <Typography variant="h5">{t('Today')}</Typography>
-                </Box>
-                <Box display="flex" alignItems="center" px={2}>
-                  <CloudTwoToneIcon />
-                </Box>
-                <Box>
-                  <Typography
-                    sx={{
-                      color: `${theme.colors.alpha.trueWhite[50]}`
-                    }}
-                    variant="h5"
-                  >
-                    10<sup>°</sup>
-                  </Typography>
-                </Box>
-                <Box
-                  mx={1}
-                  sx={{
-                    width: '35%'
-                  }}
-                >
-                  <LinearHighLow />
-                </Box>
-                <Box>
-                  <Typography variant="h5">
-                    14<sup>°</sup>
-                  </Typography>
-                </Box>
-              </Stack>
-              <DividerWrapper
-                sx={{
-                  my: 2
-                }}
-              />
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Box
-                  sx={{
-                    width: 65
-                  }}
-                >
-                  <Typography fontWeight="normal" variant="h5">
-                    {format(addDays(new Date(), 1), 'MMM dd')}
-                  </Typography>
-                </Box>
-                <Box display="flex" alignItems="center" px={2}>
-                  <WbSunnyTwoToneIcon />
-                </Box>
-                <Box>
-                  <Typography
-                    sx={{
-                      color: `${theme.colors.alpha.trueWhite[50]}`
-                    }}
-                    variant="h5"
-                  >
-                    10<sup>°</sup>
-                  </Typography>
-                </Box>
-                <Box
-                  mx={1}
-                  sx={{
-                    width: '35%'
-                  }}
-                >
-                  <LinearHighLow />
-                </Box>
-                <Box>
-                  <Typography variant="h5">
-                    21<sup>°</sup>
-                  </Typography>
-                </Box>
-              </Stack>
-              <DividerWrapper
-                sx={{
-                  my: 2
-                }}
-              />
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Box
-                  sx={{
-                    width: 65
-                  }}
-                >
-                  <Typography fontWeight="normal" variant="h5">
-                    {format(addDays(new Date(), 2), 'MMM dd')}
-                  </Typography>
-                </Box>
-                <Box display="flex" alignItems="center" px={2}>
-                  <GrainTwoToneIcon />
-                </Box>
-                <Box>
-                  <Typography
-                    sx={{
-                      color: `${theme.colors.alpha.trueWhite[50]}`
-                    }}
-                    variant="h5"
-                  >
-                    13<sup>°</sup>
-                  </Typography>
-                </Box>
-                <Box
-                  mx={1}
-                  sx={{
-                    width: '35%'
-                  }}
-                >
-                  <LinearHighLow />
-                </Box>
-                <Box>
-                  <Typography variant="h5">
-                    18<sup>°</sup>
-                  </Typography>
-                </Box>
-              </Stack>
-              <DividerWrapper
-                sx={{
-                  my: 2
-                }}
-              />
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Box
-                  sx={{
-                    width: 65
-                  }}
-                >
-                  <Typography fontWeight="normal" variant="h5">
-                    {format(addDays(new Date(), 3), 'MMM dd')}
-                  </Typography>
-                </Box>
-                <Box display="flex" alignItems="center" px={2}>
-                  <AirTwoToneIcon />
-                </Box>
-                <Box>
-                  <Typography
-                    sx={{
-                      color: `${theme.colors.alpha.trueWhite[50]}`
-                    }}
-                    variant="h5"
-                  >
-                    12<sup>°</sup>
-                  </Typography>
-                </Box>
-                <Box
-                  mx={1}
-                  sx={{
-                    width: '35%'
-                  }}
-                >
-                  <LinearHighLow />
-                </Box>
-                <Box>
-                  <Typography variant="h5">
-                    17<sup>°</sup>
-                  </Typography>
-                </Box>
-              </Stack>
-              <DividerWrapper
-                sx={{
-                  my: 2
-                }}
-              />
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Box
-                  sx={{
-                    width: 65
-                  }}
-                >
-                  <Typography fontWeight="normal" variant="h5">
-                    {format(addDays(new Date(), 4), 'MMM dd')}
-                  </Typography>
-                </Box>
-                <Box display="flex" alignItems="center" px={2}>
-                  <WbSunnyTwoToneIcon />
-                </Box>
-                <Box>
-                  <Typography
-                    sx={{
-                      color: `${theme.colors.alpha.trueWhite[50]}`
-                    }}
-                    variant="h5"
-                  >
-                    12<sup>°</sup>
-                  </Typography>
-                </Box>
-                <Box
-                  mx={1}
-                  sx={{
-                    width: '35%'
-                  }}
-                >
-                  <LinearHighLow />
-                </Box>
-                <Box>
-                  <Typography variant="h5">
-                    16<sup>°</sup>
-                  </Typography>
-                </Box>
-              </Stack>
-              <DividerWrapper
-                sx={{
-                  my: 2
-                }}
-              />
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                <Box
-                  sx={{
-                    width: 65
-                  }}
-                >
-                  <Typography fontWeight="normal" variant="h5">
-                    {format(addDays(new Date(), 5), 'MMM dd')}
-                  </Typography>
-                </Box>
-                <Box display="flex" alignItems="center" px={2}>
-                  <CloudTwoToneIcon />
-                </Box>
-                <Box>
-                  <Typography
-                    sx={{
-                      color: `${theme.colors.alpha.trueWhite[50]}`
-                    }}
-                    variant="h5"
-                  >
-                    14<sup>°</sup>
-                  </Typography>
-                </Box>
-                <Box
-                  mx={1}
-                  sx={{
-                    width: '35%'
-                  }}
-                >
-                  <LinearHighLow />
-                </Box>
-                <Box>
-                  <Typography variant="h5">
-                    23<sup>°</sup>
-                  </Typography>
-                </Box>
-              </Stack>
-              <DividerWrapper
-                sx={{
-                  mt: 2,
-                  mb: 3
-                }}
-              />
-              <ButtonTransparent fullWidth>
-                {t('View 10-day forecast')}
-              </ButtonTransparent>
-            </BoxWeather>
-          </Grid>
-        </Grid>
-      </WeatherBoxContent>
-    </WeatherBox>
-  );
+	return (
+		<WeatherBox>
+			<TopBarImage
+				sx={{
+					backgroundImage:
+						'url("/images/placeholders/covers/automation-bg.jpg")'
+				}}
+			/>
+			<WeatherBoxContent>
+				<Grid container spacing={4}>
+					<Grid item xs={12} sm={12} md={6} lg={7}>
+						<Typography
+							variant="h2"
+							sx={{
+								my: 2
+							}}
+							gutterBottom
+						>
+							{t('Hello')}, {user.name}!
+						</Typography>
+						<Typography
+							sx={{
+								lineHeight: 1.5,
+								fontWeight: 'normal',
+								mb: 4
+							}}
+							variant="h4"
+						>
+							{t(
+								'Partly cloudy conditions from 3PM to 6PM, with mostly cloudy conditions expected at 6PM'
+							)}
+							.
+						</Typography>
+						<Grid container spacing={3}>
+							<Grid item xs={12}>
+								<BoxWeather
+									sx={{
+										p: 2,
+										display: 'flex',
+										alignItems: 'center',
+										mb: 2
+									}}
+								>
+									<ThermostatAutoTwoToneIcon />
+									<Typography
+										sx={{
+											pl: 1
+										}}
+									>
+										<b>
+											27<sup>°</sup>
+										</b>{' '}
+										{t('set for')} <b>3 hours</b>
+									</Typography>
+								</BoxWeather>
+							</Grid>
+							<Grid item md={6}>
+								<BoxWeatherSmall>
+									<Typography variant="caption">
+										<WbSunnyTwoToneIcon />
+										{t('UV Index')}
+									</Typography>
+									<Box
+										display="flex"
+										justifyContent="center"
+										flexDirection="column"
+										sx={{
+											height: 100
+										}}
+									>
+										<Box mb={2}>
+											<Typography variant="h2">
+												2
+											</Typography>
+											<Typography variant="h4">
+												{t('Low')}
+											</Typography>
+										</Box>
+										<LinearUv />
+									</Box>
+									<Typography variant="body2">
+										Use sun protection
+										<br />
+										from 12PM to 3PM.
+									</Typography>
+								</BoxWeatherSmall>
+							</Grid>
+							<Grid item md={6}>
+								<BoxWeatherSmall>
+									<Typography variant="caption">
+										<WaterTwoToneIcon />
+										{t('Humidity')}
+									</Typography>
+									<Box
+										display="flex"
+										justifyContent="center"
+										flexDirection="column"
+										sx={{
+											height: 100
+										}}
+									>
+										<Box mb={2}>
+											<Typography variant="h1">
+												92%
+											</Typography>
+										</Box>
+									</Box>
+									<Typography variant="body2">
+										The dew point is
+										<br />
+										16 <sup>°</sup>
+										right now.
+									</Typography>
+								</BoxWeatherSmall>
+							</Grid>
+							<Grid item md={6}>
+								<BoxWeatherSmall>
+									<Typography variant="caption">
+										<OpacityTwoToneIcon />
+										{t('Rainfall')}
+									</Typography>
+									<Box
+										display="flex"
+										justifyContent="center"
+										flexDirection="column"
+										sx={{
+											height: 100
+										}}
+									>
+										<Box mb={2}>
+											<Typography variant="h2">
+												1.15"
+											</Typography>
+											<Typography variant="h4">
+												{t('in last 6h')}
+											</Typography>
+										</Box>
+									</Box>
+									<Typography variant="body2">
+										.75" expected in <br />
+										next 24h.
+									</Typography>
+								</BoxWeatherSmall>
+							</Grid>
+							<Grid item md={6}>
+								<BoxWeatherSmall>
+									<Typography variant="caption">
+										<SpeedTwoToneIcon />
+										{t('Pressure')}
+									</Typography>
+									<Box
+										display="flex"
+										justifyContent="center"
+										flexDirection="column"
+										sx={{
+											pt: 4,
+											height: 138
+										}}
+									>
+										<Gauge
+											circleRatio={0.65}
+											styles={buildStyles({
+												rotation:
+													1 / 2 + 1 / 5.7
+											})}
+											value={data.percentage}
+											strokeWidth={10}
+											text={``}
+											color="trueWhite"
+											size="medium"
+										>
+											<ArrowDownwardTwoToneIcon />
+											<Typography variant="h3">
+												29.98
+											</Typography>
+											<Typography variant="body2">
+												inHg
+											</Typography>
+										</Gauge>
+									</Box>
+								</BoxWeatherSmall>
+							</Grid>
+						</Grid>
+					</Grid>
+					<Grid
+						item
+						xs={12}
+						sm={12}
+						md={6}
+						lg={5}
+						display="flex"
+						justifyContent="center"
+					>
+						<BoxWeather>
+							<Grid container spacing={1}>
+								<Grid item md={6}>
+									<WeatherIcon>
+										<img
+											src="/images/placeholders/illustrations/partly-cloudy-day-rain.svg"
+											alt="Partly cloudy"
+										/>
+									</WeatherIcon>
+								</Grid>
+								<Grid item md={6}>
+									<Typography
+										noWrap
+										sx={{
+											fontWeight: 'bold',
+											fontSize: `${theme.typography.pxToRem(
+												45
+											)}`
+										}}
+										variant="h1"
+									>
+										17<sup>°</sup>
+									</Typography>
+									<Typography
+										noWrap
+										sx={{
+											pt: 2,
+											pb: 1
+										}}
+										variant="h4"
+									>
+										{t('Rain Shower')}
+									</Typography>
+									<Typography
+										fontWeight="normal"
+										noWrap
+										variant="h5"
+									>
+										Today,{' '}
+										{format(
+											new Date(),
+											'MMM dd yyyy'
+										)}
+									</Typography>
+									<Box
+										display="flex"
+										pt={2}
+										alignItems="center"
+									>
+										<MyLocationTwoToneIcon />
+										<Typography
+											sx={{
+												pl: 1
+											}}
+											noWrap
+										>
+											Berlin, Germany
+										</Typography>
+									</Box>
+								</Grid>
+							</Grid>
+							<DividerWrapper
+								sx={{
+									mt: 3,
+									mb: 2
+								}}
+							/>
+							<Stack
+								direction="row"
+								justifyContent="space-between"
+								alignItems="center"
+							>
+								<Box
+									sx={{
+										width: 65
+									}}
+								>
+									<Typography variant="h5">
+										{t('Today')}
+									</Typography>
+								</Box>
+								<Box
+									display="flex"
+									alignItems="center"
+									px={2}
+								>
+									<CloudTwoToneIcon />
+								</Box>
+								<Box>
+									<Typography
+										sx={{
+											color: `${theme.colors.alpha.trueWhite[50]}`
+										}}
+										variant="h5"
+									>
+										10<sup>°</sup>
+									</Typography>
+								</Box>
+								<Box
+									mx={1}
+									sx={{
+										width: '35%'
+									}}
+								>
+									<LinearHighLow />
+								</Box>
+								<Box>
+									<Typography variant="h5">
+										14<sup>°</sup>
+									</Typography>
+								</Box>
+							</Stack>
+							<DividerWrapper
+								sx={{
+									my: 2
+								}}
+							/>
+							<Stack
+								direction="row"
+								justifyContent="space-between"
+								alignItems="center"
+							>
+								<Box
+									sx={{
+										width: 65
+									}}
+								>
+									<Typography
+										fontWeight="normal"
+										variant="h5"
+									>
+										{format(
+											addDays(new Date(), 1),
+											'MMM dd'
+										)}
+									</Typography>
+								</Box>
+								<Box
+									display="flex"
+									alignItems="center"
+									px={2}
+								>
+									<WbSunnyTwoToneIcon />
+								</Box>
+								<Box>
+									<Typography
+										sx={{
+											color: `${theme.colors.alpha.trueWhite[50]}`
+										}}
+										variant="h5"
+									>
+										10<sup>°</sup>
+									</Typography>
+								</Box>
+								<Box
+									mx={1}
+									sx={{
+										width: '35%'
+									}}
+								>
+									<LinearHighLow />
+								</Box>
+								<Box>
+									<Typography variant="h5">
+										21<sup>°</sup>
+									</Typography>
+								</Box>
+							</Stack>
+							<DividerWrapper
+								sx={{
+									my: 2
+								}}
+							/>
+							<Stack
+								direction="row"
+								justifyContent="space-between"
+								alignItems="center"
+							>
+								<Box
+									sx={{
+										width: 65
+									}}
+								>
+									<Typography
+										fontWeight="normal"
+										variant="h5"
+									>
+										{format(
+											addDays(new Date(), 2),
+											'MMM dd'
+										)}
+									</Typography>
+								</Box>
+								<Box
+									display="flex"
+									alignItems="center"
+									px={2}
+								>
+									<GrainTwoToneIcon />
+								</Box>
+								<Box>
+									<Typography
+										sx={{
+											color: `${theme.colors.alpha.trueWhite[50]}`
+										}}
+										variant="h5"
+									>
+										13<sup>°</sup>
+									</Typography>
+								</Box>
+								<Box
+									mx={1}
+									sx={{
+										width: '35%'
+									}}
+								>
+									<LinearHighLow />
+								</Box>
+								<Box>
+									<Typography variant="h5">
+										18<sup>°</sup>
+									</Typography>
+								</Box>
+							</Stack>
+							<DividerWrapper
+								sx={{
+									my: 2
+								}}
+							/>
+							<Stack
+								direction="row"
+								justifyContent="space-between"
+								alignItems="center"
+							>
+								<Box
+									sx={{
+										width: 65
+									}}
+								>
+									<Typography
+										fontWeight="normal"
+										variant="h5"
+									>
+										{format(
+											addDays(new Date(), 3),
+											'MMM dd'
+										)}
+									</Typography>
+								</Box>
+								<Box
+									display="flex"
+									alignItems="center"
+									px={2}
+								>
+									<AirTwoToneIcon />
+								</Box>
+								<Box>
+									<Typography
+										sx={{
+											color: `${theme.colors.alpha.trueWhite[50]}`
+										}}
+										variant="h5"
+									>
+										12<sup>°</sup>
+									</Typography>
+								</Box>
+								<Box
+									mx={1}
+									sx={{
+										width: '35%'
+									}}
+								>
+									<LinearHighLow />
+								</Box>
+								<Box>
+									<Typography variant="h5">
+										17<sup>°</sup>
+									</Typography>
+								</Box>
+							</Stack>
+							<DividerWrapper
+								sx={{
+									my: 2
+								}}
+							/>
+							<Stack
+								direction="row"
+								justifyContent="space-between"
+								alignItems="center"
+							>
+								<Box
+									sx={{
+										width: 65
+									}}
+								>
+									<Typography
+										fontWeight="normal"
+										variant="h5"
+									>
+										{format(
+											addDays(new Date(), 4),
+											'MMM dd'
+										)}
+									</Typography>
+								</Box>
+								<Box
+									display="flex"
+									alignItems="center"
+									px={2}
+								>
+									<WbSunnyTwoToneIcon />
+								</Box>
+								<Box>
+									<Typography
+										sx={{
+											color: `${theme.colors.alpha.trueWhite[50]}`
+										}}
+										variant="h5"
+									>
+										12<sup>°</sup>
+									</Typography>
+								</Box>
+								<Box
+									mx={1}
+									sx={{
+										width: '35%'
+									}}
+								>
+									<LinearHighLow />
+								</Box>
+								<Box>
+									<Typography variant="h5">
+										16<sup>°</sup>
+									</Typography>
+								</Box>
+							</Stack>
+							<DividerWrapper
+								sx={{
+									my: 2
+								}}
+							/>
+							<Stack
+								direction="row"
+								justifyContent="space-between"
+								alignItems="center"
+							>
+								<Box
+									sx={{
+										width: 65
+									}}
+								>
+									<Typography
+										fontWeight="normal"
+										variant="h5"
+									>
+										{format(
+											addDays(new Date(), 5),
+											'MMM dd'
+										)}
+									</Typography>
+								</Box>
+								<Box
+									display="flex"
+									alignItems="center"
+									px={2}
+								>
+									<CloudTwoToneIcon />
+								</Box>
+								<Box>
+									<Typography
+										sx={{
+											color: `${theme.colors.alpha.trueWhite[50]}`
+										}}
+										variant="h5"
+									>
+										14<sup>°</sup>
+									</Typography>
+								</Box>
+								<Box
+									mx={1}
+									sx={{
+										width: '35%'
+									}}
+								>
+									<LinearHighLow />
+								</Box>
+								<Box>
+									<Typography variant="h5">
+										23<sup>°</sup>
+									</Typography>
+								</Box>
+							</Stack>
+							<DividerWrapper
+								sx={{
+									mt: 2,
+									mb: 3
+								}}
+							/>
+							<ButtonTransparent fullWidth>
+								{t('View 10-day forecast')}
+							</ButtonTransparent>
+						</BoxWeather>
+					</Grid>
+				</Grid>
+			</WeatherBoxContent>
+		</WeatherBox>
+	);
 }
 
 export default Weather;

@@ -2,20 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import { useAuth } from 'src/hooks/useAuth';
 
 import {
-  Avatar,
-  Box,
-  Button,
-  Divider,
-  alpha,
-  List,
-  ListItem,
-  ListItemText,
-  Popover,
-  IconButton,
-  Typography,
-  Tooltip,
-  styled,
-  useTheme
+	Avatar,
+	Box,
+	Button,
+	Divider,
+	alpha,
+	List,
+	ListItem,
+	ListItemText,
+	Popover,
+	IconButton,
+	Typography,
+	Tooltip,
+	styled,
+	useTheme
 } from '@mui/material';
 
 import { useRouter } from 'next/router';
@@ -29,33 +29,35 @@ import { useWeb3React } from '@web3-react/core';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 function SidebarTopSection() {
-  const { active, account } = useWeb3React();
+	const { active, account } = useWeb3React();
 
-  const user = {
-    avatar: '/static/images/logo/KapitalLogo.png',
-    name: 'Rachael Simons',
-    jobtitle: 'Lead Developer'
-  };
+	const user = {
+		avatar: '/images/logo/KapitalLogo.png',
+		name: 'Rachael Simons',
+		jobtitle: 'Lead Developer'
+	};
 
-  const [address, setAddress] = useState('0x0');
-  const [hoverLabel, setHoverLabel] = useState('Address');
+	const [address, setAddress] = useState('0x0');
+	const [hoverLabel, setHoverLabel] = useState('Address');
 
-  useEffect(() => {
-    if (active) {
-      setAddress(account.slice(0, 5) + '...' + account.slice(-4, -1));
-    }
-  }, [active, account]);
+	useEffect(() => {
+		if (active) {
+			setAddress(
+				account.slice(0, 5) + '...' + account.slice(-4, -1)
+			);
+		}
+	}, [active, account]);
 
-  return (
-    <Box
-      sx={{
-        textAlign: 'center',
-        mx: 1,
-        position: 'relative'
-      }}
-    >
-      {/* <img src={user.avatar} height={65} width={215} /> */}
-      {/* <CopyToClipboard
+	return (
+		<Box
+			sx={{
+				textAlign: 'center',
+				mx: 1,
+				position: 'relative'
+			}}
+		>
+			{/* <img src={user.avatar} height={65} width={215} /> */}
+			{/* <CopyToClipboard
 				text={account}
 				onCopy={() => {
 					setHoverLabel('Copied!');
@@ -83,7 +85,7 @@ function SidebarTopSection() {
 				</Typography>
 			</CopyToClipboard> */}
 
-      {/* <Typography
+			{/* <Typography
 				variant="subtitle1"
 				sx={{
 					color: `${theme.colors.alpha.trueWhite[70]}`
@@ -91,8 +93,8 @@ function SidebarTopSection() {
 			>
 				{balance}
 			</Typography> */}
-    </Box>
-  );
+		</Box>
+	);
 }
 
 export default SidebarTopSection;
