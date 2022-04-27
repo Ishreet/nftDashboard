@@ -1,25 +1,25 @@
-// import Head from 'next/head';
+import Head from 'next/head';
 
-// import AccentHeaderLayout from 'src/layouts/AccentHeaderLayout';
-// import { Authenticated } from 'src/components/Authenticated';
+import AccentHeaderLayout from 'src/layouts/AccentHeaderLayout';
+import { Authenticated } from 'src/components/Authenticated';
 
-// import DashboardStatisticsContent from 'src/content/DashboardPages/statistics';
+import DashboardStatisticsContent from 'src/content/DashboardPages/statistics';
 
-// function DashboardStatistics() {
-//   return (
-//     <>
-//       <Head>
-//         <title>Statistics Dashboard</title>
-//       </Head>
-//       <DashboardStatisticsContent />
-//     </>
-//   );
-// }
+function DashboardStatistics() {
+	return (
+		<>
+			<Head>
+				<title>Statistics Dashboard</title>
+			</Head>
+			<DashboardStatisticsContent />
+		</>
+	);
+}
 
-// DashboardStatistics.getLayout = (page) => (
-//   <Authenticated>
-//     <AccentHeaderLayout>{page}</AccentHeaderLayout>
-//   </Authenticated>
-// );
+DashboardStatistics.getLayout = (page) => (
+	<Authenticated>
+		<AccentHeaderLayout>{page}</AccentHeaderLayout>
+	</Authenticated>
+);
 
-// export default DashboardStatistics;
+export default DashboardStatistics;
